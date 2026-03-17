@@ -1,0 +1,22 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "docs:dev": "vitepress dev",
+    "docs:build": "vitepress build",
+    "docs:preview": "vitepress preview",
+    "pages:deploy": "wrangler pages deploy .vitepress/dist --project-name=egguo-blog"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "packageManager": "pnpm@10.32.1",
+  "devDependencies": {
+    "vitepress": "^1.6.4",
+    "vue": "^3.5.30",
+    "wrangler": "^4.74.0"
+  }
+}

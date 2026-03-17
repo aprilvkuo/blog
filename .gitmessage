@@ -1,0 +1,68 @@
+# Git Commit 规范
+
+本项目遵循 [Conventional Commits](https://www.conventionalcommits.org/) 规范。
+
+## 提交格式
+
+```
+<type>(<scope>): <subject>
+
+<body>
+
+<footer>
+```
+
+## Type 类型
+
+| 类型 | 说明 |
+|------|------|
+| `feat` | 新功能 |
+| `fix` | Bug 修复 |
+| `docs` | 文档更新 |
+| `style` | 代码格式（不影响代码运行） |
+| `refactor` | 重构（既不是新功能也不是修复） |
+| `perf` | 性能优化 |
+| `test` | 测试相关 |
+| `chore` | 构建过程或辅助工具变动 |
+| `ci` | CI 配置 |
+| `revert` | 回退 |
+
+## Scope 范围
+
+| 范围 | 说明 |
+|------|------|
+| `ai` | AI 相关笔记 |
+| `coding` | 编程相关笔记 |
+| `finance` | 金融相关笔记 |
+| `about` | 关于页面 |
+| `config` | 配置文件 |
+| `deps` | 依赖管理 |
+
+## 示例
+
+```bash
+# 新增功能
+git commit -m "feat(ai): 添加深度学习基础笔记"
+
+# 修复错误
+git commit -m "fix(coding): 修正 TypeScript 示例代码错误"
+
+# 文档更新
+git commit -m "docs: 更新 README 说明"
+
+# 重构
+git commit -m "refactor(config): 优化 VitePress 配置结构"
+
+# 依赖更新
+git commit -m "chore(deps): 更新 vitepress 到最新版本"
+```
+
+## 推荐工具
+
+```bash
+# 安装 commitizen
+pnpm add -D commitizen @commitlint/config-conventional
+
+# 初始化
+npx commitizen init
+```
