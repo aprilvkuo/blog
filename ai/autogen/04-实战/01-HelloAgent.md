@@ -221,6 +221,6 @@ Agent 总共处理了 2 条消息
 
 ## 🔗 相关链接
 
-- [00-Core 核心概念总览](00-Core 核心概念总览.md)
-- [01-Agent 和 Runtime](01-Agent 和 Runtime.md)
-- [02-发布订阅](02-发布订阅.md) - 下一个示例
+- [00-Core 核心概念总览](00-Core 核心概念总览)
+- [01-Agent 和 Runtime](01-Agent 和 Runtime)
+- [02-发布订阅](02-发布订阅) - 下一个示例

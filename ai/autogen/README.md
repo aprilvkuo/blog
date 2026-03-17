@@ -14,12 +14,12 @@
 
 ### 学习路径
 
-从 [00-Index](00-Index.md) 笔记开始，按照以下顺序学习：
+从 [00-Index](00-Index) 笔记开始，按照以下顺序学习：
 
-1. [ Core 核心概念](01-Core 核心概念/00-Core 核心概念总览 .md)
-2. [ 实战示例](04-实战示例/00-实战示例总览 .md)
-3. [ AgentChat 高层 API](02-AgentChat 高层 API/00-AgentChat 总览 .md)
-4. [ Ext 扩展机制](03-Ext 扩展机制/00-Ext 扩展机制总览 .md)
+1. [ Core 核心概念](01-Core 核心概念/00-Core 核心概念总览)
+2. [ 实战示例](04-实战示例/00-实战示例总览)
+3. [ AgentChat 高层 API](02-AgentChat 高层 API/00-AgentChat 总览)
+4. [ Ext 扩展机制](03-Ext 扩展机制/00-Ext 扩展机制总览)
 
 ---
 
@@ -114,18 +114,18 @@ python autogen-learning/04-实战示例/code/04_multi_agent_collab.py
 ## 💡 学习建议
 
 ### 第一天：基础入门（2-3 小时）
-1. 阅读 [01-Core 核心概念/00-Core 核心概念总览](01-Core 核心概念/00-Core 核心概念总览.md)
-2. 运行 [04-实战示例/01-HelloAgent](04-实战示例/01-HelloAgent.md) 代码
+1. 阅读 [01-Core 核心概念/00-Core 核心概念总览](01-Core 核心概念/00-Core 核心概念总览)
+2. 运行 [04-实战示例/01-HelloAgent](04-实战示例/01-HelloAgent) 代码
 3. 理解 Agent、Runtime、Message 的关系
 
 ### 第二天：深入理解（3-4 小时）
-1. 学习 [01-Core 核心概念/02-消息传递机制](01-Core 核心概念/02-消息传递机制.md) 和 [01-Core 核心概念/03-订阅和主题](01-Core 核心概念/03-订阅和主题.md)
-2. 运行 [04-实战示例/02-发布订阅](04-实战示例/02-发布订阅.md) 代码
+1. 学习 [01-Core 核心概念/02-消息传递机制](01-Core 核心概念/02-消息传递机制) 和 [01-Core 核心概念/03-订阅和主题](01-Core 核心概念/03-订阅和主题)
+2. 运行 [04-实战示例/02-发布订阅](04-实战示例/02-发布订阅) 代码
 3. 理解 RPC vs 广播的区别
 
 ### 第三天：实战应用（3-4 小时）
-1. 学习 [02-AgentChat 高层 API/00-AgentChat 总览](02-AgentChat 高层 API/00-AgentChat 总览.md)
-2. 运行 [04-实战示例/04-多 Agent 协作](04-实战示例/04-多 Agent 协作.md) 代码
+1. 学习 [02-AgentChat 高层 API/00-AgentChat 总览](02-AgentChat 高层 API/00-AgentChat 总览)
+2. 运行 [04-实战示例/04-多 Agent 协作](04-实战示例/04-多 Agent 协作) 代码
 3. 尝试修改代码实现自己的逻辑
 
 ---

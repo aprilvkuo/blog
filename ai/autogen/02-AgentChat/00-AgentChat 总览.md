@@ -16,17 +16,17 @@
 
 | Agent | 用途 |
 |-------|------|
-| [01-AssistantAgent](01-AssistantAgent.md) | 通用助手，支持工具调用 |
-| [UserProxyAgent](01-AssistantAgent.md) | 用户代理，需要人工输入 |
+| [01-AssistantAgent](01-AssistantAgent) | 通用助手，支持工具调用 |
+| [UserProxyAgent](01-AssistantAgent) | 用户代理，需要人工输入 |
 | `CodeExecutorAgent` | 代码执行代理 |
 
 ### 2. Teams (团队)
 
 | 模式 | 类 | 说明 |
 |------|-----|------|
-| [ RoundRobinGroupChat](02-群聊模式 .md) | 轮询发言 |
-| [ SelectorGroupChat](02-群聊模式 .md) | 动态选择下一个发言人 |
-| [ SwarmGroupChat](02-群聊模式 .md) | 基于 handoff 的群体协作 |
+| [ RoundRobinGroupChat](02-群聊模式) | 轮询发言 |
+| [ SelectorGroupChat](02-群聊模式) | 动态选择下一个发言人 |
+| [ SwarmGroupChat](02-群聊模式) | 基于 handoff 的群体协作 |
 
 ### 3. Conditions (终止条件)
 
@@ -103,13 +103,13 @@ Ext (扩展实现)
 
 ## 📝 下一步
 
-- [01-AssistantAgent](01-AssistantAgent.md) - 深入学习 AssistantAgent
-- [02-群聊模式](02-群聊模式.md) - 学习多 Agent 协作
-- [03-终止条件](03-终止条件.md) - 学习如何控制流程
+- [01-AssistantAgent](01-AssistantAgent) - 深入学习 AssistantAgent
+- [02-群聊模式](02-群聊模式) - 学习多 Agent 协作
+- [03-终止条件](03-终止条件) - 学习如何控制流程
 
 ---
 
 ## 🔗 相关链接
 
-- [../01-Core 核心概念/00-Core 核心概念总览](../01-Core 核心概念/00-Core 核心概念总览.md)
-- [../03-Ext 扩展机制/01-模型客户端](../03-Ext 扩展机制/01-模型客户端.md)
+- [../01-Core 核心概念/00-Core 核心概念总览](../01-Core 核心概念/00-Core 核心概念总览)
+- [../03-Ext 扩展机制/01-模型客户端](../03-Ext 扩展机制/01-模型客户端)

@@ -21,9 +21,9 @@ class MyAgent(RoutedAgent):
 ```
 
 **关键文件**：
-- [_agent.py](01-Agent 和 Runtime.md) - Agent 协议定义
-- [_base_agent.py](01-Agent 和 Runtime.md) - 基类实现
-- [_routed_agent.py](01-Agent 和 Runtime.md) - 路由 Agent
+- [_agent.py](01-Agent 和 Runtime) - Agent 协议定义
+- [_base_agent.py](01-Agent 和 Runtime) - 基类实现
+- [_routed_agent.py](01-Agent 和 Runtime) - 路由 Agent
 
 ---
 
@@ -43,7 +43,7 @@ await runtime.publish_message(message, topic_id=topic_id)
 await MyAgent.register(runtime, "name", factory)
 ```
 
-**关键文件**：[_agent_runtime.py](01-Agent 和 Runtime.md)
+**关键文件**：[_agent_runtime.py](01-Agent 和 Runtime)
 
 ---
 
@@ -64,7 +64,7 @@ await runtime.add_subscription(
 await runtime.publish_message(message, topic_id=topic_id)
 ```
 
-**详细**：[03-订阅和主题](03-订阅和主题.md)
+**详细**：[03-订阅和主题](03-订阅和主题)
 
 ---
 
@@ -85,7 +85,7 @@ class PriorityAgent(RoutedAgent):
         pass
 ```
 
-**详细**：[04-路由和匹配](04-路由和匹配.md)
+**详细**：[04-路由和匹配](04-路由和匹配)
 
 ---
 
@@ -132,15 +132,15 @@ await MyAgent.register(runtime, "name", lambda: MyAgent("description"))
 ## 📝 实践代码
 
 查看以下示例代码：
-- [01-HelloAgent](01-HelloAgent.md) - 最简单的 Agent 示例
-- [02-发布订阅](02-发布订阅.md) - 发布/订阅模式
-- [03-消息路由](03-消息路由.md) - 条件路由
-- [04-多 Agent 协作](04-多 Agent 协作.md) - 多 Agent 协作
+- [01-HelloAgent](01-HelloAgent) - 最简单的 Agent 示例
+- [02-发布订阅](02-发布订阅) - 发布/订阅模式
+- [03-消息路由](03-消息路由) - 条件路由
+- [04-多 Agent 协作](04-多 Agent 协作) - 多 Agent 协作
 
 ---
 
 ## 🔗 相关链接
 
-- [02-消息传递机制](02-消息传递机制.md) - 深入了解消息传递
-- [03-订阅和主题](03-订阅和主题.md) - 深入了解订阅机制
-- [01-Agent 和 Runtime](01-Agent 和 Runtime.md) - Agent 和 Runtime 详解
+- [02-消息传递机制](02-消息传递机制) - 深入了解消息传递
+- [03-订阅和主题](03-订阅和主题) - 深入了解订阅机制
+- [01-Agent 和 Runtime](01-Agent 和 Runtime) - Agent 和 Runtime 详解

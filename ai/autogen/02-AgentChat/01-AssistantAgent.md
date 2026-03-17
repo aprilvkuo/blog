@@ -215,6 +215,6 @@ await agent.load_state(state)
 
 ## 🔗 相关链接
 
-- [00-AgentChat 总览](00-AgentChat 总览.md)
-- [../03-Ext 扩展机制/02-工具和工作台](../03-Ext 扩展机制/02-工具和工作台.md)
-- [../04-实战示例/01-HelloAgent](../04-实战示例/01-HelloAgent.md)
+- [00-AgentChat 总览](00-AgentChat 总览)
+- [../03-Ext 扩展机制/02-工具和工作台](../03-Ext 扩展机制/02-工具和工作台)
+- [../04-实战示例/01-HelloAgent](../04-实战示例/01-HelloAgent)
