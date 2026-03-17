@@ -3,7 +3,7 @@ import { defineConfig } from 'vitepress'
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   // 站点级配置
-  title: 'Egg 的知识库',
+  title: 'Egg Guo 的知识库',
   titleTemplate: ':title | egguo.com',
   description: '一个基于 VitePress 的个人知识库 - AI、编程、金融',
   lastUpdated: true,
@@ -16,15 +16,15 @@ export default defineConfig({
   head: [
     ['link', { rel: 'icon', href: '/favicon.ico', type: 'image/png' }],
     ['meta', { name: 'keywords', content: '笔记，知识库，技术博客，AI，编程，金融，egguo' }],
-    ['meta', { name: 'author', content: 'Egg' }],
+    ['meta', { name: 'author', content: 'Egg Guo' }],
     ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0' }],
-    ['meta', { property: 'og:title', content: 'Egg 的知识库' }],
+    ['meta', { property: 'og:title', content: 'Egg Guo 的知识库' }],
     ['meta', { property: 'og:description', content: '一个基于 VitePress 的个人知识库 - AI、编程、金融' }],
     ['meta', { property: 'og:url', content: 'https://egguo.com' }],
     ['meta', { property: 'og:site_name', content: 'egguo.com' }],
     ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { name: 'twitter:card', content: 'summary' }],
-    ['meta', { name: 'twitter:title', content: 'Egg 的知识库' }],
+    ['meta', { name: 'twitter:title', content: 'Egg Guo 的知识库' }],
     ['meta', { name: 'twitter:description', content: '一个基于 VitePress 的个人知识库 - AI、编程、金融' }],
   ],
 
@@ -52,13 +52,13 @@ export default defineConfig({
 
     // 社交链接
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/yourusername' },
+      { icon: 'github', link: 'https://github.com/aprilvkuo' },
     ],
 
     // 页脚
     footer: {
       message: 'Released under the MIT License.',
-      copyright: 'Copyright © 2026-present Egg @ egguo.com',
+      copyright: 'Copyright © 2026-present Egg Guo @ egguo.com',
     },
 
     // 搜索配置 - 使用 VitePress 内置搜索
@@ -143,11 +143,52 @@ function sidebarAi() {
       ],
     },
     {
-      text: '深度学习',
+      text: 'AutoGen 学习笔记',
       collapsed: true,
       items: [
-        { text: '神经网络', link: 'neural-networks' },
-        { text: 'Transformer', link: 'transformer' },
+        { text: '索引', link: 'autogen/index' },
+        {
+          text: 'Core 核心概念',
+          collapsed: true,
+          items: [
+            { text: '总览', link: 'autogen/01-Core/00-Core 核心概念总览' },
+            { text: 'Agent 和 Runtime', link: 'autogen/01-Core/01-Agent 和 Runtime' },
+            { text: '消息传递机制', link: 'autogen/01-Core/02-消息传递机制' },
+            { text: '订阅和主题', link: 'autogen/01-Core/03-订阅和主题' },
+            { text: '路由和匹配', link: 'autogen/01-Core/04-路由和匹配' },
+          ],
+        },
+        {
+          text: 'AgentChat 高层 API',
+          collapsed: true,
+          items: [
+            { text: '总览', link: 'autogen/02-AgentChat/00-AgentChat 总览' },
+            { text: 'AssistantAgent', link: 'autogen/02-AgentChat/01-AssistantAgent' },
+            { text: '群聊模式', link: 'autogen/02-AgentChat/02-群聊模式' },
+            { text: '终止条件', link: 'autogen/02-AgentChat/03-终止条件' },
+          ],
+        },
+        {
+          text: 'Ext 扩展机制',
+          collapsed: true,
+          items: [
+            { text: '总览', link: 'autogen/03-Ext/00-Ext 扩展机制总览' },
+            { text: '模型客户端', link: 'autogen/03-Ext/01-模型客户端' },
+            { text: '工具和工作台', link: 'autogen/03-Ext/02-工具和工作台' },
+            { text: 'MCP 集成', link: 'autogen/03-Ext/03-MCP 集成' },
+          ],
+        },
+        {
+          text: '实战示例',
+          collapsed: true,
+          items: [
+            { text: '总览', link: 'autogen/04-实战/00-实战示例总览' },
+            { text: 'HelloAgent', link: 'autogen/04-实战/01-HelloAgent' },
+            { text: '发布订阅', link: 'autogen/04-实战/02-发布订阅' },
+            { text: '消息路由', link: 'autogen/04-实战/03-消息路由' },
+            { text: '多 Agent 协作', link: 'autogen/04-实战/04-多 Agent 协作' },
+          ],
+        },
       ],
     },
   ]

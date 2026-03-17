@@ -22,7 +22,7 @@ description: 关于这个知识库的说明
 | 框架 | [VitePress](https://vitepress.dev/) |
 | 语言 | TypeScript |
 | 包管理 | pnpm |
-| 部署 | Vercel |
+| 部署 | Cloudflare Pages |
 
 ## 内容规范
 
@@ -57,8 +57,7 @@ description: 简短描述
 
 如果你发现错误或有改进建议，欢迎通过以下方式联系：
 
-- GitHub: [@yourusername](https://github.com/yourusername)
-- Email: your@email.com
+- GitHub: [@aprilvkuo](https://github.com/aprilvkuo)
 
 ## 许可证
 

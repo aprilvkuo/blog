@@ -38,12 +38,11 @@ import { VPTeamMembers } from 'vitepress/theme'
 
 const members = [
   {
-    avatar: 'https://www.github.com/github.png',
-    name: 'Egg',
+    avatar: 'https://github.com/aprilvkuo.png',
+    name: 'Egg Guo',
     title: 'Creator',
     links: [
-      { icon: 'github', link: 'https://github.com/yourusername' },
-      { icon: 'twitter', link: 'https://twitter.com/yourusername' }
+      { icon: 'github', link: 'https://github.com/aprilvkuo' },
     ]
   }
 ]
