@@ -39,7 +39,6 @@ export default defineConfig({
       { text: 'AI', link: '/ai/' },
       { text: '编程', link: '/coding/' },
       { text: '金融', link: '/finance/' },
-      { text: '股票分析', link: '/stock-analysis/' },
       { text: '关于', link: '/about/' },
     ],
 
@@ -48,7 +47,6 @@ export default defineConfig({
       '/ai/': { base: '/ai/', items: sidebarAi() },
       '/coding/': { base: '/coding/', items: sidebarCoding() },
       '/finance/': { base: '/finance/', items: sidebarFinance() },
-      '/stock-analysis/': { base: '/stock-analysis/', items: sidebarStockAnalysis() },
       '/about/': { base: '/about/', items: sidebarAbout() },
     },
 
@@ -236,6 +234,23 @@ function sidebarFinance() {
         { text: '回测方法', link: 'backtesting' },
       ],
     },
+    {
+      text: '股票分析',
+      collapsed: true,
+      items: [
+        { text: '总览', link: '/stock-analysis/' },
+        { text: '0700.HK 腾讯控股', link: '/stock-analysis/0700.HK/' },
+        { text: 'BABA 阿里巴巴', link: '/stock-analysis/BABA/' },
+        { text: 'PDD 拼多多', link: '/stock-analysis/PDD/' },
+        { text: 'MSFT 微软', link: '/stock-analysis/MSFT/' },
+        { text: 'DIS 迪士尼', link: '/stock-analysis/DIS/' },
+        { text: 'SPY 标普 500ETF', link: '/stock-analysis/SPY/' },
+        { text: '000001.SS 平安银行', link: '/stock-analysis/000001.SS/' },
+        { text: '300750.SZ 宁德时代', link: '/stock-analysis/300750.SZ/' },
+        { text: '300760.SZ 迈瑞医疗', link: '/stock-analysis/300760.SZ/' },
+        { text: '600519.SS 贵州茅台', link: '/stock-analysis/600519.SS/' },
+      ],
+    },
   ]
 }
 
@@ -245,37 +260,6 @@ function sidebarAbout() {
       text: '关于',
       items: [
         { text: '关于本站', link: 'index' },
-      ],
-    },
-  ]
-}
-
-function sidebarStockAnalysis() {
-  // 股票分析侧边栏 - 动态生成
-  // 结构：{ symbol }/index.md, { symbol }/latest/*.md
-  return [
-    {
-      text: '股票分析',
-      collapsed: false,
-      items: [
-        { text: '总览', link: 'index' },
-      ],
-    },
-    {
-      text: '个股报告',
-      collapsed: true,
-      items: [
-        // 以下为示例，实际使用时可根据需要添加更多股票
-        { text: '0700.HK 腾讯控股', link: '0700.HK/index' },
-        { text: 'BABA 阿里巴巴', link: 'BABA/index' },
-        { text: 'PDD 拼多多', link: 'PDD/index' },
-        { text: 'MSFT 微软', link: 'MSFT/index' },
-        { text: 'DIS 迪士尼', link: 'DIS/index' },
-        { text: 'SPY 标普 500ETF', link: 'SPY/index' },
-        { text: '000001.SS 平安银行', link: '000001.SS/index' },
-        { text: '300750.SZ 宁德时代', link: '300750.SZ/index' },
-        { text: '300760.SZ 迈瑞医疗', link: '300760.SZ/index' },
-        { text: '600519.SS 贵州茅台', link: '600519.SS/index' },
       ],
     },
   ]
