@@ -47,6 +47,7 @@ export default defineConfig({
       '/ai/': { base: '/ai/', items: sidebarAi() },
       '/coding/': { base: '/coding/', items: sidebarCoding() },
       '/finance/': { base: '/finance/', items: sidebarFinance() },
+      '/stock-analysis/': { base: '/stock-analysis/', items: sidebarStockAnalysis() },
       '/about/': { base: '/about/', items: sidebarAbout() },
     },
 
@@ -232,7 +233,7 @@ function sidebarFinance() {
       items: [
         { text: '策略基础', link: 'strategy-basics' },
         { text: '回测方法', link: 'backtesting' },
-        { text: '股票分析', link: '/stock-analysis/' },
+        { text: '股票分析', link: '/stock-analysis/index' },
       ],
     },
   ]
@@ -244,6 +245,38 @@ function sidebarAbout() {
       text: '关于',
       items: [
         { text: '关于本站', link: 'index' },
+      ],
+    },
+  ]
+}
+
+function sidebarStockAnalysis() {
+  // 股票分析侧边栏 - 动态生成
+  return [
+    {
+      text: '股票分析',
+      collapsed: false,
+      items: [
+        { text: '总览', link: 'index' },
+      ],
+    },
+    {
+      text: '个股报告',
+      collapsed: true,
+      items: [
+        { text: '000001.SS 平安银行', link: '000001.SS/index' },
+        { text: '0700.HK 腾讯控股', link: '0700.HK/index' },
+        { text: '300750.SZ 宁德时代', link: '300750.SZ/index' },
+        { text: '300760.SZ 迈瑞医疗', link: '300760.SZ/index' },
+        { text: '600036.SS 招商银行', link: '600036.SS/index' },
+        { text: '600519.SS 贵州茅台', link: '600519.SS/index' },
+        { text: 'BABA 阿里巴巴', link: 'BABA/index' },
+        { text: 'DIS 迪士尼', link: 'DIS/index' },
+        { text: 'HK 香港', link: 'HK/index' },
+        { text: 'MSFT 微软', link: 'MSFT/index' },
+        { text: 'PDD 拼多多', link: 'PDD/index' },
+        { text: 'QQQ 纳斯达克 ETF', link: 'QQQ/index' },
+        { text: 'SPY 标普 500ETF', link: 'SPY/index' },
       ],
     },
   ]
