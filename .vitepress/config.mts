@@ -270,7 +270,7 @@ function sidebarAbout() {
 }
 
 function sidebarStockAnalysis() {
-  // 股票分析侧边栏
+  // 股票分析侧边栏 - 只包含有最终交易决策的股票
   return [
     {
       text: '股票分析',
@@ -283,15 +283,14 @@ function sidebarStockAnalysis() {
       text: '个股报告',
       collapsed: true,
       items: [
-        { text: '000001.SS 平安银行', link: '000001.SS/index' },
         { text: '0700.HK 腾讯控股', link: '0700.HK/index' },
         { text: '300750.SZ 宁德时代', link: '300750.SZ/index' },
         { text: '300760.SZ 迈瑞医疗', link: '300760.SZ/index' },
         { text: '600036.SS 招商银行', link: '600036.SS/index' },
         { text: '600519.SS 贵州茅台', link: '600519.SS/index' },
+        { text: '603259.SS 药明康德', link: '603259.SS/index' },
         { text: 'BABA 阿里巴巴', link: 'BABA/index' },
         { text: 'DIS 迪士尼', link: 'DIS/index' },
-        { text: 'HK 香港', link: 'HK/index' },
         { text: 'MSFT 微软', link: 'MSFT/index' },
         { text: 'PDD 拼多多', link: 'PDD/index' },
         { text: 'QQQ 纳斯达克 ETF', link: 'QQQ/index' },
