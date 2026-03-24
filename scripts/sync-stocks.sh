@@ -9,12 +9,25 @@ TRADING_AGENTS_DIR="/Users/egg/Project/TradingAgents"
 BLOG_STOCKS_DIR="/Users/egg/Project/blog/finance/stock-analysis"
 RESULTS_DIR="$TRADING_AGENTS_DIR/results"
 
-echo "🔄 开始同步股票分析报告..."
-echo "   源目录：$RESULTS_DIR"
-echo "   目标目录：$BLOG_STOCKS_DIR"
-
-# 创建目标目录
-mkdir -p "$BLOG_STOCKS_DIR"
+# 获取股票全称（与侧边栏保持一致）
+get_stock_name() {
+    local symbol="$1"
+    case "$symbol" in
+        "0700.HK") echo "0700.HK 腾讯控股" ;;
+        "300750.SZ") echo "300750.SZ 宁德时代" ;;
+        "300760.SZ") echo "300760.SZ 迈瑞医疗" ;;
+        "600036.SS") echo "600036.SS 招商银行" ;;
+        "600519.SS") echo "600519.SS 贵州茅台" ;;
+        "603259.SS") echo "603259.SS 药明康德" ;;
+        "BABA") echo "BABA 阿里巴巴" ;;
+        "DIS") echo "DIS 迪士尼" ;;
+        "MSFT") echo "MSFT 微软" ;;
+        "PDD") echo "PDD 拼多多" ;;
+        "QQQ") echo "QQQ 纳斯达克 ETF" ;;
+        "SPY") echo "SPY 标普 500ETF" ;;
+        *) echo "$symbol" ;;
+    esac
+}
 
 # 生成 index.md 的函数 - 根据实际存在的文件生成链接
 generate_index_md() {
@@ -22,15 +35,16 @@ generate_index_md() {
     local latest_path="$2"
     local source_date="$3"
     local symbol=$(basename "$target_dir")
+    local stock_name=$(get_stock_name "$symbol")
 
     # 开始生成 index.md
     cat > "$target_dir/index.md" << EOF
 ---
-title: $symbol 分析报告
+title: $stock_name 分析报告
 outline: [2, 3]
 ---
 
-# $symbol 股票分析报告
+# $stock_name 分析报告
 
 最新报告日期：$source_date
 
@@ -201,7 +215,8 @@ for stock_dir in "$BLOG_STOCKS_DIR"/*/; do
     if [ -d "$stock_dir" ]; then
         symbol=$(basename "$stock_dir")
         if [ "$symbol" != "latest" ] && [ -f "$stock_dir/latest/final_trade_decision.md" ]; then
-            echo "- [$symbol]($symbol/)" >> "$BLOG_STOCKS_DIR/index.md"
+            stock_name=$(get_stock_name "$symbol")
+            echo "- [$stock_name]($symbol/)" >> "$BLOG_STOCKS_DIR/index.md"
         fi
     fi
 done

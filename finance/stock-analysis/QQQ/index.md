@@ -1,9 +1,9 @@
 ---
-title: QQQ 分析报告
+title: QQQ 纳斯达克 ETF 分析报告
 outline: [2, 3]
 ---
 
-# QQQ 股票分析报告
+# QQQ 纳斯达克 ETF 分析报告
 
 最新报告日期：2026-03-24_1847
 
