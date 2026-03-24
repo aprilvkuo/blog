@@ -228,27 +228,11 @@ function sidebarFinance() {
     },
     {
       text: '量化交易',
-      collapsed: true,
+      collapsed: false,
       items: [
         { text: '策略基础', link: 'strategy-basics' },
         { text: '回测方法', link: 'backtesting' },
-      ],
-    },
-    {
-      text: '股票分析',
-      collapsed: true,
-      items: [
-        { text: '总览', link: '/stock-analysis/' },
-        { text: '0700.HK 腾讯控股', link: '/stock-analysis/0700.HK/' },
-        { text: 'BABA 阿里巴巴', link: '/stock-analysis/BABA/' },
-        { text: 'PDD 拼多多', link: '/stock-analysis/PDD/' },
-        { text: 'MSFT 微软', link: '/stock-analysis/MSFT/' },
-        { text: 'DIS 迪士尼', link: '/stock-analysis/DIS/' },
-        { text: 'SPY 标普 500ETF', link: '/stock-analysis/SPY/' },
-        { text: '000001.SS 平安银行', link: '/stock-analysis/000001.SS/' },
-        { text: '300750.SZ 宁德时代', link: '/stock-analysis/300750.SZ/' },
-        { text: '300760.SZ 迈瑞医疗', link: '/stock-analysis/300760.SZ/' },
-        { text: '600519.SS 贵州茅台', link: '/stock-analysis/600519.SS/' },
+        { text: '股票分析', link: '/stock-analysis/' },
       ],
     },
   ]
