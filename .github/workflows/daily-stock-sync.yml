@@ -2,7 +2,7 @@ name: Daily Stock Analysis Sync
 
 on:
   schedule:
-    # 每天 UTC 时间 16:00 运行 (北京时间午夜 00:00)
+    # 每天 UTC 时间 16:00 运行 (北京时间 00:00)
     - cron: '0 16 * * *'
   workflow_dispatch: # 允许手动触发
 
@@ -29,121 +29,36 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Copy stock analysis reports
+      - name: Clone TradingAgents repository
         run: |
-          # 创建 stock-analysis 目录
-          mkdir -p stock-analysis
+          git clone --depth 1 https://github.com/${{ github.repository_owner }}/TradingAgents.git /tmp/TradingAgents
 
-          # 从 TradingAgents 仓库克隆 results
-          git clone https://github.com/${{ github.repository_owner }}/TradingAgents.git /tmp/TradingAgents
+      - name: Run sync script
+        env:
+          TRADING_AGENTS_DIR: /tmp/TradingAgents
+          BLOG_DIR: ${{ github.workspace }}
+        run: |
+          bash scripts/sync-stocks.sh
 
-          # 复制所有股票的最新报告
-          for stock_dir in /tmp/TradingAgents/results/*/; do
-            if [ -d "$stock_dir" ]; then
-              symbol=$(basename "$stock_dir")
-              echo "Processing $symbol..."
-
-              # 创建股票目录
-              target_dir="stock-analysis/$symbol"
-              mkdir -p "$target_dir"
-
-              # 找到最新的日期文件夹
-              latest_date=$(ls -t "$stock_dir" | head -n1)
-
-              if [ -n "$latest_date" ]; then
-                source_path="$stock_dir$latest_date/reports"
-                target_path="$target_dir/latest"
-
-                # 复制最新报告
-                if [ -d "$source_path" ]; then
-                  echo "  Copying reports from $latest_date..."
-                  cp -r "$source_path" "$target_path"
-
-                  # 生成 index.md
-                  cat > "$target_dir/index.md" << EOF
-          ---
-          title: $symbol 分析报告
-          outline: [2, 3]
-          ---
-
-          # $symbol 股票分析报告
-
-          最新报告日期：$latest_date
-
-          ## 报告列表
-
-          - [完整分析报告](latest/complete_report.md)
-          - [最终交易决策](latest/final_trade_decision.md)
-
-          ### 分析师报告
-          - [市场分析](latest/1_analysts/market.md)
-          - [情绪分析](latest/1_analysts/sentiment.md)
-          - [新闻分析](latest/1_analysts/news.md)
-          - [基本面分析](latest/1_analysts/fundamentals.md)
-
-          ### 研究报告
-          - [多方观点](latest/2_research/bull.md)
-          - [空方观点](latest/2_research/bear.md)
-          - [经理总结](latest/2_research/manager.md)
-
-          ### 交易计划
-          - [交易员计划](latest/3_trading/trader.md)
-
-          ### 风险评估
-          - [激进策略](latest/4_risk/aggressive.md)
-          - [中性策略](latest/4_risk/neutral.md)
-          - [保守策略](latest/4_risk/conservative.md)
-
-          ### 投资决策
-          - [组合决策](latest/5_portfolio/decision.md)
-
-          ### 原始报告
-          - [市场报告](latest/market_report.md)
-          - [情绪报告](latest/sentiment_report.md)
-          - [新闻报告](latest/news_report.md)
-          - [基本面报告](latest/fundamentals_report.md)
-          - [投资计划](latest/investment_plan.md)
-          - [交易员投资计划](latest/trader_investment_plan.md)
-          EOF
-                fi
-              fi
-            fi
-          done
-
-          # 生成主索引页面
-          cat > stock-analysis/index.md << EOF
-          ---
-          title: 股票分析
-          outline: false
-          ---
-
-          # 股票分析报告
-
-          本页面展示由 TradingAgents 系统自动生成的股票分析报告。报告每日更新（北京时间午夜）。
-
-          ## 覆盖股票
-
-          EOF
-
-          # 添加股票列表
-          for stock_dir in stock-analysis/*/; do
-            if [ -d "$stock_dir" ]; then
-              symbol=$(basename "$stock_dir")
-              echo "- [[$symbol]]($symbol/index.md)" >> stock-analysis/index.md
-            fi
-          done
+      - name: Check for changes
+        id: git-status
+        run: |
+          if git status --porcelain finance/stock-analysis/ | grep -q .; then
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+          else
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+          fi
 
       - name: Commit and push changes
+        if: steps.git-status.outputs.has_changes == 'true'
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
 
-          git add stock-analysis/
-          git diff --cached --quiet || git commit -m "chore: 自动更新股票分析报告 ($(date +%Y-%m-%d))"
+          git add finance/stock-analysis/
+          git commit -m "chore: 自动更新股票分析报告 ($(date +%Y-%m-%d))"
           git push
 
-      - name: Build and deploy (optional)
-        run: |
-          pnpm run docs:build
-          # 如果使用 Cloudflare Pages 自动部署，这一步可以省略
-          # 如果需要手动部署，可以添加 wrangler 命令
+      - name: No changes notice
+        if: steps.git-status.outputs.has_changes == 'false'
+        run: echo "✅ 无新变更，跳过提交"
