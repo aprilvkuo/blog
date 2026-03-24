@@ -138,20 +138,29 @@ fi
 
 # 为每个股票创建目录并复制最新的报告
 # 结构：stock-analysis/{SYMBOL}/latest/ -> 指向最新日期的报告
+# 只同步有"最终交易决策"的股票
 for stock_dir in "$RESULTS_DIR"/*/; do
     if [ -d "$stock_dir" ]; then
         symbol=$(basename "$stock_dir")
-        echo "📈 处理 $symbol..."
-
-        # 创建股票目录
-        target_dir="$BLOG_STOCKS_DIR/$symbol"
-        mkdir -p "$target_dir"
 
         # 找到最新的日期文件夹
         latest_date=$(ls -t "$stock_dir" | head -n1)
 
         if [ -n "$latest_date" ]; then
             source_path="$stock_dir$latest_date/reports"
+
+            # 检查是否存在 final_trade_decision.md
+            if [ ! -f "$source_path/final_trade_decision.md" ]; then
+                echo "⏭️  跳过 $symbol (无最终交易决策)"
+                continue
+            fi
+
+            echo "📈 处理 $symbol..."
+
+            # 创建股票目录
+            target_dir="$BLOG_STOCKS_DIR/$symbol"
+            mkdir -p "$target_dir"
+
             target_path="$target_dir/latest"
 
             # 删除旧的 latest 链接或目录
@@ -187,11 +196,11 @@ outline: false
 
 EOF
 
-# 添加股票列表（cleanUrls: true 模式下不需要 .md 后缀）
+# 添加股票列表（只包含有 final_trade_decision.md 的股票）
 for stock_dir in "$BLOG_STOCKS_DIR"/*/; do
-    if [ -d "$stock_dir" ] && [ "$stock_dir" != "$BLOG_STOCKS_DIR/index.md" ]; then
+    if [ -d "$stock_dir" ]; then
         symbol=$(basename "$stock_dir")
-        if [ "$symbol" != "latest" ]; then
+        if [ "$symbol" != "latest" ] && [ -f "$stock_dir/latest/final_trade_decision.md" ]; then
             echo "- [$symbol]($symbol/)" >> "$BLOG_STOCKS_DIR/index.md"
         fi
     fi

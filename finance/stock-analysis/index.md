@@ -9,7 +9,6 @@ outline: false
 
 ## 覆盖股票
 
-- [000001.SS](000001.SS/)
 - [0700.HK](0700.HK/)
 - [300750.SZ](300750.SZ/)
 - [300760.SZ](300760.SZ/)
@@ -18,7 +17,6 @@ outline: false
 - [603259.SS](603259.SS/)
 - [BABA](BABA/)
 - [DIS](DIS/)
-- [HK](HK/)
 - [MSFT](MSFT/)
 - [PDD](PDD/)
 - [QQQ](QQQ/)
