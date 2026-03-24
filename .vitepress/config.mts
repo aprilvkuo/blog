@@ -39,6 +39,7 @@ export default defineConfig({
       { text: 'AI', link: '/ai/' },
       { text: '编程', link: '/coding/' },
       { text: '金融', link: '/finance/' },
+      { text: '股票分析', link: '/stock-analysis/' },
       { text: '关于', link: '/about/' },
     ],
 
@@ -229,11 +230,10 @@ function sidebarFinance() {
     },
     {
       text: '量化交易',
-      collapsed: false,
+      collapsed: true,
       items: [
         { text: '策略基础', link: 'strategy-basics' },
         { text: '回测方法', link: 'backtesting' },
-        { text: '股票分析', link: '/stock-analysis/index' },
       ],
     },
   ]
