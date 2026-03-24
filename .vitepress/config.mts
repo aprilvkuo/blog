@@ -240,19 +240,9 @@ function sidebarFinance() {
       collapsed: true,
       items: [
         { text: '总览', link: 'stock-analysis/' },
-        { text: '000001.SS 平安银行', link: 'stock-analysis/000001.SS/' },
-        { text: '0700.HK 腾讯控股', link: 'stock-analysis/0700.HK/' },
-        { text: '300750.SZ 宁德时代', link: 'stock-analysis/300750.SZ/' },
-        { text: '300760.SZ 迈瑞医疗', link: 'stock-analysis/300760.SZ/' },
-        { text: '600036.SS 招商银行', link: 'stock-analysis/600036.SS/' },
-        { text: '600519.SS 贵州茅台', link: 'stock-analysis/600519.SS/' },
-        { text: 'BABA 阿里巴巴', link: 'stock-analysis/BABA/' },
-        { text: 'DIS 迪士尼', link: 'stock-analysis/DIS/' },
-        { text: 'HK 香港', link: 'stock-analysis/HK/' },
-        { text: 'MSFT 微软', link: 'stock-analysis/MSFT/' },
-        { text: 'PDD 拼多多', link: 'stock-analysis/PDD/' },
-        { text: 'QQQ 纳斯达克 ETF', link: 'stock-analysis/QQQ/' },
-        { text: 'SPY 标普 500ETF', link: 'stock-analysis/SPY/' },
+        { text: 'A 股', link: 'stock-analysis/' },
+        { text: '港股', link: 'stock-analysis/' },
+        { text: '美股', link: 'stock-analysis/' },
       ],
     },
   ]
@@ -270,7 +260,7 @@ function sidebarAbout() {
 }
 
 function sidebarStockAnalysis() {
-  // 股票分析侧边栏 - 只包含有最终交易决策的股票
+  // 股票分析侧边栏 - 按市场分类，只包含有最终交易决策的股票
   return [
     {
       text: '股票分析',
@@ -280,15 +270,27 @@ function sidebarStockAnalysis() {
       ],
     },
     {
-      text: '个股报告',
-      collapsed: true,
+      text: 'A 股',
+      collapsed: false,
       items: [
-        { text: '0700.HK 腾讯控股', link: '0700.HK/index' },
         { text: '300750.SZ 宁德时代', link: '300750.SZ/index' },
         { text: '300760.SZ 迈瑞医疗', link: '300760.SZ/index' },
         { text: '600036.SS 招商银行', link: '600036.SS/index' },
         { text: '600519.SS 贵州茅台', link: '600519.SS/index' },
         { text: '603259.SS 药明康德', link: '603259.SS/index' },
+      ],
+    },
+    {
+      text: '港股',
+      collapsed: false,
+      items: [
+        { text: '0700.HK 腾讯控股', link: '0700.HK/index' },
+      ],
+    },
+    {
+      text: '美股',
+      collapsed: false,
+      items: [
         { text: 'BABA 阿里巴巴', link: 'BABA/index' },
         { text: 'DIS 迪士尼', link: 'DIS/index' },
         { text: 'MSFT 微软', link: 'MSFT/index' },

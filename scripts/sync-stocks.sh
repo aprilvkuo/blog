@@ -212,7 +212,33 @@ EOF
 }
 
 # =============================================================================
-# 生成主索引页面
+# 股票分类
+# =============================================================================
+
+get_stock_market() {
+    local symbol="$1"
+    case "$symbol" in
+        # A 股：以 .SS 或 .SZ 结尾
+        *.SS|*.SZ) echo "a-share" ;;
+        # 港股：以 .HK 结尾
+        *.HK) echo "hk-share" ;;
+        # 美股：其他都是美股
+        *) echo "us-share" ;;
+    esac
+}
+
+get_market_name() {
+    local market="$1"
+    case "$market" in
+        "a-share") echo "A 股" ;;
+        "hk-share") echo "港股" ;;
+        "us-share") echo "美股" ;;
+        *) echo "$market" ;;
+    esac
+}
+
+# =============================================================================
+# 生成主索引页面（按市场分类）
 # =============================================================================
 
 generate_main_index() {
@@ -226,11 +252,13 @@ outline: false
 
 本页面展示由 TradingAgents 系统自动生成的股票分析报告。报告每日更新。
 
-## 覆盖股票
-
 EOF
 
-    # 只添加有最终交易决策的股票
+    # 收集有最终交易决策的股票，按市场分类
+    local a_shares=()
+    local hk_shares=()
+    local us_shares=()
+
     for stock_dir in "$STOCK_ANALYSIS_DIR"/*/; do
         [ -d "$stock_dir" ] || continue
         local symbol
@@ -239,11 +267,49 @@ EOF
 
         # 检查是否存在最终交易决策
         if [ -f "$stock_dir/latest/final_trade_decision.md" ]; then
+            local market
+            market=$(get_stock_market "$symbol")
             local stock_name
             stock_name=$(get_stock_name "$symbol")
-            echo "- [$stock_name]($symbol/)" >> "$STOCK_ANALYSIS_DIR/index.md"
+            local link="- [$stock_name]($symbol/)"
+
+            case "$market" in
+                "a-share") a_shares+=("$link") ;;
+                "hk-share") hk_shares+=("$link") ;;
+                "us-share") us_shares+=("$link") ;;
+            esac
         fi
     done
+
+    # 生成 A 股部分
+    if [ ${#a_shares[@]} -gt 0 ]; then
+        echo "## A 股" >> "$STOCK_ANALYSIS_DIR/index.md"
+        echo "" >> "$STOCK_ANALYSIS_DIR/index.md"
+        for item in "${a_shares[@]}"; do
+            echo "$item" >> "$STOCK_ANALYSIS_DIR/index.md"
+        done
+        echo "" >> "$STOCK_ANALYSIS_DIR/index.md"
+    fi
+
+    # 生成港股部分
+    if [ ${#hk_shares[@]} -gt 0 ]; then
+        echo "## 港股" >> "$STOCK_ANALYSIS_DIR/index.md"
+        echo "" >> "$STOCK_ANALYSIS_DIR/index.md"
+        for item in "${hk_shares[@]}"; do
+            echo "$item" >> "$STOCK_ANALYSIS_DIR/index.md"
+        done
+        echo "" >> "$STOCK_ANALYSIS_DIR/index.md"
+    fi
+
+    # 生成美股部分
+    if [ ${#us_shares[@]} -gt 0 ]; then
+        echo "## 美股" >> "$STOCK_ANALYSIS_DIR/index.md"
+        echo "" >> "$STOCK_ANALYSIS_DIR/index.md"
+        for item in "${us_shares[@]}"; do
+            echo "$item" >> "$STOCK_ANALYSIS_DIR/index.md"
+        done
+        echo "" >> "$STOCK_ANALYSIS_DIR/index.md"
+    fi
 }
 
 # =============================================================================
