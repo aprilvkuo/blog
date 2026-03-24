@@ -4,9 +4,6 @@ hero:
   name: egguo.com
   text: 记录学习与思考
   tagline: AI · 编程 · 金融
-  image:
-    src: /hero.png
-    alt: VitePress
   actions:
     - theme: brand
       text: 开始浏览
