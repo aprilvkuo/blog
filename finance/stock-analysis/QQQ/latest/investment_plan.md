@@ -1,4 +1,3 @@
-### Research Manager Decision
 ### 辩论总结
 
 在这场关于 QQQ 的多空对决中，双方的核心论点如下：

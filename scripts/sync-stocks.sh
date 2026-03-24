@@ -6,7 +6,7 @@ set -e
 
 # 配置路径
 TRADING_AGENTS_DIR="/Users/egg/Project/TradingAgents"
-BLOG_STOCKS_DIR="/Users/egg/Project/blog/stock-analysis"
+BLOG_STOCKS_DIR="/Users/egg/Project/blog/finance/stock-analysis"
 RESULTS_DIR="$TRADING_AGENTS_DIR/results"
 
 echo "🔄 开始同步股票分析报告..."
@@ -45,7 +45,16 @@ EOF
         echo "## 核心报告" >> "$target_dir/index.md"
         echo "" >> "$target_dir/index.md"
         [ -f "$latest_path/complete_report.md" ] && echo "- [完整分析报告](latest/complete_report)" >> "$target_dir/index.md"
-        [ -f "$latest_path/final_trade_decision.md" ] && echo "- [最终交易决策](latest/final_trade_decision)" >> "$target_dir/index.md"
+        echo "" >> "$target_dir/index.md"
+    fi
+
+    # 最终交易决策 - 直接嵌入内容
+    if [ -f "$latest_path/final_trade_decision.md" ]; then
+        has_content=true
+        echo "## 最终交易决策" >> "$target_dir/index.md"
+        echo "" >> "$target_dir/index.md"
+        # 嵌入最终交易决策的内容
+        cat "$latest_path/final_trade_decision.md" >> "$target_dir/index.md"
         echo "" >> "$target_dir/index.md"
     fi
 
