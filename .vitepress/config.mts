@@ -273,10 +273,12 @@ function sidebarStockAnalysis() {
       text: 'A 股',
       collapsed: false,
       items: [
+        { text: '002594.SZ 比亚迪股份', link: '002594.SZ/index' },
         { text: '300750.SZ 宁德时代', link: '300750.SZ/index' },
         { text: '300760.SZ 迈瑞医疗', link: '300760.SZ/index' },
         { text: '600036.SS 招商银行', link: '600036.SS/index' },
         { text: '600519.SS 贵州茅台', link: '600519.SS/index' },
+        { text: '601138.SS 工业富联', link: '601138.SS/index' },
         { text: '603259.SS 药明康德', link: '603259.SS/index' },
       ],
     },
@@ -285,6 +287,7 @@ function sidebarStockAnalysis() {
       collapsed: false,
       items: [
         { text: '0700.HK 腾讯控股', link: '0700.HK/index' },
+        { text: '1810.HK 小米集团', link: '1810.HK/index' },
       ],
     },
     {

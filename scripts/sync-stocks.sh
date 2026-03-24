@@ -32,11 +32,14 @@ STOCK_ANALYSIS_DIR="$BLOG_DIR/finance/stock-analysis"
 get_stock_name() {
     local symbol="$1"
     case "$symbol" in
+        "002594.SZ")   echo "002594.SZ 比亚迪股份" ;;
         "0700.HK")     echo "0700.HK 腾讯控股" ;;
+        "1810.HK")     echo "1810.HK 小米集团" ;;
         "300750.SZ")   echo "300750.SZ 宁德时代" ;;
         "300760.SZ")   echo "300760.SZ 迈瑞医疗" ;;
         "600036.SS")   echo "600036.SS 招商银行" ;;
         "600519.SS")   echo "600519.SS 贵州茅台" ;;
+        "601138.SS")   echo "601138.SS 工业富联" ;;
         "603259.SS")   echo "603259.SS 药明康德" ;;
         "BABA")        echo "BABA 阿里巴巴" ;;
         "DIS")         echo "DIS 迪士尼" ;;
