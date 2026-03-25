@@ -246,7 +246,7 @@ def update_stock_analysis_index(target_dir: Path) -> None:
 
     # 股票名称映射
     stock_names = {
-        "000001.SS": "平安银行",
+        "000001.SS": "上证指数",
         "002594.SZ": "比亚迪",
         "0700.HK": "腾讯控股",
         "1810.HK": "小米集团",
