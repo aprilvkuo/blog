@@ -323,7 +323,7 @@ def remove_empty_sections(target_dir: Path) -> None:
 
 
 def update_latest_report_date(target_dir: Path, latest_date: str) -> None:
-    """更新 index.md 中的最新报告日期，如果不存在则创建"""
+    """更新 index.md 中的最新报告日期，如果不存在则创建，并从 summary.md 填充内容"""
     index_file = target_dir / "index.md"
 
     # 获取股票名称
@@ -350,15 +350,67 @@ def update_latest_report_date(target_dir: Path, latest_date: str) -> None:
     }
     stock_name = stock_names.get(symbol, symbol)
 
+    # 读取最新 summary.md 提取内容
+    summary_file = target_dir / "latest" / "summary.md"
+    conclusion_text = ""
+    logic_text = ""
+    risk_text = ""
+
+    if summary_file.exists():
+        summary_content = summary_file.read_text(encoding='utf-8')
+
+        # 提取 ## 结论
+        conclusion_match = re.search(r'## 结论\s*\n(.*?)(?=## |\Z)', summary_content, re.DOTALL)
+        if conclusion_match:
+            conclusion_text = conclusion_match.group(1).strip()
+
+        # 提取 ## 核心逻辑
+        logic_match = re.search(r'## 核心逻辑\s*\n(.*?)(?=## |\Z)', summary_content, re.DOTALL)
+        if logic_match:
+            logic_text = logic_match.group(1).strip()
+
+        # 提取 ## 风险
+        risk_match = re.search(r'## 风险\s*\n(.*?)(?=## |\Z)', summary_content, re.DOTALL)
+        if risk_match:
+            risk_text = risk_match.group(1).strip()
+
     if index_file.exists():
-        # 已存在，更新最新报告日期
+        # 已存在，更新最新报告日期和内容
         content = index_file.read_text(encoding='utf-8')
 
         # 查找并替换最新报告日期行
         old_date_match = re.search(r'最新报告日期：2026-\d{2}-\d{2}_\d{4}', content)
         if old_date_match:
             content = content.replace(old_date_match.group(0), f'最新报告日期：{latest_date}')
-            index_file.write_text(content, encoding='utf-8')
+
+        # 更新 ## 结论
+        if conclusion_text:
+            content = re.sub(
+                r'\n## 结论\s*\n',
+                f'\n## 结论\n{conclusion_text}\n\n',
+                content,
+                count=1
+            )
+
+        # 更新 ## 核心逻辑
+        if logic_text:
+            content = re.sub(
+                r'\n## 核心逻辑\s*\n',
+                f'\n## 核心逻辑\n{logic_text}\n\n',
+                content,
+                count=1
+            )
+
+        # 更新 ## 风险
+        if risk_text:
+            content = re.sub(
+                r'\n## 风险\s*\n',
+                f'\n## 风险\n{risk_text}\n\n',
+                content,
+                count=1
+            )
+
+        index_file.write_text(content, encoding='utf-8')
     else:
         # 不存在，创建新的 index.md
         content = f'''---
@@ -379,10 +431,13 @@ const history = JSON.parse(data)
 最新报告日期：{latest_date}
 
 ## 结论
+{conclusion_text if conclusion_text else ''}
 
 ## 核心逻辑
+{logic_text if logic_text else ''}
 
 ## 风险
+{risk_text if risk_text else ''}
 
 ## 完整报告
 
