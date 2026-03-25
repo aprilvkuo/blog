@@ -95,3 +95,13 @@ outline: [2, 3]
 - [投资计划](latest/investment_plan)
 - [交易员投资计划](latest/trader_investment_plan)
 
+
+## 历史分析
+
+<StockTimeline :history="history" />
+
+<script setup>
+import { ref } from 'vue'
+import data from './history.json?raw'
+const history = JSON.parse(data)
+</script>

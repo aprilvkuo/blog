@@ -310,12 +310,16 @@ generate_timeline_json() {
         local date_name
         date_name=$(basename "$date_dir")
 
+        # 查找报告文件（跳过没有报告的目录）
+        local report_path="$date_dir/reports"
+        if [ ! -d "$report_path" ] || [ ! "$(ls -A "$report_path" 2>/dev/null)" ]; then
+            continue
+        fi
+
         # 格式化显示日期
         local display_date
         display_date=$(echo "$date_name" | sed 's/_/ /' | cut -d' ' -f1)
 
-        # 查找报告文件
-        local report_path="$date_dir/reports"
         local decision_file="$report_path/final_trade_decision.md"
         local plan_file="$report_path/investment_plan.md"
 
@@ -363,8 +367,8 @@ generate_timeline_json() {
         # JSON 转义
         summary=$(echo "$summary" | sed 's/"/\\"/g' | sed 's/\t/ /g')
 
-        # 生成相对路径
-        local rel_date_dir="../../history/$date_name"
+        # 生成相对路径（从个股 index.md 到 history/日期目录）
+        local rel_date_dir="./history/$date_name"
 
         # 添加到 JSON 数组
         history_items+=("{\"date\":\"$date_name\",\"displayDate\":\"$display_date\",\"sentiment\":\"$sentiment\",\"sentimentLabel\":\"$sentiment_label\",\"sentimentIcon\":\"$sentiment_icon\",\"summary\":\"$summary\",\"signals\":[],\"reportPath\":\"$rel_date_dir/\"}")
@@ -537,31 +541,22 @@ main() {
         local symbol
         symbol=$(basename "$stock_dir")
 
-        # 获取最新日期
-        local latest_date
-        latest_date=$(ls -t "$stock_dir" 2>/dev/null | head -n1)
+        # 找到第一个有 final_trade_decision.md 的日期目录（按时间排序）
+        local latest_date=""
+        for date_dir in $(ls -t "$stock_dir" 2>/dev/null); do
+            if [ -f "$stock_dir$date_dir/reports/final_trade_decision.md" ]; then
+                latest_date="$date_dir"
+                break
+            fi
+        done
 
         if [ -z "$latest_date" ]; then
-            log_skip "$symbol (无可用报告)"
-            ((skipped++)) || true
-            continue
-        fi
-
-        local source_path="$stock_dir$latest_date/reports"
-
-        # 检查最终交易决策是否存在
-        if [ ! -f "$source_path/final_trade_decision.md" ]; then
             log_skip "$symbol (无最终交易决策)"
             ((skipped++)) || true
             continue
         fi
 
-        # 检查报告目录是否存在
-        if [ ! -d "$source_path" ]; then
-            log_error "$symbol 报告目录不存在：$source_path"
-            ((skipped++)) || true
-            continue
-        fi
+        local source_path="$stock_dir$latest_date/reports"
 
         log_info "处理 $symbol..."
 
