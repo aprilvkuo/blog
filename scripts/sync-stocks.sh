@@ -348,15 +348,28 @@ generate_timeline_json() {
 
         local decision_file="$report_path/final_trade_decision.md"
         local plan_file="$report_path/investment_plan.md"
+        local summary_file="$report_path/summary.md"
 
-        # 确定 sentiment
+        # 确定 sentiment（优先从 summary.md 提取）
         local sentiment="neutral"
         local sentiment_label="中性"
         local sentiment_icon="→"
 
-        if [ -f "$decision_file" ]; then
+        # 先从 summary.md 提取决策
+        if [ -f "$summary_file" ]; then
+            local summary_decision
+            summary_decision=$(grep "^## 结论" -A1 "$summary_file" | tail -1)
+            if echo "$summary_decision" | grep -qE "买入|buy|Buy|做多 | 看多"; then
+                sentiment="bull"
+            elif echo "$summary_decision" | grep -qE "卖出|sell|Sell|做空 | 看空 | 清仓"; then
+                sentiment="bear"
+            fi
+        fi
+
+        # 如果 summary.md 没有或提取失败，从 final_trade_decision.md 提取
+        if [ "$sentiment" = "neutral" ] && [ -f "$decision_file" ]; then
             sentiment=$(extract_sentiment "$decision_file")
-        elif [ -f "$plan_file" ]; then
+        elif [ "$sentiment" = "neutral" ] && [ -f "$plan_file" ]; then
             sentiment=$(extract_sentiment "$plan_file")
         fi
 
@@ -375,14 +388,23 @@ generate_timeline_json() {
                 ;;
         esac
 
-        # 提取简短摘要（优先从 final_trade_decision.md，没有则用 investment_plan.md）
+        # 提取简短摘要（优先从 summary.md 提取）
         local summary="暂无摘要"
-        if [ -f "$decision_file" ]; then
-            # 提取 "### 决策" 或 "### 决策建议：" 行
+        local summary_file="$report_path/summary.md"
+        if [ -f "$summary_file" ]; then
+            # 从 summary.md 提取"## 结论"部分的第一行
+            summary=$(grep -A1 "^## 结论" "$summary_file" | tail -1 | sed 's/^\*\*//' | sed 's/\*\*$//' | cut -c1-80)
+            if [ -z "$summary" ] || [ "$summary" = "**" ]; then
+                summary=$(grep "^## 结论" "$summary_file" | sed 's/^## //' | cut -c1-80)
+            fi
+        fi
+
+        # 如果没有 summary.md 或提取失败，从 final_trade_decision.md 提取
+        if [ "$summary" = "暂无摘要" ] && [ -f "$decision_file" ]; then
             summary=$(grep "^### 决策" "$decision_file" | head -1 | sed 's/^### //' | cut -c1-80)
         fi
 
-        # 如果没有决策文件，从 plan 文件提取
+        # 如果还是没有，从 investment_plan.md 提取
         if [ "$summary" = "暂无摘要" ] && [ -f "$plan_file" ]; then
             summary=$(grep "^### 决策" "$plan_file" | head -1 | sed 's/^### //' | cut -c1-80)
             if [ -z "$summary" ]; then
@@ -726,8 +748,8 @@ main() {
         # 复制所有历史报告（如果启用）
         if [ "$SYNC_HISTORY" = "true" ]; then
             copy_history_reports "$target_dir" "$stock_dir" "$symbol"
-            # 生成时间轴数据 JSON
-            generate_timeline_json "$target_dir" "$stock_dir"
+            # 生成时间轴数据 JSON（从目标历史目录读取）
+            generate_timeline_json "$target_dir" "$target_dir/history"
         else
             # 生成空的 history.json（页面需要）
             echo '[]' > "$target_dir/history.json"
