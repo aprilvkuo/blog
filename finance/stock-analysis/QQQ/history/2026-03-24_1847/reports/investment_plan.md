@@ -1,18 +1,3 @@
----
-title: QQQ 纳斯达克 ETF 分析报告
-outline: [2, 3]
----
-
-# QQQ 纳斯达克 ETF 分析报告
-
-最新报告日期：2026-03-24_1847
-
-## 核心报告
-
-- [完整分析报告](latest/complete_report)
-
-## 最终交易决策
-
 ### 辩论总结
 
 在这场关于 QQQ 的多空对决中，双方的核心论点如下：
@@ -64,49 +49,3 @@ outline: [2, 3]
     *   如果你不想完全离场，可以保留 30% 的 QQQ 底仓，但必须买入 **反向 ETF（如 PSQ）** 或 **买入看跌期权** 进行对冲，对冲比例建议为 1:1。这相当于为你的持仓买了一份保险。
 
 **总结：** 市场永远有机会，但本金只有一次。在当前 QQQ 趋势转弱、宏观迷雾重重的时刻，我们选择站在“趋势”这一边，而不是站在“希望”那一边。既然风浪已起，不如先回港湾，待风平浪静再扬帆远航。
-### 分析师报告
-
-- [市场分析](latest/1_analysts/market)
-- [情绪分析](latest/1_analysts/sentiment)
-- [新闻分析](latest/1_analysts/news)
-- [基本面分析](latest/1_analysts/fundamentals)
-
-### 研究报告
-
-- [多方观点](latest/2_research/bull)
-- [空方观点](latest/2_research/bear)
-- [经理总结](latest/2_research/manager)
-
-### 交易计划
-
-- [交易员计划](latest/3_trading/trader)
-
-### 风险评估
-
-- [激进策略](latest/4_risk/aggressive)
-- [中性策略](latest/4_risk/neutral)
-- [保守策略](latest/4_risk/conservative)
-
-### 投资决策
-
-- [组合决策](latest/5_portfolio/decision)
-
-### 原始报告
-
-- [市场报告](latest/market_report)
-- [情绪报告](latest/sentiment_report)
-- [新闻报告](latest/news_report)
-- [基本面报告](latest/fundamentals_report)
-- [投资计划](latest/investment_plan)
-- [交易员投资计划](latest/trader_investment_plan)
-
-
-## 历史分析
-
-<StockTimeline :history="history" />
-
-<script setup>
-import { ref } from 'vue'
-import data from './history.json?raw'
-const history = JSON.parse(data)
-</script>

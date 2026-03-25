@@ -221,8 +221,9 @@ EOF
 <StockTimeline :history="history" />
 
 <script setup>
-import StockTimeline from '../../.vitepress/theme/components/StockTimeline.vue'
-import history from './history.json'
+import { ref } from 'vue'
+import data from './history.json?raw'
+const history = JSON.parse(data)
 </script>
 EOF
 }
