@@ -305,7 +305,9 @@ function sidebarStockAnalysis() {
       items: [
         { text: 'BABA 阿里巴巴', link: 'BABA/index' },
         { text: 'DIS 迪士尼', link: 'DIS/index' },
+        { text: 'GOOGL 谷歌', link: 'GOOGL/index' },
         { text: 'MSFT 微软', link: 'MSFT/index' },
+        { text: 'NVDA 英伟达', link: 'NVDA/index' },
         { text: 'PDD 拼多多', link: 'PDD/index' },
         { text: 'QQQ 纳斯达克 ETF', link: 'QQQ/index' },
         { text: 'SPY 标普 500ETF', link: 'SPY/index' },
