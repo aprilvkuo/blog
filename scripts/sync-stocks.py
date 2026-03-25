@@ -379,6 +379,14 @@ def process_stock(symbol: str) -> bool:
             if not (src_reports / "summary.md").exists():
                 continue
 
+            # 检查 1_analysts 目录，如果只有 news.md 一个文件，则跳过该报告
+            analysts_dir = src_reports / "1_analysts"
+            if analysts_dir.exists():
+                md_files = list(analysts_dir.glob("*.md"))
+                if len(md_files) == 1 and (analysts_dir / "news.md").exists():
+                    print(f"  ⚠️  跳过 {symbol}/{date_dir.name} (只有新闻分析)")
+                    continue
+
             dst_history_dir = history_target / date_dir.name
             dst_history_dir.mkdir(parents=True)
             copy_report_files(src_reports, dst_history_dir)
