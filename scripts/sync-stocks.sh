@@ -212,6 +212,19 @@ EOF
     if [ "$has_content" = false ]; then
         echo "暂无可用的报告文件。" >> "$target_dir/index.md"
     fi
+
+    # --- 添加时间轴组件 ---
+    cat >> "$target_dir/index.md" << 'EOF'
+
+## 历史分析
+
+<StockTimeline :history="history" />
+
+<script setup>
+import StockTimeline from '../../.vitepress/theme/components/StockTimeline.vue'
+import history from './history.json'
+</script>
+EOF
 }
 
 # =============================================================================
@@ -241,8 +254,149 @@ get_market_name() {
 }
 
 # =============================================================================
-# 生成主索引页面（按市场分类）
+# 从报告中提取 sentiment（看多/看空/中性）
 # =============================================================================
+
+extract_sentiment() {
+    local report_file="$1"
+    if [ ! -f "$report_file" ]; then
+        echo "neutral"
+        return
+    fi
+
+    # 从 final_trade_decision.md 或 investment_plan.md 中提取 sentiment
+    local content
+    content=$(cat "$report_file" 2>/dev/null | head -50)
+
+    # 首先检查决策建议行
+    local decision_line
+    decision_line=$(echo "$content" | grep -iE "决策建议 | 执行指令 | 建议" | head -1)
+
+    # 判断情感倾向（按优先级）
+    # 看空信号
+    if echo "$decision_line $content" | grep -qiE "卖出 | 清仓 | 减持 | 减仓 | 看空|bear|sell|short"; then
+        # 但有"保留"、"持有"等词，可能是中性
+        if echo "$decision_line" | grep -qiE "减仓.*50%|持有 | 保留底仓"; then
+            echo "neutral"
+        else
+            echo "bear"
+        fi
+    # 看多信号
+    elif echo "$decision_line $content" | grep -qiE "买入 | 加仓 | 增持 | 看多|bull|buy|long"; then
+        echo "bull"
+    # 中性信号
+    elif echo "$decision_line $content" | grep -qiE "中性 | 持有 | 观望 | 减仓对冲 | neutral|hold"; then
+        echo "neutral"
+    else
+        echo "neutral"
+    fi
+}
+
+# =============================================================================
+# 生成时间轴数据 JSON
+# =============================================================================
+
+generate_timeline_json() {
+    local target_dir="$1"
+    local history_dir="$2"
+
+    local json_file="$target_dir/history.json"
+    local history_items=()
+
+    # 遍历所有历史报告目录
+    for date_dir in "$history_dir"/*/; do
+        [ -d "$date_dir" ] || continue
+        local date_name
+        date_name=$(basename "$date_dir")
+
+        # 格式化显示日期
+        local display_date
+        display_date=$(echo "$date_name" | sed 's/_/ /' | cut -d' ' -f1)
+
+        # 查找报告文件
+        local report_path="$date_dir/reports"
+        local decision_file="$report_path/final_trade_decision.md"
+        local plan_file="$report_path/investment_plan.md"
+
+        # 确定 sentiment
+        local sentiment="neutral"
+        local sentiment_label="中性"
+        local sentiment_icon="→"
+
+        if [ -f "$decision_file" ]; then
+            sentiment=$(extract_sentiment "$decision_file")
+        elif [ -f "$plan_file" ]; then
+            sentiment=$(extract_sentiment "$plan_file")
+        fi
+
+        case "$sentiment" in
+            "bull")
+                sentiment_label="看多"
+                sentiment_icon="↑"
+                ;;
+            "bear")
+                sentiment_label="看空"
+                sentiment_icon="↓"
+                ;;
+            *)
+                sentiment_label="中性"
+                sentiment_icon="→"
+                ;;
+        esac
+
+        # 提取简短摘要（从决策文件中取第一行）
+        local summary="暂无摘要"
+        if [ -f "$decision_file" ]; then
+            summary=$(head -3 "$decision_file" | grep -v "^###" | head -1 | cut -c1-50)
+        fi
+
+        # 生成相对路径
+        local rel_date_dir="../../history/$date_name"
+
+        # 添加到 JSON 数组
+        history_items+=("{\"date\":\"$date_name\",\"displayDate\":\"$display_date\",\"sentiment\":\"$sentiment\",\"sentimentLabel\":\"$sentiment_label\",\"sentimentIcon\":\"$sentiment_icon\",\"summary\":\"$summary\",\"signals\":[],\"reportPath\":\"$rel_date_dir/\"}")
+    done
+
+    # 按日期排序（最新的在前）
+    local json_content="["
+    local first=true
+    for item in "${history_items[@]}"; do
+        if [ "$first" = true ]; then
+            first=false
+        else
+            json_content+=","
+        fi
+        json_content+="$item"
+    done
+    json_content+="]"
+
+    echo "$json_content" > "$json_file"
+}
+
+# =============================================================================
+# 复制所有历史报告
+# =============================================================================
+
+copy_history_reports() {
+    local target_dir="$1"
+    local source_base="$2"
+
+    local history_dir="$target_dir/history"
+    mkdir -p "$history_dir"
+
+    # 复制所有日期目录
+    for date_dir in "$source_base"/*/; do
+        [ -d "$date_dir" ] || continue
+        local date_name
+        date_name=$(basename "$date_dir")
+        local target_history="$history_dir/$date_name"
+
+        # 复制 reports 目录
+        if [ -d "$date_dir/reports" ]; then
+            cp -r "$date_dir/reports" "$target_history"
+        fi
+    done
+}
 
 generate_main_index() {
     cat > "$STOCK_ANALYSIS_DIR/index.md" << 'EOF'
@@ -409,6 +563,12 @@ main() {
 
         # 复制最新报告
         cp -r "$source_path" "$target_path"
+
+        # 复制所有历史报告
+        copy_history_reports "$target_dir" "$stock_dir"
+
+        # 生成时间轴数据 JSON
+        generate_timeline_json "$target_dir" "$stock_dir"
 
         # 生成 index.md
         generate_index_md "$target_dir" "$target_path" "$latest_date"

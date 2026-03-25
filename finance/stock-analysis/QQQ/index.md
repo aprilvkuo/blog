@@ -100,3 +100,12 @@ outline: [2, 3]
 - [投资计划](latest/investment_plan)
 - [交易员投资计划](latest/trader_investment_plan)
 
+
+## 历史分析
+
+<StockTimeline :history="history" />
+
+<script setup>
+import StockTimeline from '../../.vitepress/theme/components/StockTimeline.vue'
+import history from './history.json'
+</script>
