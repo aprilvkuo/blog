@@ -51,8 +51,8 @@ pnpm run pages:deploy
 ### 配置
 
 - **配置文件**: `.vitepress/config.mts` - 定义站点标题、导航、侧边栏、搜索、SEO 等
-- **侧边栏**: 在 `config.mts` 中通过 `sidebarAi()`, `sidebarCoding()`, `sidebarFinance()` 函数定义
-- **主题**: `.vitepress/theme/index.js` 扩展 `DefaultTheme`，可添加自定义 Vue 组件
+- **侧边栏**: 在 `config.mts` 中通过 `sidebarAi()`, `sidebarCoding()`, `sidebarFinance()`, `sidebarStockAnalysis()` 函数定义
+- **主题**: `.vitepress/theme/index.js` 扩展 `DefaultTheme`，注册全局 Vue 组件（如 `StockTimeline`）
 
 ### 新增笔记
 
@@ -94,18 +94,29 @@ python3 scripts/sync-stocks.py
 SYNC_HISTORY=false python3 scripts/sync-stocks.py
 ```
 
+### 脚本功能
+
+`scripts/sync-stocks.py` 自动执行：
+- 从 `TradingAgents/results` 复制报告到 `finance/stock-analysis/`
+- 生成 `history.json`（含时间、sentiment、分析师报告列表）
+- 更新 `index.md` 布局（历史分析移到最前，删除空章节）
+- 更新股票分析主页（按 A 股/港股/美股分类列出所有股票）
+- 跳过只有新闻分析的报告（1_analysts 目录仅 news.md）
+
 ### 目录结构
 
 ```
 stock-analysis/
-├── index.md                 # 股票分析主页
+├── index.md                 # 股票分析主页（自动列出所有股票）
 ├── {SYMBOL}/                # 每只股票的目录
-│   ├── index.md             # 股票导航页
+│   ├── index.md             # 股票导航页（历史分析组件在最前）
+│   ├── history.json         # 时间轴数据（由脚本生成）
+│   ├── history/             # 历史报告目录（仅完整报告）
 │   └── latest/              # 最新报告（复制自 TradingAgents）
 │       ├── complete_report.md
 │       ├── final_trade_decision.md
-│       ├── 1_analysts/      # 分析师报告
-│       ├── 2_research/      # 研究报告
+│       ├── 1_analysts/      # 分析师报告（market/sentiment/news/fundamentals）
+│       ├── 2_research/      # 研究报告（bull/bear/manager）
 │       ├── 3_trading/       # 交易计划
 │       ├── 4_risk/          # 风险评估
 │       └── 5_portfolio/     # 投资决策
