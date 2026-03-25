@@ -201,6 +201,125 @@ def copy_report_files(src_dir: Path, dst_dir: Path) -> None:
             shutil.copytree(src_subdir, dst_subdir)
 
 
+def update_index_md(target_dir: Path) -> None:
+    """更新 index.md，将历史分析部分移到最前面（标题后，日期前）"""
+    index_file = target_dir / "index.md"
+    if not index_file.exists():
+        return
+
+    content = index_file.read_text(encoding='utf-8')
+
+    # 提取历史分析部分（## 历史分析标题 + 组件 + script）
+    history_match = re.search(
+        r'\n## 历史分析\n\n<StockTimeline[^>]* />\n\n(<script setup>.*?</script>)',
+        content,
+        re.DOTALL
+    )
+
+    if not history_match:
+        return
+
+    history_full = history_match.group(0)
+
+    # 从原位置删除历史分析部分
+    content = content.replace(history_full, '')
+
+    # 找到# 标题行
+    title_match = re.search(r'^# .*\n', content, re.MULTILINE)
+    if not title_match:
+        return
+
+    # 在标题后直接插入历史分析和 script，然后是日期
+    insert_pos = title_match.end()
+    content = content[:insert_pos] + '\n' + history_full + '\n' + content[insert_pos:]
+
+    # 清理多余的空白行
+    content = re.sub(r'\n{3,}', '\n\n', content)
+
+    index_file.write_text(content, encoding='utf-8')
+    print(f"  📝 已更新 index.md 布局")
+
+
+def update_stock_analysis_index(target_dir: Path) -> None:
+    """更新股票分析主页，列出所有股票"""
+    index_file = target_dir / "index.md"
+
+    # 股票名称映射
+    stock_names = {
+        "000001.SS": "平安银行",
+        "002594.SZ": "比亚迪",
+        "0700.HK": "腾讯控股",
+        "1810.HK": "小米集团",
+        "300750.SZ": "宁德时代",
+        "300760.SZ": "迈瑞医疗",
+        "600036.SS": "招商银行",
+        "600519.SS": "贵州茅台",
+        "601138.SS": "工业富联",
+        "603259.SS": "药明康德",
+        "BABA": "阿里巴巴",
+        "DIS": "迪士尼",
+        "MSFT": "微软",
+        "PDD": "拼多多",
+        "QQQ": "纳斯达克 ETF",
+        "SPY": "标普 500 ETF",
+    }
+
+    # 收集所有股票目录
+    stocks = []
+    for d in sorted(target_dir.iterdir()):
+        if d.is_dir() and not d.name.startswith('.'):
+            symbol = d.name
+            name = stock_names.get(symbol, symbol)
+            stocks.append((symbol, name))
+
+    # 生成主页内容
+    content = '''---
+title: 股票分析
+outline: false
+---
+
+# 股票分析报告
+
+本页面展示由 TradingAgents 系统自动生成的股票分析报告。报告每日更新。
+
+## A 股
+
+'''
+    # A 股
+    a_shares = [(s, n) for s, n in stocks if s.endswith('.SS') or s.endswith('.SZ')]
+    for symbol, name in a_shares:
+        content += f'- [{name} ({symbol})]({symbol}/)\n'
+
+    content += '\n## 港股\n\n'
+    # 港股
+    hk_shares = [(s, n) for s, n in stocks if s.endswith('.HK')]
+    for symbol, name in hk_shares:
+        content += f'- [{name} ({symbol})]({symbol}/)\n'
+
+    content += '\n## 美股\n\n'
+    # 美股
+    us_stocks = [(s, n) for s, n in stocks if not s.endswith('.SS') and not s.endswith('.SZ') and not s.endswith('.HK')]
+    for symbol, name in us_stocks:
+        content += f'- [{name} ({symbol})]({symbol}/)\n'
+
+    index_file.write_text(content, encoding='utf-8')
+    print(f"  📋 已更新股票分析主页 ({len(stocks)} 只股票)")
+
+
+def remove_empty_sections(target_dir: Path) -> None:
+    """删除 index.md 中的空章节"""
+    index_file = target_dir / "index.md"
+    if not index_file.exists():
+        return
+
+    content = index_file.read_text(encoding='utf-8')
+
+    # 删除空的 ## 报告摘要 部分
+    content = re.sub(r'\n## 报告摘要\n\n', '\n', content)
+
+    index_file.write_text(content, encoding='utf-8')
+
+
 def process_stock(symbol: str) -> bool:
     """处理单只股票"""
     src_stock_dir = SOURCE_DIR / symbol
@@ -271,9 +390,16 @@ def process_stock(symbol: str) -> bool:
 
         # 生成时间轴 JSON
         generate_timeline_json(target_dir, history_target)
+        # 更新 index.md 布局（将历史分析移到最前面）
+        update_index_md(target_dir)
     else:
         # 生成空的 history.json
         (target_dir / "history.json").write_text("[]", encoding='utf-8')
+        # 更新 index.md 布局
+        update_index_md(target_dir)
+
+    # 删除 index.md 中的空章节（如空的 ## 报告摘要）
+    remove_empty_sections(target_dir)
 
     print(f"✅  {symbol} 已完成 ({latest_date})")
     return True
@@ -308,6 +434,9 @@ def main():
             synced += 1
         else:
             skipped += 1
+
+    # 更新股票分析主页，列出所有股票
+    update_stock_analysis_index(TARGET_DIR)
 
     print()
     print("✅  同步完成！")

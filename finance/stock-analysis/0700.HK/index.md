@@ -7,7 +7,13 @@ outline: [2, 3]
 
 最新报告日期：2026-03-25_1134
 
-## 报告摘要
+<StockTimeline :history="history" />
+
+<script setup>
+import { ref } from 'vue'
+import data from './history.json?raw'
+const history = JSON.parse(data)
+</script>
 
 ## 结论
 **决策：买入（分批建仓）**
@@ -55,14 +61,3 @@ outline: [2, 3]
 ### 投资决策
 
 - [组合决策](latest/5_portfolio/decision)
-
-
-## 历史分析
-
-<StockTimeline :history="history" />
-
-<script setup>
-import { ref } from 'vue'
-import data from './history.json?raw'
-const history = JSON.parse(data)
-</script>

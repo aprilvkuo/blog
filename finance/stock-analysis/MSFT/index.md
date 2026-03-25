@@ -5,9 +5,15 @@ outline: [2, 3]
 
 # MSFT 微软 分析报告
 
-最新报告日期：2026-03-25_1239
+<StockTimeline :history="history" />
 
-## 报告摘要
+<script setup>
+import { ref } from 'vue'
+import data from './history.json?raw'
+const history = JSON.parse(data)
+</script>
+
+最新报告日期：2026-03-25_1239
 
 ## 结论
 **决策：买入（分批布局）**
@@ -52,13 +58,3 @@ outline: [2, 3]
 
 - [组合决策](latest/5_portfolio/decision)
 
-
-## 历史分析
-
-<StockTimeline :history="history" />
-
-<script setup>
-import { ref } from 'vue'
-import data from './history.json?raw'
-const history = JSON.parse(data)
-</script>

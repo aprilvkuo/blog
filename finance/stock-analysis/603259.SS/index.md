@@ -5,9 +5,15 @@ outline: [2, 3]
 
 # 603259.SS 药明康德 分析报告
 
-最新报告日期：2026-03-25_1206
+<StockTimeline :history="history" />
 
-## 报告摘要
+<script setup>
+import { ref } from 'vue'
+import data from './history.json?raw'
+const history = JSON.parse(data)
+</script>
+
+最新报告日期：2026-03-25_1206
 
 ## 结论
 **建议买入（Buy）**，初始仓位建议 **20%**。当前股价（¥93.33）处于估值底部区域，基本面强劲（净利润 +112.8%，现金储备充足）提供了坚实的安全垫。技术面出现 MACD 金叉等底部信号，地缘政治风险虽存但已过度定价。采取左侧分批建仓策略，平衡风险与收益。
@@ -54,13 +60,3 @@ outline: [2, 3]
 
 - [组合决策](latest/5_portfolio/decision)
 
-
-## 历史分析
-
-<StockTimeline :history="history" />
-
-<script setup>
-import { ref } from 'vue'
-import data from './history.json?raw'
-const history = JSON.parse(data)
-</script>

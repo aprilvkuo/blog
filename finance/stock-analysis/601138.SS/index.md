@@ -5,9 +5,15 @@ outline: [2, 3]
 
 # 601138.SS 工业富联 分析报告
 
-最新报告日期：2026-03-25_1205
+<StockTimeline :history="history" />
 
-## 报告摘要
+<script setup>
+import { ref } from 'vue'
+import data from './history.json?raw'
+const history = JSON.parse(data)
+</script>
+
+最新报告日期：2026-03-25_1205
 
 ## 结论
 **坚决卖出/清仓**。尽管公司处于 AI 服务器增长赛道且现金储备充足，但核心财务指标出现严重恶化信号。经营性现金流同比腰斩与营收高增长背离，表明盈利质量存疑；存货激增 67% 在硬件快速迭代背景下构成重大减值隐患。技术面受制于 200 日均线且成交量萎缩，显示机构资金撤离。在现金流改善和技术面反转之前，风险远大于机会，建议离场观望。
@@ -50,13 +56,3 @@ outline: [2, 3]
 
 - [组合决策](latest/5_portfolio/decision)
 
-
-## 历史分析
-
-<StockTimeline :history="history" />
-
-<script setup>
-import { ref } from 'vue'
-import data from './history.json?raw'
-const history = JSON.parse(data)
-</script>

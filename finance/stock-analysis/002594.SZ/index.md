@@ -5,9 +5,15 @@ outline: [2, 3]
 
 # 002594.SZ 比亚迪股份 分析报告
 
-最新报告日期：2026-03-25_1134
+<StockTimeline :history="history" />
 
-## 报告摘要
+<script setup>
+import { ref } from 'vue'
+import data from './history.json?raw'
+const history = JSON.parse(data)
+</script>
+
+最新报告日期：2026-03-25_1134
 
 ## 结论
 **投资建议：买入（Buy）**
@@ -52,13 +58,3 @@ outline: [2, 3]
 
 - [组合决策](latest/5_portfolio/decision)
 
-
-## 历史分析
-
-<StockTimeline :history="history" />
-
-<script setup>
-import { ref } from 'vue'
-import data from './history.json?raw'
-const history = JSON.parse(data)
-</script>

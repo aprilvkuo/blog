@@ -5,9 +5,15 @@ outline: [2, 3]
 
 # 300750.SZ 宁德时代 分析报告
 
-最新报告日期：2026-03-25_1134
+<StockTimeline :history="history" />
 
-## 报告摘要
+<script setup>
+import { ref } from 'vue'
+import data from './history.json?raw'
+const history = JSON.parse(data)
+</script>
+
+最新报告日期：2026-03-25_1134
 
 ## 结论
 **决策建议：减仓 50%**  
@@ -51,13 +57,3 @@ outline: [2, 3]
 
 - [组合决策](latest/5_portfolio/decision)
 
-
-## 历史分析
-
-<StockTimeline :history="history" />
-
-<script setup>
-import { ref } from 'vue'
-import data from './history.json?raw'
-const history = JSON.parse(data)
-</script>

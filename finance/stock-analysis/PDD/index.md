@@ -5,9 +5,15 @@ outline: [2, 3]
 
 # PDD 拼多多 分析报告
 
-最新报告日期：2026-03-24_1754
+<StockTimeline :history="history" />
 
-## 报告摘要
+<script setup>
+import { ref } from 'vue'
+import data from './history.json?raw'
+const history = JSON.parse(data)
+</script>
+
+最新报告日期：2026-03-24_1754
 
 ## 结论
 **建议操作：Buy (分批买入)**
@@ -67,13 +73,3 @@ outline: [2, 3]
 - [投资计划](latest/investment_plan)
 - [交易员投资计划](latest/trader_investment_plan)
 
-
-## 历史分析
-
-<StockTimeline :history="history" />
-
-<script setup>
-import { ref } from 'vue'
-import data from './history.json?raw'
-const history = JSON.parse(data)
-</script>
