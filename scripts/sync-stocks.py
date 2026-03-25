@@ -258,7 +258,9 @@ def update_stock_analysis_index(target_dir: Path) -> None:
         "603259.SS": "药明康德",
         "BABA": "阿里巴巴",
         "DIS": "迪士尼",
+        "GOOGL": "谷歌",
         "MSFT": "微软",
+        "NVDA": "英伟达",
         "PDD": "拼多多",
         "QQQ": "纳斯达克 ETF",
         "SPY": "标普 500 ETF",
@@ -321,20 +323,100 @@ def remove_empty_sections(target_dir: Path) -> None:
 
 
 def update_latest_report_date(target_dir: Path, latest_date: str) -> None:
-    """更新 index.md 中的最新报告日期"""
+    """更新 index.md 中的最新报告日期，如果不存在则创建"""
     index_file = target_dir / "index.md"
-    if not index_file.exists():
-        return
 
-    content = index_file.read_text(encoding='utf-8')
+    # 获取股票名称
+    symbol = target_dir.name
+    stock_names = {
+        "000001.SS": "上证指数",
+        "002594.SZ": "比亚迪",
+        "0700.HK": "腾讯控股",
+        "1810.HK": "小米集团",
+        "300750.SZ": "宁德时代",
+        "300760.SZ": "迈瑞医疗",
+        "600036.SS": "招商银行",
+        "600519.SS": "贵州茅台",
+        "601138.SS": "工业富联",
+        "603259.SS": "药明康德",
+        "BABA": "阿里巴巴",
+        "DIS": "迪士尼",
+        "GOOGL": "谷歌",
+        "MSFT": "微软",
+        "NVDA": "英伟达",
+        "PDD": "拼多多",
+        "QQQ": "纳斯达克 ETF",
+        "SPY": "标普 500 ETF",
+    }
+    stock_name = stock_names.get(symbol, symbol)
 
-    # 查找并替换最新报告日期行
-    # 匹配格式：最新报告日期：2026-03-25_1232
-    old_date_match = re.search(r'最新报告日期：2026-\d{2}-\d{2}_\d{4}', content)
-    if old_date_match:
-        # 替换为最新日期
-        content = content.replace(old_date_match.group(0), f'最新报告日期：{latest_date}')
+    if index_file.exists():
+        # 已存在，更新最新报告日期
+        content = index_file.read_text(encoding='utf-8')
+
+        # 查找并替换最新报告日期行
+        old_date_match = re.search(r'最新报告日期：2026-\d{2}-\d{2}_\d{4}', content)
+        if old_date_match:
+            content = content.replace(old_date_match.group(0), f'最新报告日期：{latest_date}')
+            index_file.write_text(content, encoding='utf-8')
+    else:
+        # 不存在，创建新的 index.md
+        content = f'''---
+title: {symbol} {stock_name} 分析报告
+outline: [2, 3]
+---
+
+# {symbol} {stock_name} 分析报告
+
+<StockTimeline :history="history" />
+
+<script setup>
+import {{ ref }} from 'vue'
+import data from './history.json?raw'
+const history = JSON.parse(data)
+</script>
+
+最新报告日期：{latest_date}
+
+## 结论
+
+## 核心逻辑
+
+## 风险
+
+## 完整报告
+
+- [完整分析报告](latest/complete_report)
+
+### 分析师报告
+
+- [市场分析](latest/1_analysts/market)
+- [情绪分析](latest/1_analysts/sentiment)
+- [新闻分析](latest/1_analysts/news)
+- [基本面分析](latest/1_analysts/fundamentals)
+
+### 研究报告
+
+- [多方观点](latest/2_research/bull)
+- [空方观点](latest/2_research/bear)
+- [经理总结](latest/2_research/manager)
+
+### 交易计划
+
+- [交易员计划](latest/3_trading/trader)
+
+### 风险评估
+
+- [激进策略](latest/4_risk/aggressive)
+- [中性策略](latest/4_risk/neutral)
+- [保守策略](latest/4_risk/conservative)
+
+### 投资决策
+
+- [组合决策](latest/5_portfolio/decision)
+'''
         index_file.write_text(content, encoding='utf-8')
+        print(f"  📝 已创建 index.md")
 
 
 def process_stock(symbol: str) -> bool:
