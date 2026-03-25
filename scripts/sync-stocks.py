@@ -66,6 +66,28 @@ def get_sentiment_label(sentiment: str) -> tuple:
         return "中性", "→"
 
 
+def count_analyst_reports(date_dir: Path) -> list:
+    """统计分析师报告文件"""
+    analysts_dir = date_dir / "1_analysts"
+    if not analysts_dir.exists():
+        return []
+
+    report_names = []
+    for f in sorted(analysts_dir.iterdir()):
+        if f.is_file() and f.suffix == '.md':
+            # 提取文件名（不含 .md）
+            name = f.stem
+            # 转换为中文标签
+            name_map = {
+                "market": "市场",
+                "sentiment": "情绪",
+                "news": "新闻",
+                "fundamentals": "基本面"
+            }
+            report_names.append(name_map.get(name, name))
+    return report_names
+
+
 def generate_timeline_json(target_dir: Path, history_dir: Path) -> None:
     """生成时间轴 JSON 数据"""
     timeline = []
@@ -102,6 +124,9 @@ def generate_timeline_json(target_dir: Path, history_dir: Path) -> None:
         sentiment = extract_sentiment(summary_file)
         label, icon = get_sentiment_label(sentiment)
 
+        # 统计分析师报告
+        analyst_reports = count_analyst_reports(date_dir)
+
         # 读取 summary.md 的前几行作为摘要
         content = summary_file.read_text(encoding='utf-8')
         # 提取 ## 结论 下的决策行
@@ -129,6 +154,7 @@ def generate_timeline_json(target_dir: Path, history_dir: Path) -> None:
             "sentimentIcon": icon,
             "summary": summary,
             "signals": [],
+            "analystReports": analyst_reports,
             "reportPath": f"./history/{date_str}/"
         })
 

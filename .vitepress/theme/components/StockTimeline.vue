@@ -11,6 +11,7 @@ interface HistoryItem {
   summary: string
   signals: string[]
   score?: number
+  analystReports?: string[]
   reportPath: string
 }
 
@@ -73,6 +74,14 @@ function isExpanded(date: string): boolean {
         <div v-if="isExpanded(item.date)" class="timeline-content">
           <div class="timeline-summary">
             <strong>结论:</strong> {{ item.summary }}
+          </div>
+          <div v-if="item.analystReports && item.analystReports.length" class="timeline-analysts">
+            <strong>分析报告:</strong>
+            <span class="analyst-tags">
+              <span v-for="(report, index) in item.analystReports" :key="index" class="analyst-tag">
+                {{ report }}
+              </span>
+            </span>
           </div>
           <div v-if="item.signals && item.signals.length" class="timeline-signals">
             <strong>信号:</strong>
@@ -194,6 +203,28 @@ function isExpanded(date: string): boolean {
 .timeline-summary {
   margin-bottom: 0.75rem;
   color: var(--vp-c-text-2);
+}
+
+.timeline-analysts {
+  margin-bottom: 0.75rem;
+  color: var(--vp-c-text-2);
+}
+
+.analyst-tags {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-left: 0.5rem;
+}
+
+.analyst-tag {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  background: var(--vp-c-brand);
+  color: white;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 500;
 }
 
 .timeline-signals {
