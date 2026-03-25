@@ -265,28 +265,21 @@ extract_sentiment() {
         return
     fi
 
-    # 从 final_trade_decision.md 或 investment_plan.md 中提取 sentiment
-    local content
-    content=$(cat "$report_file" 2>/dev/null | head -50)
-
-    # 首先检查决策建议行
+    # 直接从文件读取决策行
     local decision_line
-    decision_line=$(echo "$content" | grep -iE "决策建议 | 执行指令 | 建议" | head -1)
+    decision_line=$(grep -E "^### 决策建议|^### 执行指令|^### 决策[:：]" "$report_file" | head -1)
 
     # 判断情感倾向（按优先级）
-    # 看空信号
-    if echo "$decision_line $content" | grep -qiE "卖出 | 清仓 | 减持 | 减仓 | 看空|bear|sell|short"; then
-        # 但有"保留"、"持有"等词，可能是中性
-        if echo "$decision_line" | grep -qiE "减仓.*50%|持有 | 保留底仓"; then
-            echo "neutral"
-        else
-            echo "bear"
-        fi
-    # 看多信号
-    elif echo "$decision_line $content" | grep -qiE "买入 | 加仓 | 增持 | 看多|bull|buy|long"; then
+    # 使用十六进制构造正则表达式，确保管道符没有空格
+    local bear_pattern=$(printf '\xe5\x8d\x96\xe5\x87\xba|\xe6\xb8\x85\xe4\xbb\x93|\xe5\x87\x8f\xe6\x8c\x81|\xe5\x87\x8f\xe4\xbb\x93|\xe7\x9c\x8b\xe7\xa9\xba|bear|sell|short')
+    local bull_pattern=$(printf '\xe4\xb9\xb0\xe5\x85\xa5|\xe5\x8a\xa0\xe4\xbb\x93|\xe5\xa2\x9e\xe6\x8c\x81|\xe7\x9c\x8b\xe5\xa4\x9a|bull|buy|long')
+    local neutral_pattern=$(printf '\xe4\xb8\xad\xe6\x80\xa7|\xe6\x8c\x81\xe6\x9c\x89|\xe8\xa7\x82\xe6\x9c\x9b|neutral|hold')
+
+    if echo "$decision_line" | grep -qE "$bear_pattern"; then
+        echo "bear"
+    elif echo "$decision_line" | grep -qE "$bull_pattern"; then
         echo "bull"
-    # 中性信号
-    elif echo "$decision_line $content" | grep -qiE "中性 | 持有 | 观望 | 减仓对冲 | neutral|hold"; then
+    elif echo "$decision_line" | grep -qE "$neutral_pattern"; then
         echo "neutral"
     else
         echo "neutral"
@@ -311,8 +304,14 @@ generate_timeline_json() {
         date_name=$(basename "$date_dir")
 
         # 查找报告文件（跳过没有报告的目录）
-        local report_path="$date_dir/reports"
+        # 注意：历史目录中文件直接在根目录，不在 reports 子目录
+        local report_path="$date_dir"
         if [ ! -d "$report_path" ] || [ ! "$(ls -A "$report_path" 2>/dev/null)" ]; then
+            continue
+        fi
+
+        # 跳过没有 md 文件的目录
+        if ! ls "$report_path"/*.md 1>/dev/null 2>&1; then
             continue
         fi
 

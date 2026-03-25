@@ -1,17 +1,18 @@
 ---
-title: BABA 阿里巴巴 - 2026-03-25_1232
+title: QQQ 纳斯达克 ETF - 2026-03-24_1847
 outline: [2, 3]
 ---
 
-# BABA 阿里巴巴 - 2026-03-25_1232
+# QQQ 纳斯达克 ETF - 2026-03-24_1847
 
-报告日期：2026-03-25 1232
+报告日期：2026-03-24 1847
 
-[← 返回 BABA 阿里巴巴 主页](../)
+[← 返回 QQQ 纳斯达克 ETF 主页](../)
 
 ## 报告导航
 
 - [完整分析报告](complete_report)
+- [最终交易决策](final_trade_decision)
 
 ### 分析师报告
 
@@ -39,3 +40,12 @@ outline: [2, 3]
 ### 投资决策
 
 - [组合决策](5_portfolio/decision)
+
+### 原始报告
+
+- [市场报告](market_report)
+- [情绪报告](sentiment_report)
+- [新闻报告](news_report)
+- [基本面报告](fundamentals_report)
+- [投资计划](investment_plan)
+- [交易员投资计划](trader_investment_plan)
