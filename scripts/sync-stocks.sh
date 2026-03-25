@@ -723,6 +723,9 @@ main() {
             copy_history_reports "$target_dir" "$stock_dir" "$symbol"
             # 生成时间轴数据 JSON
             generate_timeline_json "$target_dir" "$stock_dir"
+        else
+            # 生成空的 history.json（页面需要）
+            echo '[]' > "$target_dir/history.json"
         fi
 
         # 生成 index.md
