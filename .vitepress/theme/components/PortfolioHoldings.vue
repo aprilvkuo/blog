@@ -2,30 +2,34 @@
 import { ref, computed, onMounted } from 'vue'
 
 interface Holding {
-  name: string
   symbol: string
+  name: string
   market: string
   shares: number
-  cost_price?: number
-  current_price?: number
+  cost_price: number
+  current_price: number
   position_value?: number
-  position_value_hkd?: number
   position_value_cny?: number
   position_ratio?: number
-  profit_loss?: number
-  profit_loss_percent?: number
+  profit_loss: number
+  profit_loss_percent: number
+  today_profit_loss?: number
+  weight?: number
 }
 
 interface Account {
-  account_name: string
-  account_type: string
+  id: string
+  name: string
+  type: string
   currency: string
+  cash?: number
+  market_value?: number
+  total_value?: number
+  profit_loss?: number
+  profit_loss_percent?: number
+  today_profit_loss?: number
   holdings: Holding[]
   summary?: {
-    total_market_value?: number
-    total_cost?: number
-    total_profit_loss?: number
-    total_profit_loss_percent?: number
     total_estimated_value_cny?: number
     total_profit_loss_cny?: number
     total_profit_loss_percent?: number
@@ -34,11 +38,17 @@ interface Account {
   }
 }
 
-interface PortfolioData {
-  portfolio_name: string
+interface Meta {
+  name: string
   last_updated: string
+  base_currency: string
+  note: string
+}
+
+interface PortfolioData {
+  meta: Meta
   accounts: Account[]
-  notes?: string
+  notes?: string[]
 }
 
 // 在客户端加载持仓数据（从 public 目录的软链接文件）
@@ -68,19 +78,19 @@ const allPositions = computed(() => {
     account.holdings.forEach(holding => {
       positions.push({
         ...holding,
-        accountName: account.account_name,
-        accountType: account.account_type
+        accountName: account.name,
+        accountType: account.type
       })
     })
   })
   return positions
 })
 
-// 计算总市值（估算）
+// 计算总市值
 const totalValue = computed(() => {
-  return allPositions.value.reduce((sum, pos) => {
-    return sum + (pos.position_value || pos.position_value_hkd || pos.position_value_cny || 0)
-  }, 0)
+  return portfolio.value?.accounts.reduce((sum, acc) => {
+    return sum + (acc.total_value || acc.summary?.total_estimated_value_cny || 0)
+  }, 0) || 0
 })
 
 // 计算总盈亏
@@ -118,7 +128,7 @@ function getStockLink(symbol: string): string {
   let normalizedSymbol = symbol
 
   // 移除前导零（港股）
-  if (normalizedSymbol.match(/^\d{4}\.HK$/)) {
+  if (normalizedSymbol.match(/^0\d{3}\.HK$/)) {
     normalizedSymbol = normalizedSymbol.replace(/^0+/, '')
   }
 

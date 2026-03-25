@@ -27,7 +27,9 @@ outline: false
 
 - [阿里巴巴 (BABA)](BABA/)
 - [迪士尼 (DIS)](DIS/)
+- [GOOGL (GOOGL)](GOOGL/)
 - [微软 (MSFT)](MSFT/)
+- [NVDA (NVDA)](NVDA/)
 - [拼多多 (PDD)](PDD/)
 - [纳斯达克 ETF (QQQ)](QQQ/)
 - [标普 500 ETF (SPY)](SPY/)
