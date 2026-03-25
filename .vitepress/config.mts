@@ -260,7 +260,7 @@ function sidebarAbout() {
 }
 
 function sidebarStockAnalysis() {
-  // 股票分析侧边栏 - 按市场分类，只包含有最终交易决策的股票
+  // 股票分析侧边栏 - 按市场分类
   return [
     {
       text: '股票分析',
@@ -273,6 +273,7 @@ function sidebarStockAnalysis() {
       text: 'A 股',
       collapsed: false,
       items: [
+        { text: '000001.SS 上证指数', link: '000001.SS/index' },
         { text: '002594.SZ 比亚迪股份', link: '002594.SZ/index' },
         { text: '300750.SZ 宁德时代', link: '300750.SZ/index' },
         { text: '300760.SZ 迈瑞医疗', link: '300760.SZ/index' },
