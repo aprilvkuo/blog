@@ -44,7 +44,7 @@ pnpm run pages:deploy
 │       └── custom.css       # 自定义样式
 ├── index.md                 # 首页
 ├── scripts/                 # 工具脚本
-│   └── sync-stocks.sh       # 股票分析报告同步脚本
+│   └── sync-stocks.py       # 股票分析报告同步脚本（Python）
 └── package.json
 ```
 
@@ -87,8 +87,11 @@ scope: `ai`, `coding`, `finance`, `about`, `config`, `deps`, `stocks`
 ### 同步报告
 
 ```bash
-# 手动同步股票分析报告
-./scripts/sync-stocks.sh
+# 手动同步股票分析报告（默认同步历史报告）
+python3 scripts/sync-stocks.py
+
+# 仅同步最新报告（不生成历史记录）
+SYNC_HISTORY=false python3 scripts/sync-stocks.py
 ```
 
 ### 目录结构

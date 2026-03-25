@@ -33,12 +33,16 @@ jobs:
         run: |
           git clone --depth 1 https://github.com/${{ github.repository_owner }}/TradingAgents.git /tmp/TradingAgents
 
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
       - name: Run sync script
         env:
-          TRADING_AGENTS_DIR: /tmp/TradingAgents
-          BLOG_DIR: ${{ github.workspace }}
+          SYNC_HISTORY: 'true'
         run: |
-          bash scripts/sync-stocks.sh
+          python3 scripts/sync-stocks.py
 
       - name: Check for changes
         id: git-status

@@ -4,6 +4,7 @@ import { ref, computed } from 'vue'
 interface HistoryItem {
   date: string
   displayDate: string
+  displayTime?: string
   sentiment: 'bull' | 'bear' | 'neutral'
   sentimentLabel: string
   sentimentIcon: string
@@ -16,6 +17,9 @@ interface HistoryItem {
 const props = defineProps<{
   history: HistoryItem[]
 }>()
+
+// 计算报告总数
+const totalReports = computed(() => props.history.length)
 
 const expandedItems = ref<Set<string>>(new Set())
 
@@ -41,7 +45,10 @@ function isExpanded(date: string): boolean {
 
 <template>
   <div class="timeline-container">
-    <h3 class="timeline-title">📅 历史分析</h3>
+    <div class="timeline-header-row">
+      <h3 class="timeline-title">📅 历史分析</h3>
+      <span class="timeline-count" v-if="totalReports > 0">共 {{ totalReports }} 份报告</span>
+    </div>
     <div class="timeline">
       <div
         v-for="item in history"
@@ -50,7 +57,10 @@ function isExpanded(date: string): boolean {
         :class="{ expanded: isExpanded(item.date) }"
       >
         <div class="timeline-header" @click="toggleExpand(item.date)">
-          <span class="timeline-date">{{ item.displayDate }}</span>
+          <div class="timeline-date-wrapper">
+            <span class="timeline-date">{{ item.displayDate }}</span>
+            <span class="timeline-time" v-if="item.displayTime">{{ item.displayTime }}</span>
+          </div>
           <span
             class="timeline-sentiment"
             :style="sentimentColors[item.sentiment]"
@@ -89,11 +99,24 @@ function isExpanded(date: string): boolean {
   border: 1px solid var(--vp-c-divider);
 }
 
+.timeline-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
 .timeline-title {
   font-size: 1rem;
   font-weight: 600;
-  margin-bottom: 1rem;
   color: var(--vp-c-text-1);
+  margin: 0;
+}
+
+.timeline-count {
+  font-size: 0.875rem;
+  color: var(--vp-c-text-2);
+  font-weight: 500;
 }
 
 .timeline {
@@ -132,6 +155,18 @@ function isExpanded(date: string): boolean {
   font-size: 0.875rem;
   font-weight: 500;
   color: var(--vp-c-text-2);
+  white-space: nowrap;
+}
+
+.timeline-date-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.timeline-time {
+  font-size: 0.75rem;
+  color: var(--vp-c-text-3);
   white-space: nowrap;
 }
 
