@@ -345,11 +345,23 @@ generate_timeline_json() {
                 ;;
         esac
 
-        # 提取简短摘要（从决策文件中取第一行）
+        # 提取简短摘要（优先从 final_trade_decision.md，没有则用 investment_plan.md）
         local summary="暂无摘要"
         if [ -f "$decision_file" ]; then
-            summary=$(head -3 "$decision_file" | grep -v "^###" | head -1 | cut -c1-50)
+            # 提取 "### 决策" 或 "### 决策建议：" 行
+            summary=$(grep "^### 决策" "$decision_file" | head -1 | sed 's/^### //' | cut -c1-80)
         fi
+
+        # 如果没有决策文件，从 plan 文件提取
+        if [ "$summary" = "暂无摘要" ] && [ -f "$plan_file" ]; then
+            summary=$(grep "^### 决策" "$plan_file" | head -1 | sed 's/^### //' | cut -c1-80)
+            if [ -z "$summary" ]; then
+                summary=$(head -1 "$plan_file" | sed 's/^### //' | cut -c1-80)
+            fi
+        fi
+
+        # JSON 转义
+        summary=$(echo "$summary" | sed 's/"/\\"/g' | sed 's/\t/ /g')
 
         # 生成相对路径
         local rel_date_dir="../../history/$date_name"
