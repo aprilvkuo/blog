@@ -391,15 +391,124 @@ generate_timeline_json() {
 }
 
 # =============================================================================
-# 复制所有历史报告
+# 复制所有历史报告并生成 index.md
 # =============================================================================
+
+generate_history_index() {
+    local history_dir="$1"
+    local date_name="$2"
+    local stock_symbol="$3"
+    local stock_name="$4"
+
+    # 判断是最新报告还是历史报告
+    local is_latest=false
+    if [ "$date_name" = "latest" ]; then
+        is_latest=true
+    fi
+
+    # 计算返回上级目录的相对路径
+    local parent_path="../"
+
+    cat > "$history_dir/index.md" << EOF
+---
+title: ${stock_name} - ${date_name}
+outline: [2, 3]
+---
+
+# ${stock_name} - ${date_name}
+
+报告日期：${date_name/_/ }
+
+[← 返回 ${stock_name} 主页](${parent_path})
+
+## 报告导航
+
+EOF
+
+    # 核心报告
+    if [ -f "$history_dir/complete_report.md" ]; then
+        echo "- [完整分析报告](complete_report)" >> "$history_dir/index.md"
+    fi
+    if [ -f "$history_dir/final_trade_decision.md" ]; then
+        echo "- [最终交易决策](final_trade_decision)" >> "$history_dir/index.md"
+    fi
+
+    # 分析师报告
+    if [ -d "$history_dir/1_analysts" ]; then
+        echo "" >> "$history_dir/index.md"
+        echo "### 分析师报告" >> "$history_dir/index.md"
+        echo "" >> "$history_dir/index.md"
+        [ -f "$history_dir/1_analysts/market.md" ] && echo "- [市场分析](1_analysts/market)" >> "$history_dir/index.md"
+        [ -f "$history_dir/1_analysts/sentiment.md" ] && echo "- [情绪分析](1_analysts/sentiment)" >> "$history_dir/index.md"
+        [ -f "$history_dir/1_analysts/news.md" ] && echo "- [新闻分析](1_analysts/news)" >> "$history_dir/index.md"
+        [ -f "$history_dir/1_analysts/fundamentals.md" ] && echo "- [基本面分析](1_analysts/fundamentals)" >> "$history_dir/index.md"
+    fi
+
+    # 研究报告
+    if [ -d "$history_dir/2_research" ]; then
+        echo "" >> "$history_dir/index.md"
+        echo "### 研究报告" >> "$history_dir/index.md"
+        echo "" >> "$history_dir/index.md"
+        [ -f "$history_dir/2_research/bull.md" ] && echo "- [多方观点](2_research/bull)" >> "$history_dir/index.md"
+        [ -f "$history_dir/2_research/bear.md" ] && echo "- [空方观点](2_research/bear)" >> "$history_dir/index.md"
+        [ -f "$history_dir/2_research/manager.md" ] && echo "- [经理总结](2_research/manager)" >> "$history_dir/index.md"
+    fi
+
+    # 交易计划
+    if [ -d "$history_dir/3_trading" ]; then
+        echo "" >> "$history_dir/index.md"
+        echo "### 交易计划" >> "$history_dir/index.md"
+        echo "" >> "$history_dir/index.md"
+        [ -f "$history_dir/3_trading/trader.md" ] && echo "- [交易员计划](3_trading/trader)" >> "$history_dir/index.md"
+    fi
+
+    # 风险评估
+    if [ -d "$history_dir/4_risk" ]; then
+        echo "" >> "$history_dir/index.md"
+        echo "### 风险评估" >> "$history_dir/index.md"
+        echo "" >> "$history_dir/index.md"
+        [ -f "$history_dir/4_risk/aggressive.md" ] && echo "- [激进策略](4_risk/aggressive)" >> "$history_dir/index.md"
+        [ -f "$history_dir/4_risk/neutral.md" ] && echo "- [中性策略](4_risk/neutral)" >> "$history_dir/index.md"
+        [ -f "$history_dir/4_risk/conservative.md" ] && echo "- [保守策略](4_risk/conservative)" >> "$history_dir/index.md"
+    fi
+
+    # 投资决策
+    if [ -d "$history_dir/5_portfolio" ]; then
+        echo "" >> "$history_dir/index.md"
+        echo "### 投资决策" >> "$history_dir/index.md"
+        echo "" >> "$history_dir/index.md"
+        [ -f "$history_dir/5_portfolio/decision.md" ] && echo "- [组合决策](5_portfolio/decision)" >> "$history_dir/index.md"
+    fi
+
+    # 原始报告
+    local has_original=false
+    for f in market_report sentiment_report news_report fundamentals_report investment_plan trader_investment_plan; do
+        [ -f "$history_dir/${f}.md" ] && has_original=true && break
+    done
+
+    if [ "$has_original" = true ]; then
+        echo "" >> "$history_dir/index.md"
+        echo "### 原始报告" >> "$history_dir/index.md"
+        echo "" >> "$history_dir/index.md"
+        [ -f "$history_dir/market_report.md" ] && echo "- [市场报告](market_report)" >> "$history_dir/index.md"
+        [ -f "$history_dir/sentiment_report.md" ] && echo "- [情绪报告](sentiment_report)" >> "$history_dir/index.md"
+        [ -f "$history_dir/news_report.md" ] && echo "- [新闻报告](news_report)" >> "$history_dir/index.md"
+        [ -f "$history_dir/fundamentals_report.md" ] && echo "- [基本面报告](fundamentals_report)" >> "$history_dir/index.md"
+        [ -f "$history_dir/investment_plan.md" ] && echo "- [投资计划](investment_plan)" >> "$history_dir/index.md"
+        [ -f "$history_dir/trader_investment_plan.md" ] && echo "- [交易员投资计划](trader_investment_plan)" >> "$history_dir/index.md"
+    fi
+}
 
 copy_history_reports() {
     local target_dir="$1"
     local source_base="$2"
+    local symbol="$3"
 
     local history_dir="$target_dir/history"
     mkdir -p "$history_dir"
+
+    local stock_name
+    stock_name=$(get_stock_name "$symbol")
 
     # 复制所有日期目录
     for date_dir in "$source_base"/*/; do
@@ -408,9 +517,12 @@ copy_history_reports() {
         date_name=$(basename "$date_dir")
         local target_history="$history_dir/$date_name"
 
-        # 复制 reports 目录
+        # 复制 reports 目录到历史目录根目录
         if [ -d "$date_dir/reports" ]; then
-            cp -r "$date_dir/reports" "$target_history"
+            cp -r "$date_dir/reports"/* "$target_history/" 2>/dev/null || true
+
+            # 为该历史日期生成 index.md
+            generate_history_index "$target_history" "$date_name" "$symbol" "$stock_name"
         fi
     done
 }
@@ -560,6 +672,9 @@ main() {
 
         log_info "处理 $symbol..."
 
+        local stock_name
+        stock_name=$(get_stock_name "$symbol")
+
         local target_dir="$STOCK_ANALYSIS_DIR/$symbol"
         local target_path="$target_dir/latest"
 
@@ -572,8 +687,11 @@ main() {
         # 复制最新报告
         cp -r "$source_path" "$target_path"
 
+        # 为 latest 目录生成 index.md
+        generate_history_index "$target_path" "latest" "$symbol" "$stock_name"
+
         # 复制所有历史报告
-        copy_history_reports "$target_dir" "$stock_dir"
+        copy_history_reports "$target_dir" "$stock_dir" "$symbol"
 
         # 生成时间轴数据 JSON
         generate_timeline_json "$target_dir" "$stock_dir"
