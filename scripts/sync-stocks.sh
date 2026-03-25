@@ -103,26 +103,50 @@ EOF
 
     local has_content=false
 
-    # --- 核心报告 ---
+    # --- 优先显示 summary.md（如果存在） ---
+    if [ -f "$source_path/summary.md" ]; then
+        has_content=true
+        cat >> "$target_dir/index.md" << 'EOF'
+## 报告摘要
+
+EOF
+        # 移除 summary.md 的第一个一级标题（避免与页面标题冲突）和生成时间行，以及空行
+        sed -e '1s/^# .*$//' -e '/^> 生成时间.*$/d' -e '/^$/d' "$source_path/summary.md" >> "$target_dir/index.md"
+        echo "" >> "$target_dir/index.md"
+    fi
+
+    # --- 最终交易决策（如果存在且没有 summary.md，则嵌入内容） ---
+    if [ -f "$source_path/final_trade_decision.md" ]; then
+        # 只有在没有 summary.md 时才嵌入完整内容
+        if [ ! -f "$source_path/summary.md" ]; then
+            has_content=true
+            cat >> "$target_dir/index.md" << 'EOF'
+## 最终交易决策
+
+EOF
+            cat "$source_path/final_trade_decision.md" >> "$target_dir/index.md"
+            echo "" >> "$target_dir/index.md"
+        fi
+    fi
+
+    # --- 核心报告链接 ---
     if [ -f "$source_path/complete_report.md" ]; then
         has_content=true
         cat >> "$target_dir/index.md" << 'EOF'
-## 核心报告
+## 完整报告
 
 EOF
         echo "- [完整分析报告](latest/complete_report)" >> "$target_dir/index.md"
         echo "" >> "$target_dir/index.md"
     fi
 
-    # --- 最终交易决策（直接嵌入内容） ---
+    # --- 最终交易决策链接（如果上面没有嵌入内容） ---
     if [ -f "$source_path/final_trade_decision.md" ]; then
-        has_content=true
-        cat >> "$target_dir/index.md" << 'EOF'
-## 最终交易决策
-
-EOF
-        cat "$source_path/final_trade_decision.md" >> "$target_dir/index.md"
-        echo "" >> "$target_dir/index.md"
+        if [ -f "$source_path/summary.md" ]; then
+            # 有 summary.md 时，只显示链接
+            echo "- [最终交易决策](latest/final_trade_decision)" >> "$target_dir/index.md"
+            echo "" >> "$target_dir/index.md"
+        fi
     fi
 
     # --- 分析师报告 ---
