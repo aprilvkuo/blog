@@ -13,7 +13,7 @@ import data from './history.json?raw'
 const history = JSON.parse(data)
 </script>
 
-最新报告日期：2026-03-25_1134
+最新报告日期：2026-03-25_1633
 
 ## 结论
 **投资建议：买入（Buy）**

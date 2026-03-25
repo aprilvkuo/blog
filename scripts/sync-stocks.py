@@ -320,6 +320,23 @@ def remove_empty_sections(target_dir: Path) -> None:
     index_file.write_text(content, encoding='utf-8')
 
 
+def update_latest_report_date(target_dir: Path, latest_date: str) -> None:
+    """更新 index.md 中的最新报告日期"""
+    index_file = target_dir / "index.md"
+    if not index_file.exists():
+        return
+
+    content = index_file.read_text(encoding='utf-8')
+
+    # 查找并替换最新报告日期行
+    # 匹配格式：最新报告日期：2026-03-25_1232
+    old_date_match = re.search(r'最新报告日期：2026-\d{2}-\d{2}_\d{4}', content)
+    if old_date_match:
+        # 替换为最新日期
+        content = content.replace(old_date_match.group(0), f'最新报告日期：{latest_date}')
+        index_file.write_text(content, encoding='utf-8')
+
+
 def process_stock(symbol: str) -> bool:
     """处理单只股票"""
     src_stock_dir = SOURCE_DIR / symbol
@@ -408,6 +425,9 @@ def process_stock(symbol: str) -> bool:
 
     # 删除 index.md 中的空章节（如空的 ## 报告摘要）
     remove_empty_sections(target_dir)
+
+    # 更新 index.md 中的最新报告日期
+    update_latest_report_date(target_dir, latest_date)
 
     print(f"✅  {symbol} 已完成 ({latest_date})")
     return True
