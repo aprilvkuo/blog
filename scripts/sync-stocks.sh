@@ -536,12 +536,17 @@ copy_history_reports() {
     local stock_name
     stock_name=$(get_stock_name "$symbol")
 
-    # 复制所有日期目录
+    # 复制所有日期目录（仅复制有 summary.md 的）
     for date_dir in "$source_base"/*/; do
         [ -d "$date_dir" ] || continue
         local date_name
         date_name=$(basename "$date_dir")
         local target_history="$history_dir/$date_name"
+
+        # 跳过没有 summary.md 的废弃目录
+        if [ ! -f "$date_dir/reports/summary.md" ]; then
+            continue
+        fi
 
         # 复制 reports 目录到历史目录根目录
         if [ -d "$date_dir/reports" ]; then
