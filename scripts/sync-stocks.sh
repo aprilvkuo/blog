@@ -16,6 +16,9 @@
 
 set -e
 
+# 是否同步历史报告（设为 false 可加快速度）
+SYNC_HISTORY="${SYNC_HISTORY:-false}"
+
 # =============================================================================
 # 配置区域
 # =============================================================================
@@ -542,6 +545,7 @@ copy_history_reports() {
 
         # 复制 reports 目录到历史目录根目录
         if [ -d "$date_dir/reports" ]; then
+            mkdir -p "$target_history"
             cp -r "$date_dir/reports"/* "$target_history/" 2>/dev/null || true
 
             # 为该历史日期生成 index.md
@@ -633,8 +637,9 @@ cleanup_invalid_stocks() {
         symbol=$(basename "$stock_dir")
         [ "$symbol" = "latest" ] && continue
 
-        if [ ! -f "$stock_dir/latest/final_trade_decision.md" ]; then
-            log_skip "删除 $symbol (无最终交易决策)"
+        # 检查是否有 summary.md
+        if [ ! -f "$stock_dir/latest/summary.md" ]; then
+            log_skip "删除 $symbol (无 summary.md)"
             rm -rf "$stock_dir"
             ((cleaned++)) || true
         fi
@@ -676,17 +681,17 @@ main() {
         local symbol
         symbol=$(basename "$stock_dir")
 
-        # 找到第一个有 final_trade_decision.md 的日期目录（按时间排序）
+        # 找到最新的有 summary.md 的日期目录（按时间排序）
         local latest_date=""
         for date_dir in $(ls -t "$stock_dir" 2>/dev/null); do
-            if [ -f "$stock_dir$date_dir/reports/final_trade_decision.md" ]; then
+            if [ -f "$stock_dir$date_dir/reports/summary.md" ]; then
                 latest_date="$date_dir"
                 break
             fi
         done
 
         if [ -z "$latest_date" ]; then
-            log_skip "$symbol (无最终交易决策)"
+            log_skip "$symbol (无 summary.md)"
             ((skipped++)) || true
             continue
         fi
@@ -713,11 +718,12 @@ main() {
         # 为 latest 目录生成 index.md
         generate_history_index "$target_path" "latest" "$symbol" "$stock_name"
 
-        # 复制所有历史报告
-        copy_history_reports "$target_dir" "$stock_dir" "$symbol"
-
-        # 生成时间轴数据 JSON
-        generate_timeline_json "$target_dir" "$stock_dir"
+        # 复制所有历史报告（如果启用）
+        if [ "$SYNC_HISTORY" = "true" ]; then
+            copy_history_reports "$target_dir" "$stock_dir" "$symbol"
+            # 生成时间轴数据 JSON
+            generate_timeline_json "$target_dir" "$stock_dir"
+        fi
 
         # 生成 index.md
         generate_index_md "$target_dir" "$target_path" "$latest_date"

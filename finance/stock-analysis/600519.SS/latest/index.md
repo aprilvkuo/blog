@@ -12,7 +12,6 @@ outline: [2, 3]
 ## 报告导航
 
 - [完整分析报告](complete_report)
-- [最终交易决策](final_trade_decision)
 
 ### 分析师报告
 
@@ -40,12 +39,3 @@ outline: [2, 3]
 ### 投资决策
 
 - [组合决策](5_portfolio/decision)
-
-### 原始报告
-
-- [市场报告](market_report)
-- [情绪报告](sentiment_report)
-- [新闻报告](news_report)
-- [基本面报告](fundamentals_report)
-- [投资计划](investment_plan)
-- [交易员投资计划](trader_investment_plan)
