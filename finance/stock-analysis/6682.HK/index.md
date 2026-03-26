@@ -1,0 +1,62 @@
+---
+title: 6682.HK 6682.HK 分析报告
+outline: [2, 3]
+---
+
+# 6682.HK 6682.HK 分析报告
+
+<StockTimeline :history="history" />
+
+<script setup>
+import { ref } from 'vue'
+import data from './history.json?raw'
+const history = JSON.parse(data)
+</script>
+
+最新报告日期：2026-03-27_0655
+
+## 结论
+**最终决策：HOLD（维持空仓/持有现金）**
+
+当前基本面与技术面未形成共振，风险收益比不佳。尽管存在估值修复诱惑，但经营性现金流持续为负与应收账款恶化构成核心隐患。建议坚决维持空仓，等待基本面拐点（现金流转正）与技术面右侧信号（站稳 50 日均线）的双重确认。
+
+## 核心逻辑
+1.  **增长质量存疑**：公司 2024 年经营性现金流净流出 6.22 亿港元，连续四年为负。账面 27 亿现金应视为“生存保障”而非“扩张弹药”，在宏观逆风期，现金消耗速度远超预期。
+2.  **资产质量恶化**：应收账款高达 19.67 亿港元，周转天数长达 136 天。在经济衰退预期下，客户违约风险剧增，利润极易转化为坏账，构成流动性隐患。
+3.  **技术面确认下跌中继**：现价（36.06 港元）低于 VWMA（36.42 港元），表明近期进场资金全线被套。放量滞涨特征明显，大概率为主力出货而非吸筹，底部反转信号尚未确立。
+
+## 风险
+1.  **流动性危机**：若经营性现金流无法转正，现有现金储备可能无法支撑预期的 3-4 年运营，存在融资稀释或资金链断裂风险。
+2.  **坏账引爆**：高企的应收账款周转天数若继续恶化，将直接侵蚀净资产，引发市场信心崩盘。
+3.  **宏观逆风**：全球资金流向防御板块，成长股估值承压，若基本面未改善，股价可能进一步下探寻求支撑。
+
+## 完整报告
+
+- [完整分析报告](latest/complete_report)
+
+### 分析师报告
+
+- [市场分析](latest/1_analysts/market)
+- [情绪分析](latest/1_analysts/sentiment)
+- [新闻分析](latest/1_analysts/news)
+- [基本面分析](latest/1_analysts/fundamentals)
+
+### 研究报告
+
+- [多方观点](latest/2_research/bull)
+- [空方观点](latest/2_research/bear)
+- [经理总结](latest/2_research/manager)
+
+### 交易计划
+
+- [交易员计划](latest/3_trading/trader)
+
+### 风险评估
+
+- [激进策略](latest/4_risk/aggressive)
+- [中性策略](latest/4_risk/neutral)
+- [保守策略](latest/4_risk/conservative)
+
+### 投资决策
+
+- [组合决策](latest/5_portfolio/decision)
