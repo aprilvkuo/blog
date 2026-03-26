@@ -62,30 +62,30 @@ export default defineConfig({
       copyright: 'Copyright © 2026-present Egg Guo @ egguo.com',
     },
 
-    // 搜索配置 - 使用 VitePress 内置搜索
-    search: {
-      provider: 'local',
-      options: {
-        locales: {
-          root: {
-            translations: {
-              button: {
-                buttonText: '搜索',
-                buttonAriaLabel: '搜索文档',
-              },
-              modal: {
-                noResultsText: '无法找到相关结果',
-                resetButtonTitle: '清除查询条件',
-                footer: {
-                  selectText: '选择',
-                  navigateText: '切换',
-                },
-              },
-            },
-          },
-        },
-      },
-    },
+    // 搜索配置 - 禁用本地搜索（文件超过 25 MiB 限制）
+    // search: {
+    //   provider: 'local',
+    //   options: {
+    //     locales: {
+    //       root: {
+    //         translations: {
+    //           button: {
+    //             buttonText: '搜索',
+    //             buttonAriaLabel: '搜索文档',
+    //           },
+    //           modal: {
+    //             noResultsText: '无法找到相关结果',
+    //             resetButtonTitle: '清除查询条件',
+    //             footer: {
+    //               selectText: '选择',
+    //               navigateText: '切换',
+    //             },
+    //           },
+    //         },
+    //       },
+    //     },
+    //   },
+    // },
 
     // 暗黑模式支持（默认开启）
     colorMode: 'auto',
