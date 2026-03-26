@@ -1,0 +1,61 @@
+---
+title: 601318.SS 601318.SS 分析报告
+outline: [2, 3]
+---
+
+# 601318.SS 601318.SS 分析报告
+
+<StockTimeline :history="history" />
+
+<script setup>
+import { ref } from 'vue'
+import data from './history.json?raw'
+const history = JSON.parse(data)
+</script>
+
+最新报告日期：2026-03-26_1741
+
+## 结论
+**建议买入（修正后的分批建仓策略）**。当前估值已处于历史极值低位（PB 1.04 倍），具备极高的安全边际，但鉴于现金流恶化及技术趋势破位，不宜一次性重仓。建议执行**金字塔式建仓**：现价买入 30% 底仓，若回调至 52 元支撑位加仓 20%，右侧突破 200 日均线后再加仓 20%。严格设定 52.00 元为止损线，并以后续经营性现金流改善作为持仓核心验证指标。
+
+## 核心逻辑
+1.  **估值铁底**：市净率 1.04 倍、市盈率 7.42 倍接近清算价值，市场悲观预期已充分计价，下行空间有限。
+2.  **业绩修复**：2025 年前三季度净利润同比增长 47.8%，基本面好转确定性强，支撑估值修复。
+3.  **高股息保护**：4.37% 的股息率为长期资金提供安全垫，适合左侧逆向投资。
+4.  **纪律风控**：通过上移止损位至 52 元及监控现金流指标，有效规避“价值陷阱”风险，平衡贪婪与恐惧。
+
+## 风险
+1.  **现金流风险**：Q3 经营性现金流断崖式下跌至 19.62 亿元，若 Q4 无法恢复，可能影响分红能力及盈利质量。
+2.  **技术面弱势**：股价跌破 200 日均线且 MACD 死叉，趋势尚未反转，短期可能继续探底。
+3.  **催化剂缺失**：当前处于新闻真空期，缺乏驱动股价立即反转的短期动力，需忍受时间成本。
+
+## 完整报告
+
+- [完整分析报告](latest/complete_report)
+
+### 分析师报告
+
+- [市场分析](latest/1_analysts/market)
+- [情绪分析](latest/1_analysts/sentiment)
+- [新闻分析](latest/1_analysts/news)
+- [基本面分析](latest/1_analysts/fundamentals)
+
+### 研究报告
+
+- [多方观点](latest/2_research/bull)
+- [空方观点](latest/2_research/bear)
+- [经理总结](latest/2_research/manager)
+
+### 交易计划
+
+- [交易员计划](latest/3_trading/trader)
+
+### 风险评估
+
+- [激进策略](latest/4_risk/aggressive)
+- [中性策略](latest/4_risk/neutral)
+- [保守策略](latest/4_risk/conservative)
+
+### 投资决策
+
+- [组合决策](latest/5_portfolio/decision)
