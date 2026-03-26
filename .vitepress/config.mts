@@ -39,7 +39,6 @@ export default defineConfig({
       { text: 'AI', link: '/ai/' },
       { text: '编程', link: '/coding/' },
       { text: '金融', link: '/finance/' },
-      { text: '持仓', link: '/finance/portfolio/' },
       { text: '关于', link: '/about/' },
     ],
 
@@ -226,13 +225,6 @@ function sidebarFinance() {
       items: [
         { text: '概述', link: 'index' },
         { text: '资产配置', link: 'asset-allocation' },
-      ],
-    },
-    {
-      text: '我的持仓',
-      collapsed: false,
-      items: [
-        { text: '持仓总览', link: 'portfolio/' },
       ],
     },
     {
