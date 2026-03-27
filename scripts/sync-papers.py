@@ -176,6 +176,10 @@ def generate_papers_index() -> str:
     papers = []
 
     for md_file in sorted(TARGET_DIR.glob("*.md"), reverse=True):
+        # 跳过索引页自身
+        if md_file.stem == 'index':
+            continue
+
         content = md_file.read_text(encoding='utf-8')
 
         # 提取 frontmatter 信息
@@ -191,6 +195,9 @@ def generate_papers_index() -> str:
         tags = tags_match.group(1).split(', ') if tags_match else []
         date = date_match.group(1) if date_match else ""
 
+        # 从论文内容中提取摘要（从"结构化摘要"或"## 结论"部分）
+        abstract = extract_abstract(content)
+
         papers.append({
             'title': title,
             'arxiv': arxiv,
@@ -198,6 +205,7 @@ def generate_papers_index() -> str:
             'tags': tags,
             'date': date,
             'path': md_file.stem,
+            'abstract': abstract
         })
 
     # 按分类组织论文
@@ -240,7 +248,7 @@ outline: false
 
 """
 
-    # 按分类列出论文
+    # 按分类列出论文（带摘要）
     for category in sorted(papers_by_category.keys()):
         cat_papers = papers_by_category[category]
         cat_name = get_category_name(category)
@@ -250,8 +258,14 @@ outline: false
 
         for paper in sorted(cat_papers, key=lambda x: x['date'], reverse=True):
             tags_str = ' | '.join(paper['tags'])
+            abstract_str = paper['abstract'][:150] + '...' if len(paper['abstract']) > 150 else paper['abstract']
+
             content += f"- **[{paper['title']}](./{paper['path']})** \n"
-            content += f"  - arXiv: `{paper['arxiv']}` · {paper['date']} · {tags_str}\n\n"
+            content += f"  - arXiv: `{paper['arxiv']}` · {paper['date']} · {tags_str}\n"
+            if abstract_str:
+                content += f"  - *{abstract_str}*\n\n"
+            else:
+                content += "\n"
 
         content += "</div>\n\n"
 
@@ -267,6 +281,30 @@ outline: false
     content += "\n</div>\n"
 
     return content
+
+
+def extract_abstract(content: str) -> str:
+    """从论文内容中提取摘要"""
+    # 尝试从"结构化摘要"表格中提取
+    # 匹配表格中的"结论"行
+    conclusion_match = re.search(r'\|\s*\*\*结论\*\*\s*\|\s*(.+?)\s*\|', content, re.DOTALL)
+    if conclusion_match:
+        return conclusion_match.group(1).strip()
+
+    # 尝试从"## 结论"部分提取
+    conclusion_section = re.search(r'## 结论\s*\n(.*?)(?=## |\Z)', content, re.DOTALL)
+    if conclusion_section:
+        text = conclusion_section.group(1).strip()
+        # 取第一行或前 100 字符
+        first_line = text.split('\n')[0].strip()
+        return first_line[:200]
+
+    # 尝试从 description 提取
+    desc_match = re.search(r'^description: (.+?)$', content, re.MULTILINE)
+    if desc_match:
+        return desc_match.group(1).strip()
+
+    return ""
 
 
 def sync_papers() -> None:
