@@ -1,6 +1,6 @@
 ---
 title: LightRAG
-description: LightRAG: Simple and Fast Retrieval-Augmented Generation 双模式研读报告
+description: 'LightRAG: Simple and Fast Retrieval-Augmented Generation 双模式研读报告'
 date: 2026-03-27
 arxiv: 2410.05779
 category: rag

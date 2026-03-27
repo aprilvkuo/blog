@@ -1,6 +1,6 @@
 ---
 title: Bitnetcpp
-description: Bitnet.cpp: Efficient Edge Inference for Ternary LLMs 双模式研读报告
+description: 'Bitnet.cpp: Efficient Edge Inference for Ternary LLMs 双模式研读报告'
 date: 2026-03-27
 arxiv: 2502.11880
 category: optimization

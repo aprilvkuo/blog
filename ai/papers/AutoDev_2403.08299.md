@@ -1,6 +1,6 @@
 ---
 title: AutoDev
-description: AutoDev: Automated AI-Driven Development 双模式研读报告
+description: 'AutoDev: Automated AI-Driven Development 双模式研读报告'
 date: 2026-03-27
 arxiv: 2403.08299
 category: agent

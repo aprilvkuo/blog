@@ -11,29 +11,14 @@ hero:
     - theme: alt
       text: 关于本站
       link: /about/
-
-features:
-  - icon: 🤖
-    title: 人工智能
-    details: 机器学习、深度学习、大语言模型等 AI 相关笔记
-    link: /ai/
-    linkText: 探索 AI
-  - icon: 💻
-    title: 编程开发
-    details: 前端、后端、工具链、架构设计等技术总结
-    link: /coding/
-    linkText: 查看编程
-  - icon: 📈
-    title: 金融投资
-    details: 投资理论、量化交易、市场分析等金融知识
-    link: /finance/
-    linkText: 学习金融
 ---
 
 <script setup>
 import { VPTeamMembers } from 'vitepress/theme'
+import HomeFeatures from './.vitepress/theme/components/HomeFeatures.vue'
+import { ref } from 'vue'
 
-const members = [
+const members = ref([
   {
     avatar: 'https://github.com/aprilvkuo.png',
     name: 'Egg Guo',
@@ -42,8 +27,34 @@ const members = [
       { icon: 'github', link: 'https://github.com/aprilvkuo' },
     ]
   }
-]
+])
+
+const features = ref([
+  {
+    icon: '🤖',
+    title: '人工智能',
+    details: '机器学习、深度学习、大语言模型等 AI 相关笔记',
+    link: '/ai/',
+    linkText: '探索 AI'
+  },
+  {
+    icon: '💻',
+    title: '编程开发',
+    details: '前端、后端、工具链、架构设计等技术总结',
+    link: '/coding/',
+    linkText: '查看编程'
+  },
+  {
+    icon: '📈',
+    title: '金融投资',
+    details: '投资理论、量化交易、市场分析等金融知识',
+    link: '/finance/',
+    linkText: '学习金融'
+  }
+])
 </script>
+
+<HomeFeatures :features="features" />
 
 ## 最近更新
 

@@ -1,6 +1,6 @@
 ---
 title: EvoScientist
-description: EvoScientist: Towards Multi-Agent Evolving AI Scientists for End-to-End Scientific Discovery 双模式研读报告
+description: 'EvoScientist: Towards Multi-Agent Evolving AI Scientists for End-to-End Scientific Discovery 双模式研读报告'
 date: 2026-03-27
 arxiv: 2603.08127
 category: agent

@@ -1,6 +1,6 @@
 ---
 title: AgentScope10
-description: AgentScope 1.0: A Developer-Centric Framework for Building Agentic Applications 双模式研读报告
+description: 'AgentScope 1.0: A Developer-Centric Framework for Building Agentic Applications 双模式研读报告'
 date: 2026-03-27
 arxiv: 2508.16279
 category: agent

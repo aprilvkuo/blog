@@ -1,6 +1,6 @@
 ---
 title: PowerInfer
-description: PowerInfer: Fast Large Language Model Serving with a Consumer-grade GPU 双模式研读报告
+description: 'PowerInfer: Fast Large Language Model Serving with a Consumer-grade GPU 双模式研读报告'
 date: 2026-03-27
 arxiv: 2312.12456
 category: optimization

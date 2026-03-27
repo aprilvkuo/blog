@@ -1,6 +1,6 @@
 ---
 title: MiroThinker
-description: MiroThinker: Pushing the Performance Boundaries of Open-Source Research Agents via Model, Context, and Interactive Scaling 双模式研读报告
+description: 'MiroThinker: Pushing the Performance Boundaries of Open-Source Research Agents via Model, Context, and Interactive Scaling 双模式研读报告'
 date: 2026-03-27
 arxiv: 2511.11793
 category: agent

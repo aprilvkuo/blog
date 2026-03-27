@@ -1,6 +1,6 @@
 ---
 title: MetaClaw
-description: MetaClaw: Just Talk – An Agent That Meta-Learns and Evolves in the Wild 双模式研读报告
+description: 'MetaClaw: Just Talk – An Agent That Meta-Learns and Evolves in the Wild 双模式研读报告'
 date: 2026-03-27
 arxiv: 2603.17187
 category: other

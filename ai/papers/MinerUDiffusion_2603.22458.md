@@ -1,6 +1,6 @@
 ---
 title: MinerUDiffusion
-description: MinerU-Diffusion: Rethinking Document OCR as Inverse Rendering via Diffusion Decoding 双模式研读报告
+description: 'MinerU-Diffusion: Rethinking Document OCR as Inverse Rendering via Diffusion Decoding 双模式研读报告'
 date: 2026-03-27
 arxiv: 2603.22458
 category: framework

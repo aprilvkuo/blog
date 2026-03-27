@@ -1,6 +1,6 @@
 ---
 title: EverMemOS
-description: EverMemOS: A Self-Organizing Memory Operating System for Structured Long-Horizon Reasoning 双模式研读报告
+description: 'EverMemOS: A Self-Organizing Memory Operating System for Structured Long-Horizon Reasoning 双模式研读报告'
 date: 2026-03-27
 arxiv: 2601.02163
 category: memory

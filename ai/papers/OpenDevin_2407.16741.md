@@ -1,6 +1,6 @@
 ---
 title: OpenDevin
-description: OpenHands: An Open Platform for AI Software Developers as Generalist Agents 双模式研读报告
+description: 'OpenHands: An Open Platform for AI Software Developers as Generalist Agents 双模式研读报告'
 date: 2026-03-27
 arxiv: 2407.16741
 category: agent

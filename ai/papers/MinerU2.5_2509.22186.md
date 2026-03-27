@@ -1,6 +1,6 @@
 ---
 title: MinerU2.5
-description: MinerU2.5: 解耦视觉 - 语言模型用于高效高分辨率文档解析 双模式研读报告
+description: 'MinerU2.5: 解耦视觉 - 语言模型用于高效高分辨率文档解析 双模式研读报告'
 date: 2026-03-27
 arxiv: 2509.22186
 category: framework

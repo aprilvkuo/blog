@@ -1,6 +1,6 @@
 ---
 title: MemOS
-description: MemOS: A Memory OS for AI System 双模式研读报告
+description: 'MemOS: A Memory OS for AI System 双模式研读报告'
 date: 2026-03-27
 arxiv: 2507.03724
 category: memory

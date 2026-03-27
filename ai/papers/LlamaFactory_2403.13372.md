@@ -1,6 +1,6 @@
 ---
 title: LlamaFactory
-description: LlamaFactory: Unified Efficient Fine-Tuning of 100+ Language Models 双模式研读报告
+description: 'LlamaFactory: Unified Efficient Fine-Tuning of 100+ Language Models 双模式研读报告'
 date: 2026-03-27
 arxiv: 2403.13372
 category: framework

@@ -1,6 +1,6 @@
 ---
 title: OpenClawRL
-description: OpenClaw-RL: Train Any Agent Simply by Talking 双模式研读报告
+description: 'OpenClaw-RL: Train Any Agent Simply by Talking 双模式研读报告'
 date: 2026-03-27
 arxiv: 2603.10165
 category: rl

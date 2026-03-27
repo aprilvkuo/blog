@@ -1,6 +1,6 @@
 ---
 title: OmniFlatten
-description: OmniFlatten: An End-to-end GPT Model for Seamless Voice Conversation 双模式研读报告
+description: 'OmniFlatten: An End-to-end GPT Model for Seamless Voice Conversation 双模式研读报告'
 date: 2026-03-27
 arxiv: 2410.17799
 category: optimization

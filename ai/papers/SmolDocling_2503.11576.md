@@ -1,6 +1,6 @@
 ---
 title: SmolDocling
-description: SmolDocling: 超紧凑视觉语言模型用于端到端多模态文档转换 双模式研读报告
+description: 'SmolDocling: 超紧凑视觉语言模型用于端到端多模态文档转换 双模式研读报告'
 date: 2026-03-27
 arxiv: 2503.11576
 category: framework
