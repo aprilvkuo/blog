@@ -4,14 +4,14 @@ description: SpecEyes: Accelerating Agentic Multimodal LLMs via Speculative Perc
 date: 2026-03-27
 arxiv: 2603.23483
 category: optimization
-tags: ['scientific', 'optimization', 'llm', 'vision', 'efficiency', 'ocr']
+tags: ['ocr', 'efficiency', 'scientific', 'optimization', 'vision', 'llm']
 outline: [2, 3]
 ---
 
 ::: tip 📄 论文信息
 - **arXiv**: [2603.23483](https://arxiv.org/abs/2603.23483)
 - **分类**: 模型优化
-- **标签**: scientific, optimization, llm, vision, efficiency, ocr
+- **标签**: ocr, efficiency, scientific, optimization, vision, llm
 :::
 
 

@@ -4,14 +4,14 @@ description: Bitnet.cpp: Efficient Edge Inference for Ternary LLMs 双模式研�
 date: 2026-03-27
 arxiv: 2502.11880
 category: optimization
-tags: ['scientific', 'optimization', 'llm', 'quantization', 'efficiency']
+tags: ['efficiency', 'scientific', 'optimization', 'llm', 'quantization']
 outline: [2, 3]
 ---
 
 ::: tip 📄 论文信息
 - **arXiv**: [2502.11880](https://arxiv.org/abs/2502.11880)
 - **分类**: 模型优化
-- **标签**: scientific, optimization, llm, quantization, efficiency
+- **标签**: efficiency, scientific, optimization, llm, quantization
 :::
 
 

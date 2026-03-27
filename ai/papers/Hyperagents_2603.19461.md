@@ -4,14 +4,14 @@ description: HyperAgents 双模式研读报告
 date: 2026-03-27
 arxiv: 2603.19461
 category: agent
-tags: ['scientific', 'optimization', 'agent', 'social-simulation', 'rag']
+tags: ['social-simulation', 'scientific', 'optimization', 'rag', 'agent']
 outline: [2, 3]
 ---
 
 ::: tip 📄 论文信息
 - **arXiv**: [2603.19461](https://arxiv.org/abs/2603.19461)
 - **分类**: Agent/智能体
-- **标签**: scientific, optimization, agent, social-simulation, rag
+- **标签**: social-simulation, scientific, optimization, rag, agent
 :::
 
 

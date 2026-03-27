@@ -4,14 +4,14 @@ description: MemOS: A Memory OS for AI System 双模式研读报告
 date: 2026-03-27
 arxiv: 2507.03724
 category: memory
-tags: ['scientific', 'llm', 'memory', 'knowledge-graph', 'rag']
+tags: ['knowledge-graph', 'scientific', 'rag', 'memory', 'llm']
 outline: [2, 3]
 ---
 
 ::: tip 📄 论文信息
 - **arXiv**: [2507.03724](https://arxiv.org/abs/2507.03724)
 - **分类**: 记忆系统
-- **标签**: scientific, llm, memory, knowledge-graph, rag
+- **标签**: knowledge-graph, scientific, rag, memory, llm
 :::
 
 

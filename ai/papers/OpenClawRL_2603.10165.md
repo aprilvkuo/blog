@@ -4,14 +4,14 @@ description: OpenClaw-RL: Train Any Agent Simply by Talking 双模式研读报�
 date: 2026-03-27
 arxiv: 2603.10165
 category: rl
-tags: ['scientific', 'optimization', 'rl']
+tags: ['optimization', 'rl', 'scientific']
 outline: [2, 3]
 ---
 
 ::: tip 📄 论文信息
 - **arXiv**: [2603.10165](https://arxiv.org/abs/2603.10165)
 - **分类**: 强化学习
-- **标签**: scientific, optimization, rl
+- **标签**: optimization, rl, scientific
 :::
 
 

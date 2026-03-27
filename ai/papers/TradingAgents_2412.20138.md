@@ -4,14 +4,14 @@ description: TradingAgents: Multi-Agents LLM Financial Trading Framework 双模�
 date: 2026-03-27
 arxiv: 2412.20138
 category: finance
-tags: ['scientific', 'llm', 'multi-agent', 'social-simulation', 'finance']
+tags: ['multi-agent', 'social-simulation', 'scientific', 'finance', 'llm']
 outline: [2, 3]
 ---
 
 ::: tip 📄 论文信息
 - **arXiv**: [2412.20138](https://arxiv.org/abs/2412.20138)
 - **分类**: 金融/交易
-- **标签**: scientific, llm, multi-agent, social-simulation, finance
+- **标签**: multi-agent, social-simulation, scientific, finance, llm
 :::
 
 

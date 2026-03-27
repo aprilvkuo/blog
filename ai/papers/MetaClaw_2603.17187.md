@@ -4,14 +4,14 @@ description: MetaClaw: Just Talk – An Agent That Meta-Learns and Evolves in th
 date: 2026-03-27
 arxiv: 2603.17187
 category: other
-tags: ['scientific', 'optimization', 'llm', 'social-simulation', 'other']
+tags: ['social-simulation', 'scientific', 'optimization', 'other', 'llm']
 outline: [2, 3]
 ---
 
 ::: tip 📄 论文信息
 - **arXiv**: [2603.17187](https://arxiv.org/abs/2603.17187)
 - **分类**: 其他
-- **标签**: scientific, optimization, llm, social-simulation, other
+- **标签**: social-simulation, scientific, optimization, other, llm
 :::
 
 

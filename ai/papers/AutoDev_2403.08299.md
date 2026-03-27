@@ -4,14 +4,14 @@ description: AutoDev: Automated AI-Driven Development 双模式研读报告
 date: 2026-03-27
 arxiv: 2403.08299
 category: agent
-tags: ['scientific', 'llm', 'agent']
+tags: ['llm', 'agent', 'scientific']
 outline: [2, 3]
 ---
 
 ::: tip 📄 论文信息
 - **arXiv**: [2403.08299](https://arxiv.org/abs/2403.08299)
 - **分类**: Agent/智能体
-- **标签**: scientific, llm, agent
+- **标签**: llm, agent, scientific
 :::
 
 

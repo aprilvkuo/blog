@@ -4,14 +4,14 @@ description: LlamaFactory: Unified Efficient Fine-Tuning of 100+ Language Models
 date: 2026-03-27
 arxiv: 2403.13372
 category: framework
-tags: ['scientific', 'llm', 'framework', 'distributed', 'efficiency']
+tags: ['framework', 'efficiency', 'scientific', 'distributed', 'llm']
 outline: [2, 3]
 ---
 
 ::: tip 📄 论文信息
 - **arXiv**: [2403.13372](https://arxiv.org/abs/2403.13372)
 - **分类**: 工具/框架
-- **标签**: scientific, llm, framework, distributed, efficiency
+- **标签**: framework, efficiency, scientific, distributed, llm
 :::
 
 

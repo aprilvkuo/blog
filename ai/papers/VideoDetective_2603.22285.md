@@ -4,14 +4,14 @@ description: VideoDetective 双模式研读报告
 date: 2026-03-27
 arxiv: 2603.22285
 category: multimodal
-tags: ['scientific', 'optimization', 'llm', 'vision', 'knowledge-graph', 'multimodal', 'rag']
+tags: ['knowledge-graph', 'multimodal', 'scientific', 'optimization', 'rag', 'vision', 'llm']
 outline: [2, 3]
 ---
 
 ::: tip 📄 论文信息
 - **arXiv**: [2603.22285](https://arxiv.org/abs/2603.22285)
 - **分类**: 多模态
-- **标签**: scientific, optimization, llm, vision, knowledge-graph, multimodal, rag
+- **标签**: knowledge-graph, multimodal, scientific, optimization, rag, vision, llm
 :::
 
 

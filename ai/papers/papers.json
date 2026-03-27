@@ -4,9 +4,9 @@
     "arxiv": "2504.08066",
     "category": "agent",
     "tags": [
-      "scientific",
       "vision",
-      "llm"
+      "llm",
+      "scientific"
     ],
     "date": "2026-03-27",
     "slug": "AIScientistv2_2504.08066"
@@ -16,11 +16,11 @@
     "arxiv": "2508.16279",
     "category": "agent",
     "tags": [
+      "multi-agent",
+      "efficiency",
       "scientific",
       "optimization",
-      "llm",
-      "efficiency",
-      "multi-agent"
+      "llm"
     ],
     "date": "2026-03-27",
     "slug": "AgentScope10_2508.16279"
@@ -30,12 +30,12 @@
     "arxiv": "2407.17789",
     "category": "agent",
     "tags": [
-      "scientific",
-      "llm",
-      "distributed",
-      "efficiency",
       "multi-agent",
-      "social-simulation"
+      "social-simulation",
+      "efficiency",
+      "scientific",
+      "distributed",
+      "llm"
     ],
     "date": "2026-03-27",
     "slug": "AgentScope_2407.17789"
@@ -45,9 +45,9 @@
     "arxiv": "2603.15031",
     "category": "optimization",
     "tags": [
-      "scientific",
+      "llm",
       "efficiency",
-      "llm"
+      "scientific"
     ],
     "date": "2026-03-27",
     "slug": "AttentionResiduals_2603.15031"
@@ -57,8 +57,8 @@
     "arxiv": "2403.08299",
     "category": "agent",
     "tags": [
-      "scientific",
-      "llm"
+      "llm",
+      "scientific"
     ],
     "date": "2026-03-27",
     "slug": "AutoDev_2403.08299"
@@ -68,10 +68,10 @@
     "arxiv": "2603.12254",
     "category": "other",
     "tags": [
-      "efficiency",
       "optimization",
-      "vision",
-      "llm"
+      "llm",
+      "efficiency",
+      "vision"
     ],
     "date": "2026-03-27",
     "slug": "AutoGaze_2603.12254"
@@ -81,11 +81,11 @@
     "arxiv": "2502.11880",
     "category": "optimization",
     "tags": [
+      "efficiency",
       "scientific",
       "optimization",
       "llm",
-      "quantization",
-      "efficiency"
+      "quantization"
     ],
     "date": "2026-03-27",
     "slug": "Bitnetcpp_2502.11880"
@@ -95,8 +95,8 @@
     "arxiv": "2601.02163",
     "category": "memory",
     "tags": [
-      "scientific",
-      "llm"
+      "llm",
+      "scientific"
     ],
     "date": "2026-03-27",
     "slug": "EverMemOS_2601.02163"
@@ -106,10 +106,10 @@
     "arxiv": "2603.08127",
     "category": "agent",
     "tags": [
-      "scientific",
       "llm",
-      "social-simulation",
-      "multi-agent"
+      "multi-agent",
+      "scientific",
+      "social-simulation"
     ],
     "date": "2026-03-27",
     "slug": "EvoScientist_2603.08127"
@@ -119,11 +119,11 @@
     "arxiv": "2603.08823",
     "category": "multimodal",
     "tags": [
+      "speech",
       "scientific",
       "optimization",
-      "llm",
-      "speech",
-      "vision"
+      "vision",
+      "llm"
     ],
     "date": "2026-03-27",
     "slug": "FishAudioS2_2603.08823"
@@ -133,10 +133,10 @@
     "arxiv": "2603.19461",
     "category": "agent",
     "tags": [
-      "scientific",
       "optimization",
-      "rag",
-      "social-simulation"
+      "social-simulation",
+      "scientific",
+      "rag"
     ],
     "date": "2026-03-27",
     "slug": "Hyperagents_2603.19461"
@@ -146,11 +146,11 @@
     "arxiv": "2601.03233",
     "category": "framework",
     "tags": [
+      "speech",
+      "efficiency",
       "scientific",
       "optimization",
-      "speech",
-      "vision",
-      "efficiency"
+      "vision"
     ],
     "date": "2026-03-27",
     "slug": "LTX2_2601.03233"
@@ -160,8 +160,8 @@
     "arxiv": "2603.19312",
     "category": "world_model",
     "tags": [
-      "scientific",
-      "llm"
+      "llm",
+      "scientific"
     ],
     "date": "2026-03-27",
     "slug": "LeWorldModel_2603.19312"
@@ -171,11 +171,11 @@
     "arxiv": "2410.05779",
     "category": "rag",
     "tags": [
-      "scientific",
-      "llm",
-      "efficiency",
       "knowledge-graph",
-      "rag"
+      "efficiency",
+      "scientific",
+      "rag",
+      "llm"
     ],
     "date": "2026-03-27",
     "slug": "LightRAG_2410.05779"
@@ -185,10 +185,10 @@
     "arxiv": "2403.13372",
     "category": "framework",
     "tags": [
-      "scientific",
-      "distributed",
+      "llm",
       "efficiency",
-      "llm"
+      "scientific",
+      "distributed"
     ],
     "date": "2026-03-27",
     "slug": "LlamaFactory_2403.13372"
@@ -198,9 +198,9 @@
     "arxiv": "2504.19413",
     "category": "memory",
     "tags": [
+      "llm",
       "scientific",
-      "rag",
-      "llm"
+      "rag"
     ],
     "date": "2026-03-27",
     "slug": "Mem0_2504.19413"
@@ -211,9 +211,9 @@
     "category": "memory",
     "tags": [
       "knowledge-graph",
+      "llm",
       "scientific",
-      "rag",
-      "llm"
+      "rag"
     ],
     "date": "2026-03-27",
     "slug": "MemOS_2507.03724"
@@ -223,9 +223,9 @@
     "arxiv": "2603.18743",
     "category": "memory",
     "tags": [
-      "scientific",
       "optimization",
-      "llm"
+      "llm",
+      "scientific"
     ],
     "date": "2026-03-27",
     "slug": "MementoSkills_2603.18743"
@@ -235,9 +235,9 @@
     "arxiv": "2603.17187",
     "category": "other",
     "tags": [
-      "scientific",
       "optimization",
       "llm",
+      "scientific",
       "social-simulation"
     ],
     "date": "2026-03-27",
@@ -248,13 +248,13 @@
     "arxiv": "2509.22186",
     "category": "framework",
     "tags": [
+      "ocr",
+      "efficiency",
       "scientific",
       "optimization",
-      "llm",
+      "rag",
       "vision",
-      "efficiency",
-      "ocr",
-      "rag"
+      "llm"
     ],
     "date": "2026-03-27",
     "slug": "MinerU2.5_2509.22186"
@@ -264,10 +264,10 @@
     "arxiv": "2603.22458",
     "category": "framework",
     "tags": [
-      "scientific",
+      "ocr",
       "vision",
       "efficiency",
-      "ocr"
+      "scientific"
     ],
     "date": "2026-03-27",
     "slug": "MinerUDiffusion_2603.22458"
@@ -277,9 +277,9 @@
     "arxiv": "2511.11793",
     "category": "agent",
     "tags": [
-      "scientific",
       "optimization",
-      "llm"
+      "llm",
+      "scientific"
     ],
     "date": "2026-03-27",
     "slug": "MiroThinker_2511.11793"
@@ -289,12 +289,12 @@
     "arxiv": "2410.17799",
     "category": "optimization",
     "tags": [
-      "scientific",
-      "llm",
       "speech",
-      "vision",
       "efficiency",
-      "rag"
+      "scientific",
+      "rag",
+      "vision",
+      "llm"
     ],
     "date": "2026-03-27",
     "slug": "OmniFlatten_2410.17799"
@@ -304,8 +304,8 @@
     "arxiv": "2603.10165",
     "category": "rl",
     "tags": [
-      "scientific",
-      "optimization"
+      "optimization",
+      "scientific"
     ],
     "date": "2026-03-27",
     "slug": "OpenClawRL_2603.10165"
@@ -315,10 +315,10 @@
     "arxiv": "2407.16741",
     "category": "agent",
     "tags": [
-      "scientific",
       "llm",
-      "social-simulation",
-      "multi-agent"
+      "multi-agent",
+      "scientific",
+      "social-simulation"
     ],
     "date": "2026-03-27",
     "slug": "OpenDevin_2407.16741"
@@ -328,11 +328,11 @@
     "arxiv": "2510.14528",
     "category": "multimodal",
     "tags": [
+      "ocr",
+      "efficiency",
       "scientific",
       "optimization",
-      "vision",
-      "efficiency",
-      "ocr"
+      "vision"
     ],
     "date": "2026-03-27",
     "slug": "PaddleOCRVL_2510.14528"
@@ -342,11 +342,11 @@
     "arxiv": "2312.12456",
     "category": "optimization",
     "tags": [
+      "efficiency",
       "scientific",
       "optimization",
       "llm",
-      "quantization",
-      "efficiency"
+      "quantization"
     ],
     "date": "2026-03-27",
     "slug": "PowerInfer_2312.12456"
@@ -356,10 +356,10 @@
     "arxiv": "2502.06855",
     "category": "rl",
     "tags": [
-      "scientific",
       "optimization",
+      "llm",
       "efficiency",
-      "llm"
+      "scientific"
     ],
     "date": "2026-03-27",
     "slug": "SSPO_2502.06855"
@@ -369,12 +369,12 @@
     "arxiv": "2503.11576",
     "category": "framework",
     "tags": [
+      "ocr",
+      "efficiency",
       "scientific",
       "optimization",
-      "llm",
       "vision",
-      "efficiency",
-      "ocr"
+      "llm"
     ],
     "date": "2026-03-27",
     "slug": "SmolDocling_2503.11576"
@@ -384,11 +384,11 @@
     "arxiv": "2603.23483",
     "category": "optimization",
     "tags": [
-      "scientific",
-      "llm",
-      "vision",
+      "ocr",
       "efficiency",
-      "ocr"
+      "scientific",
+      "vision",
+      "llm"
     ],
     "date": "2026-03-27",
     "slug": "SpecEyes_2603.23483"
@@ -398,11 +398,11 @@
     "arxiv": "2412.20138",
     "category": "finance",
     "tags": [
-      "scientific",
-      "llm",
       "multi-agent",
       "social-simulation",
-      "finance"
+      "scientific",
+      "finance",
+      "llm"
     ],
     "date": "2026-03-27",
     "slug": "TradingAgents_2412.20138"
@@ -412,12 +412,12 @@
     "arxiv": "2603.22285",
     "category": "multimodal",
     "tags": [
+      "knowledge-graph",
       "scientific",
       "optimization",
-      "llm",
+      "rag",
       "vision",
-      "knowledge-graph",
-      "rag"
+      "llm"
     ],
     "date": "2026-03-27",
     "slug": "VideoDetective_2603.22285"
@@ -427,8 +427,8 @@
     "arxiv": "2603.23497",
     "category": "world_model",
     "tags": [
-      "scientific",
-      "vision"
+      "vision",
+      "scientific"
     ],
     "date": "2026-03-27",
     "slug": "WildWorld_2603.23497"
@@ -438,11 +438,11 @@
     "arxiv": "2603.21986",
     "category": "multimodal",
     "tags": [
+      "speech",
+      "efficiency",
       "scientific",
       "optimization",
-      "speech",
-      "vision",
-      "efficiency"
+      "vision"
     ],
     "date": "2026-03-27",
     "slug": "daVinciMagiHuman_2603.21986"

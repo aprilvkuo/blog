@@ -4,14 +4,14 @@ description: MinerU-Diffusion: Rethinking Document OCR as Inverse Rendering via 
 date: 2026-03-27
 arxiv: 2603.22458
 category: framework
-tags: ['scientific', 'framework', 'vision', 'efficiency', 'ocr']
+tags: ['ocr', 'framework', 'efficiency', 'scientific', 'vision']
 outline: [2, 3]
 ---
 
 ::: tip 📄 论文信息
 - **arXiv**: [2603.22458](https://arxiv.org/abs/2603.22458)
 - **分类**: 工具/框架
-- **标签**: scientific, framework, vision, efficiency, ocr
+- **标签**: ocr, framework, efficiency, scientific, vision
 :::
 
 

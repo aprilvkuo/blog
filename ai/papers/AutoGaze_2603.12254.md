@@ -4,14 +4,14 @@ description: Attend Before Attention (AutoGaze) 双模式研读报告
 date: 2026-03-27
 arxiv: 2603.12254
 category: other
-tags: ['optimization', 'llm', 'vision', 'efficiency', 'other']
+tags: ['efficiency', 'other', 'optimization', 'vision', 'llm']
 outline: [2, 3]
 ---
 
 ::: tip 📄 论文信息
 - **arXiv**: [2603.12254](https://arxiv.org/abs/2603.12254)
 - **分类**: 其他
-- **标签**: optimization, llm, vision, efficiency, other
+- **标签**: efficiency, other, optimization, vision, llm
 :::
 
 

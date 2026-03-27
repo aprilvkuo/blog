@@ -4,14 +4,14 @@ description: OmniFlatten: An End-to-end GPT Model for Seamless Voice Conversatio
 date: 2026-03-27
 arxiv: 2410.17799
 category: optimization
-tags: ['scientific', 'optimization', 'llm', 'speech', 'vision', 'efficiency', 'rag']
+tags: ['speech', 'efficiency', 'scientific', 'optimization', 'rag', 'vision', 'llm']
 outline: [2, 3]
 ---
 
 ::: tip 📄 论文信息
 - **arXiv**: [2410.17799](https://arxiv.org/abs/2410.17799)
 - **分类**: 模型优化
-- **标签**: scientific, optimization, llm, speech, vision, efficiency, rag
+- **标签**: speech, efficiency, scientific, optimization, rag, vision, llm
 :::
 
 

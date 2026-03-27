@@ -4,14 +4,14 @@ description: MiroThinker: Pushing the Performance Boundaries of Open-Source Rese
 date: 2026-03-27
 arxiv: 2511.11793
 category: agent
-tags: ['scientific', 'optimization', 'llm', 'agent']
+tags: ['optimization', 'llm', 'agent', 'scientific']
 outline: [2, 3]
 ---
 
 ::: tip 📄 论文信息
 - **arXiv**: [2511.11793](https://arxiv.org/abs/2511.11793)
 - **分类**: Agent/智能体
-- **标签**: scientific, optimization, llm, agent
+- **标签**: optimization, llm, agent, scientific
 :::
 
 

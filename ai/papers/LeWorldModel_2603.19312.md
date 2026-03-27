@@ -4,14 +4,14 @@ description: Attention Residuals 双模式研读报告
 date: 2026-03-27
 arxiv: 2603.19312
 category: world_model
-tags: ['world_model', 'scientific', 'llm']
+tags: ['world_model', 'llm', 'scientific']
 outline: [2, 3]
 ---
 
 ::: tip 📄 论文信息
 - **arXiv**: [2603.19312](https://arxiv.org/abs/2603.19312)
 - **分类**: 世界模型
-- **标签**: world_model, scientific, llm
+- **标签**: world_model, llm, scientific
 :::
 
 

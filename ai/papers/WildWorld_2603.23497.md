@@ -4,14 +4,14 @@ description: WildWorld 双模式研读报告
 date: 2026-03-27
 arxiv: 2603.23497
 category: world_model
-tags: ['world_model', 'scientific', 'vision']
+tags: ['world_model', 'vision', 'scientific']
 outline: [2, 3]
 ---
 
 ::: tip 📄 论文信息
 - **arXiv**: [2603.23497](https://arxiv.org/abs/2603.23497)
 - **分类**: 世界模型
-- **标签**: world_model, scientific, vision
+- **标签**: world_model, vision, scientific
 :::
 
 

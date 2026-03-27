@@ -4,14 +4,14 @@ description: LightRAG: Simple and Fast Retrieval-Augmented Generation 双模式�
 date: 2026-03-27
 arxiv: 2410.05779
 category: rag
-tags: ['scientific', 'llm', 'efficiency', 'knowledge-graph', 'rag']
+tags: ['knowledge-graph', 'efficiency', 'scientific', 'rag', 'llm']
 outline: [2, 3]
 ---
 
 ::: tip 📄 论文信息
 - **arXiv**: [2410.05779](https://arxiv.org/abs/2410.05779)
 - **分类**: RAG/检索增强
-- **标签**: scientific, llm, efficiency, knowledge-graph, rag
+- **标签**: knowledge-graph, efficiency, scientific, rag, llm
 :::
 
 

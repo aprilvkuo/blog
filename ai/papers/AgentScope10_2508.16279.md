@@ -4,14 +4,14 @@ description: AgentScope 1.0: A Developer-Centric Framework for Building Agentic 
 date: 2026-03-27
 arxiv: 2508.16279
 category: agent
-tags: ['scientific', 'optimization', 'llm', 'efficiency', 'agent', 'multi-agent']
+tags: ['multi-agent', 'efficiency', 'scientific', 'optimization', 'llm', 'agent']
 outline: [2, 3]
 ---
 
 ::: tip 📄 论文信息
 - **arXiv**: [2508.16279](https://arxiv.org/abs/2508.16279)
 - **分类**: Agent/智能体
-- **标签**: scientific, optimization, llm, efficiency, agent, multi-agent
+- **标签**: multi-agent, efficiency, scientific, optimization, llm, agent
 :::
 
 

@@ -4,14 +4,14 @@ description: PowerInfer: Fast Large Language Model Serving with a Consumer-grade
 date: 2026-03-27
 arxiv: 2312.12456
 category: optimization
-tags: ['scientific', 'optimization', 'llm', 'quantization', 'efficiency']
+tags: ['efficiency', 'scientific', 'optimization', 'llm', 'quantization']
 outline: [2, 3]
 ---
 
 ::: tip 📄 论文信息
 - **arXiv**: [2312.12456](https://arxiv.org/abs/2312.12456)
 - **分类**: 模型优化
-- **标签**: scientific, optimization, llm, quantization, efficiency
+- **标签**: efficiency, scientific, optimization, llm, quantization
 :::
 
 

@@ -4,14 +4,14 @@ description: Attention Residuals 双模式研读报告
 date: 2026-03-27
 arxiv: 2603.15031
 category: optimization
-tags: ['llm', 'scientific', 'optimization', 'efficiency']
+tags: ['optimization', 'llm', 'efficiency', 'scientific']
 outline: [2, 3]
 ---
 
 ::: tip 📄 论文信息
 - **arXiv**: [2603.15031](https://arxiv.org/abs/2603.15031)
 - **分类**: 模型优化
-- **标签**: llm, scientific, optimization, efficiency
+- **标签**: optimization, llm, efficiency, scientific
 :::
 
 

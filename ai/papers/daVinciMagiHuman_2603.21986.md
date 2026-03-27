@@ -4,14 +4,14 @@ description: daVinci-MagiHuman 双模式研读报告
 date: 2026-03-27
 arxiv: 2603.21986
 category: multimodal
-tags: ['scientific', 'optimization', 'speech', 'vision', 'efficiency', 'multimodal']
+tags: ['speech', 'multimodal', 'efficiency', 'scientific', 'optimization', 'vision']
 outline: [2, 3]
 ---
 
 ::: tip 📄 论文信息
 - **arXiv**: [2603.21986](https://arxiv.org/abs/2603.21986)
 - **分类**: 多模态
-- **标签**: scientific, optimization, speech, vision, efficiency, multimodal
+- **标签**: speech, multimodal, efficiency, scientific, optimization, vision
 :::
 
 

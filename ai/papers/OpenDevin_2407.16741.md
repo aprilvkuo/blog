@@ -4,14 +4,14 @@ description: OpenHands: An Open Platform for AI Software Developers as Generalis
 date: 2026-03-27
 arxiv: 2407.16741
 category: agent
-tags: ['scientific', 'llm', 'agent', 'multi-agent', 'social-simulation']
+tags: ['multi-agent', 'social-simulation', 'scientific', 'llm', 'agent']
 outline: [2, 3]
 ---
 
 ::: tip 📄 论文信息
 - **arXiv**: [2407.16741](https://arxiv.org/abs/2407.16741)
 - **分类**: Agent/智能体
-- **标签**: scientific, llm, agent, multi-agent, social-simulation
+- **标签**: multi-agent, social-simulation, scientific, llm, agent
 :::
 
 

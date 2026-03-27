@@ -4,14 +4,14 @@ description: Fish Audio S2 Technical Report 双模式研读报告
 date: 2026-03-27
 arxiv: 2603.08823
 category: multimodal
-tags: ['scientific', 'optimization', 'llm', 'speech', 'vision', 'multimodal']
+tags: ['speech', 'multimodal', 'scientific', 'optimization', 'vision', 'llm']
 outline: [2, 3]
 ---
 
 ::: tip 📄 论文信息
 - **arXiv**: [2603.08823](https://arxiv.org/abs/2603.08823)
 - **分类**: 多模态
-- **标签**: scientific, optimization, llm, speech, vision, multimodal
+- **标签**: speech, multimodal, scientific, optimization, vision, llm
 :::
 
 

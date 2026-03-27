@@ -4,14 +4,14 @@ description: SmolDocling: 超紧凑视觉语言模型用于端到端多模态文
 date: 2026-03-27
 arxiv: 2503.11576
 category: framework
-tags: ['scientific', 'optimization', 'llm', 'framework', 'vision', 'efficiency', 'ocr']
+tags: ['ocr', 'framework', 'efficiency', 'scientific', 'optimization', 'vision', 'llm']
 outline: [2, 3]
 ---
 
 ::: tip 📄 论文信息
 - **arXiv**: [2503.11576](https://arxiv.org/abs/2503.11576)
 - **分类**: 工具/框架
-- **标签**: scientific, optimization, llm, framework, vision, efficiency, ocr
+- **标签**: ocr, framework, efficiency, scientific, optimization, vision, llm
 :::
 
 

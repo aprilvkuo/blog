@@ -4,14 +4,14 @@ description: PaddleOCR-VL 双模式研读报告
 date: 2026-03-27
 arxiv: 2510.14528
 category: multimodal
-tags: ['scientific', 'optimization', 'vision', 'efficiency', 'multimodal', 'ocr']
+tags: ['ocr', 'multimodal', 'efficiency', 'scientific', 'optimization', 'vision']
 outline: [2, 3]
 ---
 
 ::: tip 📄 论文信息
 - **arXiv**: [2510.14528](https://arxiv.org/abs/2510.14528)
 - **分类**: 多模态
-- **标签**: scientific, optimization, vision, efficiency, multimodal, ocr
+- **标签**: ocr, multimodal, efficiency, scientific, optimization, vision
 :::
 
 

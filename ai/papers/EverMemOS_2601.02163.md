@@ -4,14 +4,14 @@ description: EverMemOS: A Self-Organizing Memory Operating System for Structured
 date: 2026-03-27
 arxiv: 2601.02163
 category: memory
-tags: ['scientific', 'llm', 'memory']
+tags: ['memory', 'scientific', 'llm']
 outline: [2, 3]
 ---
 
 ::: tip 📄 论文信息
 - **arXiv**: [2601.02163](https://arxiv.org/abs/2601.02163)
 - **分类**: 记忆系统
-- **标签**: scientific, llm, memory
+- **标签**: memory, scientific, llm
 :::
 
 

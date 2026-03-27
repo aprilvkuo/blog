@@ -4,14 +4,14 @@ description: MinerU2.5: 解耦视觉 - 语言模型用于高效高分辨率文�
 date: 2026-03-27
 arxiv: 2509.22186
 category: framework
-tags: ['scientific', 'optimization', 'llm', 'framework', 'vision', 'efficiency', 'ocr', 'rag']
+tags: ['ocr', 'framework', 'efficiency', 'scientific', 'optimization', 'rag', 'vision', 'llm']
 outline: [2, 3]
 ---
 
 ::: tip 📄 论文信息
 - **arXiv**: [2509.22186](https://arxiv.org/abs/2509.22186)
 - **分类**: 工具/框架
-- **标签**: scientific, optimization, llm, framework, vision, efficiency, ocr, rag
+- **标签**: ocr, framework, efficiency, scientific, optimization, rag, vision, llm
 :::
 
 
