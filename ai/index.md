@@ -7,6 +7,24 @@ description: 人工智能领域的基础概念和学习路线
 
 人工智能（Artificial Intelligence）是计算机科学的一个重要分支，致力于创建能够执行通常需要人类智能的任务的系统。
 
+## 论文研读
+
+最近的论文研读报告：
+
+- [AgentScope](papers/AgentScope_2407.17789) - arXiv:2407.17789
+- [AgentScope10](papers/AgentScope10_2508.16279) - arXiv:2508.16279
+- [AIScientistv2](papers/AIScientistv2_2504.08066) - arXiv:2504.08066
+- [AttentionResiduals](papers/AttentionResiduals_2603.15031) - arXiv:2603.15031
+- [AutoDev](papers/AutoDev_2403.08299) - arXiv:2403.08299
+- [AutoGaze](papers/AutoGaze_2603.12254) - arXiv:2603.12254
+- [Bitnetcpp](papers/Bitnetcpp_2502.11880) - arXiv:2502.11880
+- [EverMemOS](papers/EverMemOS_2601.02163) - arXiv:2601.02163
+- [EvoScientist](papers/EvoScientist_2603.08127) - arXiv:2603.08127
+- [FishAudioS2](papers/FishAudioS2_2603.08823) - arXiv:2603.08823
+
+[查看全部论文研读 →](papers/)
+
+
 ## 主要领域
 
 ### 机器学习

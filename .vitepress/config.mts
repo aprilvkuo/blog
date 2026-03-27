@@ -144,6 +144,17 @@ function sidebarAi() {
       ],
     },
     {
+      text: '论文研读',
+      collapsed: false,
+      items: [
+        { text: 'LightRAG', link: 'papers/LightRAG_2410.05779' },
+        { text: 'LlamaFactory', link: 'papers/LlamaFactory_2403.13372' },
+        { text: 'OpenDevin', link: 'papers/OpenDevin_2407.16741' },
+        { text: 'TradingAgents', link: 'papers/TradingAgents_2412.20138' },
+        { text: '更多...', link: 'papers/' },
+      ],
+    },
+    {
       text: 'AutoGen 学习笔记',
       collapsed: true,
       items: [
