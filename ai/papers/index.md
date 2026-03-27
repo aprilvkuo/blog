@@ -427,7 +427,7 @@ const papersCount = computed(() => filteredPapers.value.length)
 
 .paper-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: 1fr;
   gap: var(--vp-space-4);
 }
 

@@ -133,7 +133,7 @@ function getCategoryColor(category: string): string {
   margin-bottom: var(--vp-space-3);
   line-height: 1.4;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -148,7 +148,7 @@ function getCategoryColor(category: string): string {
   line-height: 1.6;
   margin-bottom: var(--vp-space-4);
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
