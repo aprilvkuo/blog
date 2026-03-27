@@ -1,18 +1,107 @@
 #!/usr/bin/env python3
 """
-论文研读报告同步脚本
+论文研读报告同步脚本（增强版）
 将 HuggingFace 论文研读报告同步到博客 AI 目录
+支持：标签、分类、目录索引
 """
 
 import os
 import re
-import shutil
+import json
 from datetime import datetime
 from pathlib import Path
+from typing import List, Dict
 
 # 配置
 SOURCE_DIR = Path("/Users/egg/.openclaw/workspace-ai_scientists/huggingface_papers/completed")
 TARGET_DIR = Path("/Users/egg/Project/blog/ai/papers")
+
+# 论文分类映射（按论文名称关键词）
+CATEGORY_MAPPING = {
+    # Agent/多智能体系统
+    'agent': ['AgentScope', 'AutoDev', 'OpenDevin', 'Hyperagents', 'MiroThinker', 'EvoScientist', 'AIScientistv2'],
+    # RAG/检索增强生成
+    'rag': ['LightRAG', 'GraphRAG', 'Retrieval'],
+    # 金融/交易
+    'finance': ['TradingAgents', 'FinMem', 'FinAgent'],
+    # 多模态
+    'multimodal': ['PaddleOCRVL', 'daVinciMagiHuman', 'VideoDetective', 'FishAudioS2'],
+    # 模型优化/效率
+    'optimization': ['Bitnetcpp', 'PowerInfer', 'OmniFlatten', 'SpecEyes', 'AttentionResiduals'],
+    # 记忆系统
+    'memory': ['MemOS', 'EverMemOS', 'Mem0', 'MementoSkills'],
+    # 工具/框架
+    'framework': ['LlamaFactory', 'MinerU2.5', 'MinerUDiffusion', 'SmolDocling', 'LTX2'],
+    # 世界模型/环境
+    'world_model': ['WildWorld', 'LeWorldModel'],
+    # 强化学习
+    'rl': ['OpenClawRL', 'SSPO'],
+}
+
+# 标签映射（更细粒度）
+TAG_MAPPING = {
+    # 技术领域
+    'llm': ['llm', 'large language model', '大语言模型'],
+    'multi-agent': ['multi-agent', 'multi agent', '多智能体', '多 agent'],
+    'rag': ['rag', 'retrieval-augmented', '检索增强'],
+    'knowledge-graph': ['knowledge graph', '知识图谱', 'graph'],
+    'distributed': ['distributed', '分布式', 'parallel'],
+
+    # 应用场景
+    'finance': ['finance', 'financial', '金融', '交易', 'trading'],
+    'scientific': ['scientific', '科学', 'research'],
+    'social-simulation': ['social', 'simulation', '社会', '模拟'],
+
+    # 模型类型
+    'vision': ['vision', '视觉', '图像', 'video', 'audio'],
+    'speech': ['speech', 'audio', '语音'],
+    'ocr': ['ocr', '文本识别'],
+
+    # 优化技术
+    'quantization': ['quantization', '量化', 'bitnet'],
+    'efficiency': ['efficiency', 'efficient', '高效', 'fast'],
+    'optimization': ['optimization', '优化'],
+}
+
+
+def extract_tags_from_content(content: str) -> List[str]:
+    """从论文内容中提取标签"""
+    tags = set()
+    content_lower = content[:2000].lower()  # 只检查前 2000 字符
+
+    for tag, keywords in TAG_MAPPING.items():
+        for keyword in keywords:
+            if keyword.lower() in content_lower:
+                tags.add(tag)
+                break
+
+    return list(tags)
+
+
+def categorize_paper(paper_name: str) -> str:
+    """根据论文名称分类"""
+    for category, papers in CATEGORY_MAPPING.items():
+        for paper in papers:
+            if paper.lower() in paper_name.lower():
+                return category
+    return 'other'  # 默认分类
+
+
+def get_category_name(category: str) -> str:
+    """获取分类的中文名称"""
+    category_names = {
+        'agent': 'Agent/智能体',
+        'rag': 'RAG/检索增强',
+        'finance': '金融/交易',
+        'multimodal': '多模态',
+        'optimization': '模型优化',
+        'memory': '记忆系统',
+        'framework': '工具/框架',
+        'world_model': '世界模型',
+        'rl': '强化学习',
+        'other': '其他',
+    }
+    return category_names.get(category, category)
 
 
 def extract_paper_info(filename: str) -> dict:
@@ -24,34 +113,160 @@ def extract_paper_info(filename: str) -> dict:
 
     paper_name = match.group(1).replace('_', ' ')
     arxiv_id = match.group(2)
+    year = arxiv_id.split('.')[0]  # 从 arXiv ID 提取年份
 
     return {
         'paper_name': paper_name,
         'arxiv_id': arxiv_id,
+        'year': year,
         'slug': f"{paper_name}_{arxiv_id}"
     }
 
 
 def convert_md_to_vuepress(content: str, paper_info: dict) -> str:
-    """转换 markdown 为 VitePress 格式"""
+    """转换 markdown 为 VitePress 格式，添加标签和分类"""
+    # 从内容中提取标签
+    extracted_tags = extract_tags_from_content(content)
+
+    # 根据论文名称分类
+    category = categorize_paper(paper_info['paper_name'])
+
+    # 合并标签（分类也作为标签）
+    all_tags = list(set([category] + extracted_tags))
+
     # 提取第一个标题作为 description
     first_heading_match = re.search(r'^# (.+?)\n', content, re.MULTILINE)
     description = first_heading_match.group(1)[:200] if first_heading_match else paper_info['paper_name']
 
-    # 添加 Frontmatter
+    # 添加 Frontmatter（带 tags 和 category）
     frontmatter = f"""---
 title: {paper_info['paper_name']}
 description: {description}
 date: {datetime.now().strftime('%Y-%m-%d')}
 arxiv: {paper_info['arxiv_id']}
+category: {category}
+tags: {all_tags}
+outline: [2, 3]
 ---
 
 """
 
-    # 添加 arXiv 链接
-    arxiv_link = f"> 📄 arXiv: [{paper_info['arxiv_id']}](https://arxiv.org/abs/{paper_info['arxiv_id']})\n\n"
+    # 添加 arXiv 链接和元信息
+    meta_info = f"""::: tip 📄 论文信息
+- **arXiv**: [{paper_info['arxiv_id']}](https://arxiv.org/abs/{paper_info['arxiv_id']})
+- **分类**: {get_category_name(category)}
+- **标签**: {', '.join(all_tags)}
+:::
 
-    return frontmatter + arxiv_link + content
+"""
+
+    # 添加目录提示
+    toc_tip = """
+::: info 📑 目录
+本文档包含完整的论文研读报告，包括深度学术速读和技术实现分析两部分。
+:::
+
+"""
+
+    return frontmatter + meta_info + toc_tip + content
+
+
+def generate_papers_index() -> str:
+    """生成带分类目录的论文索引页"""
+    papers = []
+
+    for md_file in sorted(TARGET_DIR.glob("*.md"), reverse=True):
+        content = md_file.read_text(encoding='utf-8')
+
+        # 提取 frontmatter 信息
+        title_match = re.search(r'^title: (.+?)$', content, re.MULTILINE)
+        arxiv_match = re.search(r'^arxiv: (.+?)$', content, re.MULTILINE)
+        category_match = re.search(r'^category: (.+?)$', content, re.MULTILINE)
+        tags_match = re.search(r'^tags: \[(.*?)\]', content, re.MULTILINE)
+        date_match = re.search(r'^date: (.+?)$', content, re.MULTILINE)
+
+        title = title_match.group(1) if title_match else md_file.stem
+        arxiv = arxiv_match.group(1) if arxiv_match else ""
+        category = category_match.group(1) if category_match else 'other'
+        tags = tags_match.group(1).split(', ') if tags_match else []
+        date = date_match.group(1) if date_match else ""
+
+        papers.append({
+            'title': title,
+            'arxiv': arxiv,
+            'category': category,
+            'tags': tags,
+            'date': date,
+            'path': md_file.stem,
+        })
+
+    # 按分类组织论文
+    papers_by_category = {}
+    for paper in papers:
+        cat = paper['category']
+        if cat not in papers_by_category:
+            papers_by_category[cat] = []
+        papers_by_category[cat].append(paper)
+
+    # 生成页面内容
+    content = f"""---
+title: 论文研读
+description: AI 论文研读报告集合
+outline: false
+---
+
+# 📚 论文研读
+
+本页面收录了 AI 领域的论文研读报告，涵盖 Agent、RAG、多模态、模型优化等方向。
+
+## 📊 统计信息
+
+<div class="paper-stats">
+
+"""
+
+    # 统计信息
+    total = len(papers)
+    content += f"- **总计**: {total} 篇论文\n"
+    content += f"- **分类**: {len(papers_by_category)} 个类别\n"
+
+    for cat, cat_papers in sorted(papers_by_category.items()):
+        content += f"- **{get_category_name(cat)}**: {len(cat_papers)} 篇\n"
+
+    content += """
+</div>
+
+## 📁 分类目录
+
+"""
+
+    # 按分类列出论文
+    for category in sorted(papers_by_category.keys()):
+        cat_papers = papers_by_category[category]
+        cat_name = get_category_name(category)
+
+        content += f"### {cat_name} {{#{category}}}\n\n"
+        content += "<div class=\"paper-list\">\n\n"
+
+        for paper in sorted(cat_papers, key=lambda x: x['date'], reverse=True):
+            tags_str = ' | '.join(paper['tags'])
+            content += f"- **[{paper['title']}](./{paper['path']})** \n"
+            content += f"  - arXiv: `{paper['arxiv']}` · {paper['date']} · {tags_str}\n\n"
+
+        content += "</div>\n\n"
+
+    # 添加标签云
+    all_tags = set()
+    for paper in papers:
+        all_tags.update(paper['tags'])
+
+    content += "## 🏷️ 标签云\n\n"
+    content += "<div class=\"tag-cloud\">\n\n"
+    for tag in sorted(all_tags):
+        content += f"<span class=\"tag\">{tag}</span>\n"
+    content += "\n</div>\n"
+
+    return content
 
 
 def sync_papers() -> None:
@@ -65,6 +280,7 @@ def sync_papers() -> None:
 
     synced = 0
     skipped = 0
+    papers_data = []
 
     for src_file in sorted(SOURCE_DIR.glob("*.md")):
         filename = src_file.name
@@ -75,77 +291,47 @@ def sync_papers() -> None:
             skipped += 1
             continue
 
-        # 目标文件
-        target_file = TARGET_DIR / f"{paper_info['slug']}.md"
-
-        # 读取内容
+        # 读取源内容
         content = src_file.read_text(encoding='utf-8')
 
-        # 转换格式
+        # 转换格式（添加标签和分类）
         new_content = convert_md_to_vuepress(content, paper_info)
 
-        # 写入文件
+        # 提取分类和标签用于索引
+        category = categorize_paper(paper_info['paper_name'])
+        tags = extract_tags_from_content(content)
+
+        # 目标文件
+        target_file = TARGET_DIR / f"{paper_info['slug']}.md"
         target_file.write_text(new_content, encoding='utf-8')
 
-        print(f"✅  {paper_info['paper_name']} ({paper_info['arxiv_id']})")
+        papers_data.append({
+            'title': paper_info['paper_name'],
+            'arxiv': paper_info['arxiv_id'],
+            'category': category,
+            'tags': tags,
+            'date': datetime.now().strftime('%Y-%m-%d'),
+            'slug': paper_info['slug']
+        })
+
+        print(f"✅  {paper_info['paper_name']} ({paper_info['arxiv_id']}) - {get_category_name(category)}")
         synced += 1
 
-    # 更新 AI 索引页
-    update_ai_index()
+    # 生成带分类目录的索引页
+    index_content = generate_papers_index()
+    index_file = TARGET_DIR / "index.md"
+    index_file.write_text(index_content, encoding='utf-8')
+    print("📝  已生成论文索引页 (带分类目录)")
+
+    # 保存论文数据 JSON（用于其他页面引用）
+    json_file = TARGET_DIR / "papers.json"
+    json_file.write_text(json.dumps(papers_data, ensure_ascii=False, indent=2), encoding='utf-8')
+    print("📄  已生成论文数据 JSON")
 
     print()
     print("✅  同步完成！")
     print(f"   已同步：{synced} 篇")
     print(f"   已跳过：{skipped} 篇")
-
-
-def update_ai_index() -> None:
-    """更新 AI 索引页，添加论文链接"""
-    index_file = Path("/Users/egg/Project/blog/ai/index.md")
-
-    if not index_file.exists():
-        return
-
-    # 收集所有论文
-    papers = []
-    for md_file in sorted(TARGET_DIR.glob("*.md")):
-        content = md_file.read_text(encoding='utf-8')
-
-        # 提取 title
-        title_match = re.search(r'^title: (.+?)$', content, re.MULTILINE)
-        title = title_match.group(1) if title_match else md_file.stem
-
-        # 提取 arxiv
-        arxiv_match = re.search(r'^arxiv: (.+?)$', content, re.MULTILINE)
-        arxiv = arxiv_match.group(1) if arxiv_match else ""
-
-        papers.append({
-            'title': title,
-            'arxiv': arxiv,
-            'path': f"papers/{md_file.stem}"
-        })
-
-    # 读取原文件
-    content = index_file.read_text(encoding='utf-8')
-
-    # 查找 ## 论文研读 部分
-    papers_section = "\n## 论文研读\n\n"
-    if papers:
-        papers_section += "最近的论文研读报告：\n\n"
-        for paper in papers[:10]:  # 只显示最近 10 篇
-            papers_section += f"- [{paper['title']}](papers/{paper['arxiv']}) - arXiv:{paper['arxiv']}\n"
-        papers_section += "\n"
-
-    # 如果已存在论文研读部分，替换它
-    if "## 论文研读" in content:
-        # 删除旧部分
-        content = re.sub(r'\n## 论文研读\n.*?(?=\n## |\Z)', '', content, flags=re.DOTALL)
-
-    # 在最后一个 ## 前插入
-    content = re.sub(r'(\n## .*)', papers_section + r'\1', content, count=1)
-
-    index_file.write_text(content, encoding='utf-8')
-    print("📝  已更新 AI 索引页")
 
 
 def main():

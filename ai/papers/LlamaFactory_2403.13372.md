@@ -3,9 +3,21 @@ title: LlamaFactory
 description: LlamaFactory: Unified Efficient Fine-Tuning of 100+ Language Models 双模式研读报告
 date: 2026-03-27
 arxiv: 2403.13372
+category: framework
+tags: ['scientific', 'llm', 'framework', 'distributed', 'efficiency']
+outline: [2, 3]
 ---
 
-> 📄 arXiv: [2403.13372](https://arxiv.org/abs/2403.13372)
+::: tip 📄 论文信息
+- **arXiv**: [2403.13372](https://arxiv.org/abs/2403.13372)
+- **分类**: 工具/框架
+- **标签**: scientific, llm, framework, distributed, efficiency
+:::
+
+
+::: info 📑 目录
+本文档包含完整的论文研读报告，包括深度学术速读和技术实现分析两部分。
+:::
 
 # LlamaFactory: Unified Efficient Fine-Tuning of 100+ Language Models 双模式研读报告
 

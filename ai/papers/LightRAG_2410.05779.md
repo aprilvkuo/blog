@@ -3,9 +3,21 @@ title: LightRAG
 description: LightRAG: Simple and Fast Retrieval-Augmented Generation 双模式研读报告
 date: 2026-03-27
 arxiv: 2410.05779
+category: rag
+tags: ['scientific', 'llm', 'efficiency', 'knowledge-graph', 'rag']
+outline: [2, 3]
 ---
 
-> 📄 arXiv: [2410.05779](https://arxiv.org/abs/2410.05779)
+::: tip 📄 论文信息
+- **arXiv**: [2410.05779](https://arxiv.org/abs/2410.05779)
+- **分类**: RAG/检索增强
+- **标签**: scientific, llm, efficiency, knowledge-graph, rag
+:::
+
+
+::: info 📑 目录
+本文档包含完整的论文研读报告，包括深度学术速读和技术实现分析两部分。
+:::
 
 # LightRAG: Simple and Fast Retrieval-Augmented Generation 双模式研读报告
 

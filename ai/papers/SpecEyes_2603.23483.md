@@ -3,9 +3,21 @@ title: SpecEyes
 description: SpecEyes: Accelerating Agentic Multimodal LLMs via Speculative Perception and Planning 双模式研读报告
 date: 2026-03-27
 arxiv: 2603.23483
+category: optimization
+tags: ['scientific', 'optimization', 'llm', 'vision', 'efficiency', 'ocr']
+outline: [2, 3]
 ---
 
-> 📄 arXiv: [2603.23483](https://arxiv.org/abs/2603.23483)
+::: tip 📄 论文信息
+- **arXiv**: [2603.23483](https://arxiv.org/abs/2603.23483)
+- **分类**: 模型优化
+- **标签**: scientific, optimization, llm, vision, efficiency, ocr
+:::
+
+
+::: info 📑 目录
+本文档包含完整的论文研读报告，包括深度学术速读和技术实现分析两部分。
+:::
 
 # SpecEyes: Accelerating Agentic Multimodal LLMs via Speculative Perception and Planning 双模式研读报告
 

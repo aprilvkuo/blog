@@ -3,9 +3,21 @@ title: AgentScope10
 description: AgentScope 1.0: A Developer-Centric Framework for Building Agentic Applications 双模式研读报告
 date: 2026-03-27
 arxiv: 2508.16279
+category: agent
+tags: ['scientific', 'optimization', 'llm', 'efficiency', 'agent', 'multi-agent']
+outline: [2, 3]
 ---
 
-> 📄 arXiv: [2508.16279](https://arxiv.org/abs/2508.16279)
+::: tip 📄 论文信息
+- **arXiv**: [2508.16279](https://arxiv.org/abs/2508.16279)
+- **分类**: Agent/智能体
+- **标签**: scientific, optimization, llm, efficiency, agent, multi-agent
+:::
+
+
+::: info 📑 目录
+本文档包含完整的论文研读报告，包括深度学术速读和技术实现分析两部分。
+:::
 
 # AgentScope 1.0: A Developer-Centric Framework for Building Agentic Applications 双模式研读报告
 

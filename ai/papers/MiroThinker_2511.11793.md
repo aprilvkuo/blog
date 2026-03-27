@@ -3,9 +3,21 @@ title: MiroThinker
 description: MiroThinker: Pushing the Performance Boundaries of Open-Source Research Agents via Model, Context, and Interactive Scaling 双模式研读报告
 date: 2026-03-27
 arxiv: 2511.11793
+category: agent
+tags: ['scientific', 'optimization', 'llm', 'agent']
+outline: [2, 3]
 ---
 
-> 📄 arXiv: [2511.11793](https://arxiv.org/abs/2511.11793)
+::: tip 📄 论文信息
+- **arXiv**: [2511.11793](https://arxiv.org/abs/2511.11793)
+- **分类**: Agent/智能体
+- **标签**: scientific, optimization, llm, agent
+:::
+
+
+::: info 📑 目录
+本文档包含完整的论文研读报告，包括深度学术速读和技术实现分析两部分。
+:::
 
 # MiroThinker: Pushing the Performance Boundaries of Open-Source Research Agents via Model, Context, and Interactive Scaling 双模式研读报告
 

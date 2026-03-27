@@ -3,9 +3,21 @@ title: AIScientistv2
 description: The AI Scientist-v2 双模式研读报告
 date: 2026-03-27
 arxiv: 2504.08066
+category: agent
+tags: ['scientific', 'vision', 'llm', 'agent']
+outline: [2, 3]
 ---
 
-> 📄 arXiv: [2504.08066](https://arxiv.org/abs/2504.08066)
+::: tip 📄 论文信息
+- **arXiv**: [2504.08066](https://arxiv.org/abs/2504.08066)
+- **分类**: Agent/智能体
+- **标签**: scientific, vision, llm, agent
+:::
+
+
+::: info 📑 目录
+本文档包含完整的论文研读报告，包括深度学术速读和技术实现分析两部分。
+:::
 
 # The AI Scientist-v2 双模式研读报告
 

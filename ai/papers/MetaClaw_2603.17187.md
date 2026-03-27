@@ -3,9 +3,21 @@ title: MetaClaw
 description: MetaClaw: Just Talk – An Agent That Meta-Learns and Evolves in the Wild 双模式研读报告
 date: 2026-03-27
 arxiv: 2603.17187
+category: other
+tags: ['scientific', 'optimization', 'llm', 'social-simulation', 'other']
+outline: [2, 3]
 ---
 
-> 📄 arXiv: [2603.17187](https://arxiv.org/abs/2603.17187)
+::: tip 📄 论文信息
+- **arXiv**: [2603.17187](https://arxiv.org/abs/2603.17187)
+- **分类**: 其他
+- **标签**: scientific, optimization, llm, social-simulation, other
+:::
+
+
+::: info 📑 目录
+本文档包含完整的论文研读报告，包括深度学术速读和技术实现分析两部分。
+:::
 
 # MetaClaw: Just Talk – An Agent That Meta-Learns and Evolves in the Wild 双模式研读报告
 

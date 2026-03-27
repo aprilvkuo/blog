@@ -116,3 +116,52 @@ a:hover {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--vp-c-text-3);
 }
+
+/* 论文研读页面样式 */
+.paper-stats {
+  background: var(--vp-c-bg-soft);
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin: 1.5rem 0;
+}
+
+.paper-list {
+  margin: 1rem 0;
+}
+
+.paper-list > div {
+  margin-bottom: 2rem;
+}
+
+.tag-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.tag-cloud .tag {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background: var(--vp-c-brand-soft);
+  color: var(--vp-c-brand-1);
+  border-radius: 16px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.tag-cloud .tag:hover {
+  background: var(--vp-c-brand-1);
+  color: white;
+  cursor: pointer;
+}
+
+/* 论文信息提示框 */
+.vp-doc .custom-block.tip {
+  border-color: var(--vp-c-brand-1);
+}
+
+.vp-doc .custom-block.info {
+  border-color: var(--vp-c-brand-2);
+}

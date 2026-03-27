@@ -3,9 +3,21 @@ title: EverMemOS
 description: EverMemOS: A Self-Organizing Memory Operating System for Structured Long-Horizon Reasoning 双模式研读报告
 date: 2026-03-27
 arxiv: 2601.02163
+category: memory
+tags: ['scientific', 'llm', 'memory']
+outline: [2, 3]
 ---
 
-> 📄 arXiv: [2601.02163](https://arxiv.org/abs/2601.02163)
+::: tip 📄 论文信息
+- **arXiv**: [2601.02163](https://arxiv.org/abs/2601.02163)
+- **分类**: 记忆系统
+- **标签**: scientific, llm, memory
+:::
+
+
+::: info 📑 目录
+本文档包含完整的论文研读报告，包括深度学术速读和技术实现分析两部分。
+:::
 
 # EverMemOS: A Self-Organizing Memory Operating System for Structured Long-Horizon Reasoning 双模式研读报告
 

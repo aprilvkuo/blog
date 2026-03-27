@@ -3,9 +3,21 @@ title: MinerUDiffusion
 description: MinerU-Diffusion: Rethinking Document OCR as Inverse Rendering via Diffusion Decoding 双模式研读报告
 date: 2026-03-27
 arxiv: 2603.22458
+category: framework
+tags: ['scientific', 'framework', 'vision', 'efficiency', 'ocr']
+outline: [2, 3]
 ---
 
-> 📄 arXiv: [2603.22458](https://arxiv.org/abs/2603.22458)
+::: tip 📄 论文信息
+- **arXiv**: [2603.22458](https://arxiv.org/abs/2603.22458)
+- **分类**: 工具/框架
+- **标签**: scientific, framework, vision, efficiency, ocr
+:::
+
+
+::: info 📑 目录
+本文档包含完整的论文研读报告，包括深度学术速读和技术实现分析两部分。
+:::
 
 # MinerU-Diffusion: Rethinking Document OCR as Inverse Rendering via Diffusion Decoding 双模式研读报告
 

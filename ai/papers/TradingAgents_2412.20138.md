@@ -3,9 +3,21 @@ title: TradingAgents
 description: TradingAgents: Multi-Agents LLM Financial Trading Framework 双模式研读报告
 date: 2026-03-27
 arxiv: 2412.20138
+category: finance
+tags: ['scientific', 'llm', 'multi-agent', 'social-simulation', 'finance']
+outline: [2, 3]
 ---
 
-> 📄 arXiv: [2412.20138](https://arxiv.org/abs/2412.20138)
+::: tip 📄 论文信息
+- **arXiv**: [2412.20138](https://arxiv.org/abs/2412.20138)
+- **分类**: 金融/交易
+- **标签**: scientific, llm, multi-agent, social-simulation, finance
+:::
+
+
+::: info 📑 目录
+本文档包含完整的论文研读报告，包括深度学术速读和技术实现分析两部分。
+:::
 
 # TradingAgents: Multi-Agents LLM Financial Trading Framework 双模式研读报告
 

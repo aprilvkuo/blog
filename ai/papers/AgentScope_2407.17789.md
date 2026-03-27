@@ -3,9 +3,21 @@ title: AgentScope
 description: Very Large-Scale Multi-Agent Simulation in AgentScope 双模式研读报告
 date: 2026-03-27
 arxiv: 2407.17789
+category: agent
+tags: ['scientific', 'llm', 'distributed', 'efficiency', 'agent', 'multi-agent', 'social-simulation']
+outline: [2, 3]
 ---
 
-> 📄 arXiv: [2407.17789](https://arxiv.org/abs/2407.17789)
+::: tip 📄 论文信息
+- **arXiv**: [2407.17789](https://arxiv.org/abs/2407.17789)
+- **分类**: Agent/智能体
+- **标签**: scientific, llm, distributed, efficiency, agent, multi-agent, social-simulation
+:::
+
+
+::: info 📑 目录
+本文档包含完整的论文研读报告，包括深度学术速读和技术实现分析两部分。
+:::
 
 # Very Large-Scale Multi-Agent Simulation in AgentScope 双模式研读报告
 

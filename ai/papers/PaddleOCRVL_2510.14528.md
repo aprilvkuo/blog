@@ -3,9 +3,21 @@ title: PaddleOCRVL
 description: PaddleOCR-VL 双模式研读报告
 date: 2026-03-27
 arxiv: 2510.14528
+category: multimodal
+tags: ['scientific', 'optimization', 'vision', 'efficiency', 'multimodal', 'ocr']
+outline: [2, 3]
 ---
 
-> 📄 arXiv: [2510.14528](https://arxiv.org/abs/2510.14528)
+::: tip 📄 论文信息
+- **arXiv**: [2510.14528](https://arxiv.org/abs/2510.14528)
+- **分类**: 多模态
+- **标签**: scientific, optimization, vision, efficiency, multimodal, ocr
+:::
+
+
+::: info 📑 目录
+本文档包含完整的论文研读报告，包括深度学术速读和技术实现分析两部分。
+:::
 
 # PaddleOCR-VL 双模式研读报告
 

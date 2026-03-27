@@ -1,0 +1,450 @@
+[
+  {
+    "title": "AIScientistv2",
+    "arxiv": "2504.08066",
+    "category": "agent",
+    "tags": [
+      "scientific",
+      "vision",
+      "llm"
+    ],
+    "date": "2026-03-27",
+    "slug": "AIScientistv2_2504.08066"
+  },
+  {
+    "title": "AgentScope10",
+    "arxiv": "2508.16279",
+    "category": "agent",
+    "tags": [
+      "scientific",
+      "optimization",
+      "llm",
+      "efficiency",
+      "multi-agent"
+    ],
+    "date": "2026-03-27",
+    "slug": "AgentScope10_2508.16279"
+  },
+  {
+    "title": "AgentScope",
+    "arxiv": "2407.17789",
+    "category": "agent",
+    "tags": [
+      "scientific",
+      "llm",
+      "distributed",
+      "efficiency",
+      "multi-agent",
+      "social-simulation"
+    ],
+    "date": "2026-03-27",
+    "slug": "AgentScope_2407.17789"
+  },
+  {
+    "title": "AttentionResiduals",
+    "arxiv": "2603.15031",
+    "category": "optimization",
+    "tags": [
+      "scientific",
+      "efficiency",
+      "llm"
+    ],
+    "date": "2026-03-27",
+    "slug": "AttentionResiduals_2603.15031"
+  },
+  {
+    "title": "AutoDev",
+    "arxiv": "2403.08299",
+    "category": "agent",
+    "tags": [
+      "scientific",
+      "llm"
+    ],
+    "date": "2026-03-27",
+    "slug": "AutoDev_2403.08299"
+  },
+  {
+    "title": "AutoGaze",
+    "arxiv": "2603.12254",
+    "category": "other",
+    "tags": [
+      "efficiency",
+      "optimization",
+      "vision",
+      "llm"
+    ],
+    "date": "2026-03-27",
+    "slug": "AutoGaze_2603.12254"
+  },
+  {
+    "title": "Bitnetcpp",
+    "arxiv": "2502.11880",
+    "category": "optimization",
+    "tags": [
+      "scientific",
+      "optimization",
+      "llm",
+      "quantization",
+      "efficiency"
+    ],
+    "date": "2026-03-27",
+    "slug": "Bitnetcpp_2502.11880"
+  },
+  {
+    "title": "EverMemOS",
+    "arxiv": "2601.02163",
+    "category": "memory",
+    "tags": [
+      "scientific",
+      "llm"
+    ],
+    "date": "2026-03-27",
+    "slug": "EverMemOS_2601.02163"
+  },
+  {
+    "title": "EvoScientist",
+    "arxiv": "2603.08127",
+    "category": "agent",
+    "tags": [
+      "scientific",
+      "llm",
+      "social-simulation",
+      "multi-agent"
+    ],
+    "date": "2026-03-27",
+    "slug": "EvoScientist_2603.08127"
+  },
+  {
+    "title": "FishAudioS2",
+    "arxiv": "2603.08823",
+    "category": "multimodal",
+    "tags": [
+      "scientific",
+      "optimization",
+      "llm",
+      "speech",
+      "vision"
+    ],
+    "date": "2026-03-27",
+    "slug": "FishAudioS2_2603.08823"
+  },
+  {
+    "title": "Hyperagents",
+    "arxiv": "2603.19461",
+    "category": "agent",
+    "tags": [
+      "scientific",
+      "optimization",
+      "rag",
+      "social-simulation"
+    ],
+    "date": "2026-03-27",
+    "slug": "Hyperagents_2603.19461"
+  },
+  {
+    "title": "LTX2",
+    "arxiv": "2601.03233",
+    "category": "framework",
+    "tags": [
+      "scientific",
+      "optimization",
+      "speech",
+      "vision",
+      "efficiency"
+    ],
+    "date": "2026-03-27",
+    "slug": "LTX2_2601.03233"
+  },
+  {
+    "title": "LeWorldModel",
+    "arxiv": "2603.19312",
+    "category": "world_model",
+    "tags": [
+      "scientific",
+      "llm"
+    ],
+    "date": "2026-03-27",
+    "slug": "LeWorldModel_2603.19312"
+  },
+  {
+    "title": "LightRAG",
+    "arxiv": "2410.05779",
+    "category": "rag",
+    "tags": [
+      "scientific",
+      "llm",
+      "efficiency",
+      "knowledge-graph",
+      "rag"
+    ],
+    "date": "2026-03-27",
+    "slug": "LightRAG_2410.05779"
+  },
+  {
+    "title": "LlamaFactory",
+    "arxiv": "2403.13372",
+    "category": "framework",
+    "tags": [
+      "scientific",
+      "distributed",
+      "efficiency",
+      "llm"
+    ],
+    "date": "2026-03-27",
+    "slug": "LlamaFactory_2403.13372"
+  },
+  {
+    "title": "Mem0",
+    "arxiv": "2504.19413",
+    "category": "memory",
+    "tags": [
+      "scientific",
+      "rag",
+      "llm"
+    ],
+    "date": "2026-03-27",
+    "slug": "Mem0_2504.19413"
+  },
+  {
+    "title": "MemOS",
+    "arxiv": "2507.03724",
+    "category": "memory",
+    "tags": [
+      "knowledge-graph",
+      "scientific",
+      "rag",
+      "llm"
+    ],
+    "date": "2026-03-27",
+    "slug": "MemOS_2507.03724"
+  },
+  {
+    "title": "MementoSkills",
+    "arxiv": "2603.18743",
+    "category": "memory",
+    "tags": [
+      "scientific",
+      "optimization",
+      "llm"
+    ],
+    "date": "2026-03-27",
+    "slug": "MementoSkills_2603.18743"
+  },
+  {
+    "title": "MetaClaw",
+    "arxiv": "2603.17187",
+    "category": "other",
+    "tags": [
+      "scientific",
+      "optimization",
+      "llm",
+      "social-simulation"
+    ],
+    "date": "2026-03-27",
+    "slug": "MetaClaw_2603.17187"
+  },
+  {
+    "title": "MinerU2.5",
+    "arxiv": "2509.22186",
+    "category": "framework",
+    "tags": [
+      "scientific",
+      "optimization",
+      "llm",
+      "vision",
+      "efficiency",
+      "ocr",
+      "rag"
+    ],
+    "date": "2026-03-27",
+    "slug": "MinerU2.5_2509.22186"
+  },
+  {
+    "title": "MinerUDiffusion",
+    "arxiv": "2603.22458",
+    "category": "framework",
+    "tags": [
+      "scientific",
+      "vision",
+      "efficiency",
+      "ocr"
+    ],
+    "date": "2026-03-27",
+    "slug": "MinerUDiffusion_2603.22458"
+  },
+  {
+    "title": "MiroThinker",
+    "arxiv": "2511.11793",
+    "category": "agent",
+    "tags": [
+      "scientific",
+      "optimization",
+      "llm"
+    ],
+    "date": "2026-03-27",
+    "slug": "MiroThinker_2511.11793"
+  },
+  {
+    "title": "OmniFlatten",
+    "arxiv": "2410.17799",
+    "category": "optimization",
+    "tags": [
+      "scientific",
+      "llm",
+      "speech",
+      "vision",
+      "efficiency",
+      "rag"
+    ],
+    "date": "2026-03-27",
+    "slug": "OmniFlatten_2410.17799"
+  },
+  {
+    "title": "OpenClawRL",
+    "arxiv": "2603.10165",
+    "category": "rl",
+    "tags": [
+      "scientific",
+      "optimization"
+    ],
+    "date": "2026-03-27",
+    "slug": "OpenClawRL_2603.10165"
+  },
+  {
+    "title": "OpenDevin",
+    "arxiv": "2407.16741",
+    "category": "agent",
+    "tags": [
+      "scientific",
+      "llm",
+      "social-simulation",
+      "multi-agent"
+    ],
+    "date": "2026-03-27",
+    "slug": "OpenDevin_2407.16741"
+  },
+  {
+    "title": "PaddleOCRVL",
+    "arxiv": "2510.14528",
+    "category": "multimodal",
+    "tags": [
+      "scientific",
+      "optimization",
+      "vision",
+      "efficiency",
+      "ocr"
+    ],
+    "date": "2026-03-27",
+    "slug": "PaddleOCRVL_2510.14528"
+  },
+  {
+    "title": "PowerInfer",
+    "arxiv": "2312.12456",
+    "category": "optimization",
+    "tags": [
+      "scientific",
+      "optimization",
+      "llm",
+      "quantization",
+      "efficiency"
+    ],
+    "date": "2026-03-27",
+    "slug": "PowerInfer_2312.12456"
+  },
+  {
+    "title": "SSPO",
+    "arxiv": "2502.06855",
+    "category": "rl",
+    "tags": [
+      "scientific",
+      "optimization",
+      "efficiency",
+      "llm"
+    ],
+    "date": "2026-03-27",
+    "slug": "SSPO_2502.06855"
+  },
+  {
+    "title": "SmolDocling",
+    "arxiv": "2503.11576",
+    "category": "framework",
+    "tags": [
+      "scientific",
+      "optimization",
+      "llm",
+      "vision",
+      "efficiency",
+      "ocr"
+    ],
+    "date": "2026-03-27",
+    "slug": "SmolDocling_2503.11576"
+  },
+  {
+    "title": "SpecEyes",
+    "arxiv": "2603.23483",
+    "category": "optimization",
+    "tags": [
+      "scientific",
+      "llm",
+      "vision",
+      "efficiency",
+      "ocr"
+    ],
+    "date": "2026-03-27",
+    "slug": "SpecEyes_2603.23483"
+  },
+  {
+    "title": "TradingAgents",
+    "arxiv": "2412.20138",
+    "category": "finance",
+    "tags": [
+      "scientific",
+      "llm",
+      "multi-agent",
+      "social-simulation",
+      "finance"
+    ],
+    "date": "2026-03-27",
+    "slug": "TradingAgents_2412.20138"
+  },
+  {
+    "title": "VideoDetective",
+    "arxiv": "2603.22285",
+    "category": "multimodal",
+    "tags": [
+      "scientific",
+      "optimization",
+      "llm",
+      "vision",
+      "knowledge-graph",
+      "rag"
+    ],
+    "date": "2026-03-27",
+    "slug": "VideoDetective_2603.22285"
+  },
+  {
+    "title": "WildWorld",
+    "arxiv": "2603.23497",
+    "category": "world_model",
+    "tags": [
+      "scientific",
+      "vision"
+    ],
+    "date": "2026-03-27",
+    "slug": "WildWorld_2603.23497"
+  },
+  {
+    "title": "daVinciMagiHuman",
+    "arxiv": "2603.21986",
+    "category": "multimodal",
+    "tags": [
+      "scientific",
+      "optimization",
+      "speech",
+      "vision",
+      "efficiency"
+    ],
+    "date": "2026-03-27",
+    "slug": "daVinciMagiHuman_2603.21986"
+  }
+]

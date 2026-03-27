@@ -3,9 +3,21 @@ title: AutoGaze
 description: Attend Before Attention (AutoGaze) 双模式研读报告
 date: 2026-03-27
 arxiv: 2603.12254
+category: other
+tags: ['optimization', 'llm', 'vision', 'efficiency', 'other']
+outline: [2, 3]
 ---
 
-> 📄 arXiv: [2603.12254](https://arxiv.org/abs/2603.12254)
+::: tip 📄 论文信息
+- **arXiv**: [2603.12254](https://arxiv.org/abs/2603.12254)
+- **分类**: 其他
+- **标签**: optimization, llm, vision, efficiency, other
+:::
+
+
+::: info 📑 目录
+本文档包含完整的论文研读报告，包括深度学术速读和技术实现分析两部分。
+:::
 
 # Attend Before Attention (AutoGaze) 双模式研读报告
 

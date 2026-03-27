@@ -3,9 +3,21 @@ title: MemOS
 description: MemOS: A Memory OS for AI System 双模式研读报告
 date: 2026-03-27
 arxiv: 2507.03724
+category: memory
+tags: ['scientific', 'llm', 'memory', 'knowledge-graph', 'rag']
+outline: [2, 3]
 ---
 
-> 📄 arXiv: [2507.03724](https://arxiv.org/abs/2507.03724)
+::: tip 📄 论文信息
+- **arXiv**: [2507.03724](https://arxiv.org/abs/2507.03724)
+- **分类**: 记忆系统
+- **标签**: scientific, llm, memory, knowledge-graph, rag
+:::
+
+
+::: info 📑 目录
+本文档包含完整的论文研读报告，包括深度学术速读和技术实现分析两部分。
+:::
 
 # MemOS: A Memory OS for AI System 双模式研读报告
 

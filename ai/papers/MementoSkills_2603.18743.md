@@ -3,9 +3,21 @@ title: MementoSkills
 description: Memento-Skills: Let Agents Design Agents 双模式研读报告
 date: 2026-03-27
 arxiv: 2603.18743
+category: memory
+tags: ['scientific', 'optimization', 'llm', 'memory']
+outline: [2, 3]
 ---
 
-> 📄 arXiv: [2603.18743](https://arxiv.org/abs/2603.18743)
+::: tip 📄 论文信息
+- **arXiv**: [2603.18743](https://arxiv.org/abs/2603.18743)
+- **分类**: 记忆系统
+- **标签**: scientific, optimization, llm, memory
+:::
+
+
+::: info 📑 目录
+本文档包含完整的论文研读报告，包括深度学术速读和技术实现分析两部分。
+:::
 
 # Memento-Skills: Let Agents Design Agents 双模式研读报告
 

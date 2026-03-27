@@ -3,9 +3,21 @@ title: OpenDevin
 description: OpenHands: An Open Platform for AI Software Developers as Generalist Agents 双模式研读报告
 date: 2026-03-27
 arxiv: 2407.16741
+category: agent
+tags: ['scientific', 'llm', 'agent', 'multi-agent', 'social-simulation']
+outline: [2, 3]
 ---
 
-> 📄 arXiv: [2407.16741](https://arxiv.org/abs/2407.16741)
+::: tip 📄 论文信息
+- **arXiv**: [2407.16741](https://arxiv.org/abs/2407.16741)
+- **分类**: Agent/智能体
+- **标签**: scientific, llm, agent, multi-agent, social-simulation
+:::
+
+
+::: info 📑 目录
+本文档包含完整的论文研读报告，包括深度学术速读和技术实现分析两部分。
+:::
 
 # OpenHands: An Open Platform for AI Software Developers as Generalist Agents 双模式研读报告
 
