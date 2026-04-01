@@ -290,12 +290,16 @@ function sidebarStockAnalysis() {
       collapsed: false,
       items: [
         { text: '000001.SS 上证指数', link: '000001.SS/index' },
+        { text: '000652.SZ 潍柴动力', link: '000652.SZ/index' },
+        { text: '000927.SZ 中国铁物', link: '000927.SZ/index' },
+        { text: '002407.SZ 多氟多', link: '002407.SZ/index' },
         { text: '002594.SZ 比亚迪股份', link: '002594.SZ/index' },
         { text: '300750.SZ 宁德时代', link: '300750.SZ/index' },
         { text: '300760.SZ 迈瑞医疗', link: '300760.SZ/index' },
         { text: '600036.SS 招商银行', link: '600036.SS/index' },
         { text: '600519.SS 贵州茅台', link: '600519.SS/index' },
         { text: '601138.SS 工业富联', link: '601138.SS/index' },
+        { text: '601318.SS 中国平安', link: '601318.SS/index' },
         { text: '603259.SS 药明康德', link: '603259.SS/index' },
       ],
     },
@@ -305,6 +309,7 @@ function sidebarStockAnalysis() {
       items: [
         { text: '0700.HK 腾讯控股', link: '0700.HK/index' },
         { text: '1810.HK 小米集团', link: '1810.HK/index' },
+        { text: '6682.HK 第四范式', link: '6682.HK/index' },
       ],
     },
     {
