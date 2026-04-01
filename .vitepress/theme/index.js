@@ -6,6 +6,7 @@ import Breadcrumb from './components/Breadcrumb.vue'
 import HomeFeatures from './components/HomeFeatures.vue'
 import PaperFilters from './components/PaperFilters.vue'
 import PaperCard from './components/PaperCard.vue'
+import StockAnalyzer from './components/StockAnalyzer.vue'
 import Layout from './Layout.vue'
 
 export default {
@@ -19,5 +20,6 @@ export default {
     app.component('HomeFeatures', HomeFeatures)
     app.component('PaperFilters', PaperFilters)
     app.component('PaperCard', PaperCard)
+    app.component('StockAnalyzer', StockAnalyzer)
   }
 }
