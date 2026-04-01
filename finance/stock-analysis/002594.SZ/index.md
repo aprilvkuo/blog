@@ -13,7 +13,7 @@ import data from './history.json?raw'
 const history = JSON.parse(data)
 </script>
 
-最新报告日期：2026-03-30_0600
+最新报告日期：2026-04-01_2027
 
 ## 结论
 **最终裁决：买入**
