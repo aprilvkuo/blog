@@ -13,7 +13,7 @@ import data from './history.json?raw'
 const history = JSON.parse(data)
 </script>
 
-最新报告日期：2026-04-01_1652
+最新报告日期：2026-04-02_1715
 
 ## 结论
 **决策评级：持有（Hold）—— 执行减半仓位风控**
