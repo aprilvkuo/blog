@@ -1,0 +1,20 @@
+{
+  "id": "conv-1774683376554-ghjd2lbfq",
+  "title": "这个是 agent 之间会有交互吗",
+  "titleGenerationStatus": "failed",
+  "createdAt": 1774683376560,
+  "updatedAt": 1774687453474,
+  "lastResponseAt": 1774687431185,
+  "sessionId": "e80d4dea-bae0-4450-be06-6c37984200d9",
+  "sdkSessionId": "e80d4dea-bae0-4450-be06-6c37984200d9",
+  "currentNote": "papers/paper_learning/notes/AgentScope_深入.md",
+  "usage": {
+    "model": "glm-5",
+    "inputTokens": 27783,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 0,
+    "contextWindow": 200000,
+    "contextTokens": 27783,
+    "percentage": 14
+  }
+}

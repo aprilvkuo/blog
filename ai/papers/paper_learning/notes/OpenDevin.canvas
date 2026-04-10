@@ -1,0 +1,22 @@
+{
+	"nodes":[
+		{"id":"center","type":"text","text":"# OpenDevin (OpenHands)\n\n**一句话**: 让AI像程序员一样干活\n\n📄 [PDF](../pdfs/OpenDevin_2407.16741.pdf)\n📓 [大白话](./OpenDevin_大白话.md) | [深入](./OpenDevin_深入.md)","x":0,"y":0,"width":420,"height":180,"color":"4"},
+		{"id":"what","type":"text","text":"## What - 核心定义\n\n开源AI智能体平台，通过**Event Stream**架构让Agent用代码、命令行、浏览器与环境交互。\n\n**核心组件**:\n- Event Stream\n- Agent Abstraction\n- Docker Runtime\n- AgentSkills","x":-520,"y":-280,"width":360,"height":320,"color":"1"},
+		{"id":"why","type":"text","text":"## Why - 研究缺口\n\n**现有问题**:\n- 功能单一（各框架只支持部分能力）\n- 安全风险（AI代码可能破坏系统）\n- 评估分散（缺乏统一基准）\n\n**解决方案**:\n✅ 集成代码+命令行+浏览器\n✅ Docker沙箱隔离\n✅ 15个基准测试整合","x":520,"y":-280,"width":400,"height":380,"color":"2"},
+		{"id":"how","type":"text","text":"## How - 技术实现\n\n**Event Stream架构**:\n```\nAction → Observation → Action\n(CmdRun, IPython, Browser)\n```\n\n**Agent实现**: ~30行代码\n\n**性能**:\n- SWE-Bench: 26%\n- WebArena: 15.5%","x":-520,"y":220,"width":360,"height":300,"color":"3"},
+		{"id":"todo","type":"text","text":"## TODO\n\n**理解检验**:\n- [ ] 为什么选代码执行而非工具调用？\n- [ ] Event Stream vs 消息队列？\n\n**实践任务**:\n- [ ] Level 1: 本地运行OpenHands\n- [ ] Level 2: 实现Micro Agent\n- [ ] Level 3: 添加新Skill","x":520,"y":220,"width":400,"height":380,"color":"5"},
+		{"id":"insights","type":"file","file":"papers/paper_learning/insights/Event_Stream.md","x":-280,"y":600,"width":300,"height":200},
+		{"id":"agentscope","type":"file","file":"papers/paper_learning/notes/AgentScope_深入.md","x":80,"y":600,"width":400,"height":280},
+		{"id":"compare","type":"file","file":"papers/paper_learning/insights/Agent架构对比.md","x":-100,"y":900,"width":340,"height":220,"color":"6"}
+	],
+	"edges":[
+		{"id":"e1","fromNode":"center","fromSide":"left","toNode":"what","toSide":"right","label":"What"},
+		{"id":"e2","fromNode":"center","fromSide":"right","toNode":"why","toSide":"left","label":"Why"},
+		{"id":"e3","fromNode":"center","fromSide":"left","toNode":"how","toSide":"right","label":"How"},
+		{"id":"e4","fromNode":"center","fromSide":"right","toNode":"todo","toSide":"left","label":"TODO"},
+		{"id":"e5","fromNode":"center","fromSide":"bottom","toNode":"insights","toSide":"top","label":"原子概念"},
+		{"id":"e6","fromNode":"center","fromSide":"bottom","toNode":"agentscope","toSide":"top","label":"对比"},
+		{"id":"e7","fromNode":"insights","fromSide":"bottom","toNode":"compare","toSide":"left"},
+		{"id":"e8","fromNode":"agentscope","fromSide":"bottom","toNode":"compare","toSide":"right"}
+	]
+}

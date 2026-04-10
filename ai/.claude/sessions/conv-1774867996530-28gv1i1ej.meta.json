@@ -1,0 +1,20 @@
+{
+  "id": "conv-1774867996530-28gv1i1ej",
+  "title": "这几个框架需要去实际用和学习吗",
+  "titleGenerationStatus": "failed",
+  "createdAt": 1774867996530,
+  "updatedAt": 1774868031775,
+  "lastResponseAt": 1774868031775,
+  "sessionId": "475e00d1-d218-49ea-b5f7-b7ebdcb516bc",
+  "sdkSessionId": "475e00d1-d218-49ea-b5f7-b7ebdcb516bc",
+  "currentNote": "agent/learning/plan.md",
+  "usage": {
+    "model": "glm-5",
+    "inputTokens": 11369,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 0,
+    "contextWindow": 200000,
+    "contextTokens": 11369,
+    "percentage": 6
+  }
+}

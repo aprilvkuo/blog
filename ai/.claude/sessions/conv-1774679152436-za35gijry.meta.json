@@ -1,0 +1,31 @@
+{
+  "id": "conv-1774679152436-za35gijry",
+  "title": "1",
+  "titleGenerationStatus": "failed",
+  "createdAt": 1774679152452,
+  "updatedAt": 1774680659313,
+  "lastResponseAt": 1774680659302,
+  "sessionId": "d19c612b-8459-413e-af74-eea8511f97fa",
+  "sdkSessionId": "d19c612b-8459-413e-af74-eea8511f97fa",
+  "currentNote": "papers/index.md",
+  "usage": {
+    "model": "glm-5",
+    "inputTokens": 28849,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 0,
+    "contextWindow": 200000,
+    "contextTokens": 28849,
+    "percentage": 14
+  },
+  "subagentData": {
+    "toolu_tool-739c5871861345a4a036b7a5c5040c19": {
+      "id": "toolu_tool-739c5871861345a4a036b7a5c5040c19",
+      "description": "探索 my-vault 结构和 skills",
+      "prompt": "探索 /Users/4paradigm/Library/Mobile Documents/com~apple~CloudDocs/Documents/my-vault 的结构，重点关注：\n\n1. 整体目录结构（使用 ls 命令）\n2. 是否有 .claude 目录和 skills\n3. 是否有论文研读相关的笔记或模板\n4. 笔记的组织方式和命名规范\n5. 是否有学习计划或进度追踪的文件\n\n请提供完整的目录结构和关键文件列表。",
+      "status": "completed",
+      "toolCalls": [],
+      "isExpanded": false,
+      "result": "API Error: 400 {\"error\":{\"code\":\"invalid_parameter_error\",\"message\":\"model `claude-haiku-4-5-20251001` is not supported.\",\"param\":null,\"type\":\"invalid_request_error\"},\"request_id\":\"76ac6153-f2f3-9c3d-bc6a-19d0a91ee8c8\"}"
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "id": "conv-1774680659711-k1snf7f6h",
+  "title": "Implement this plan:",
+  "titleGenerationStatus": "failed",
+  "createdAt": 1774680659713,
+  "updatedAt": 1774680982835,
+  "lastResponseAt": 1774680982826,
+  "sessionId": "ef3f6250-3148-46d7-b424-91a7f7b599f3",
+  "sdkSessionId": "ef3f6250-3148-46d7-b424-91a7f7b599f3",
+  "currentNote": "papers/paper_learning/notes/OpenDevin_大白话.md",
+  "usage": {
+    "model": "glm-5",
+    "inputTokens": 25564,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 0,
+    "contextWindow": 200000,
+    "contextTokens": 25564,
+    "percentage": 13
+  }
+}

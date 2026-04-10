@@ -1,0 +1,20 @@
+{
+  "id": "conv-1774680304804-nzz129tj3",
+  "title": "@papers/paper_learning/notes/OpenDevin_大白话",
+  "titleGenerationStatus": "failed",
+  "createdAt": 1774680304814,
+  "updatedAt": 1774685214444,
+  "lastResponseAt": 1774685154511,
+  "sessionId": "671bbc17-f109-4111-a8e5-912ecf650a0c",
+  "sdkSessionId": "671bbc17-f109-4111-a8e5-912ecf650a0c",
+  "currentNote": "papers/paper_learning/notes/OpenDevin_大白话.md",
+  "usage": {
+    "model": "glm-5",
+    "inputTokens": 89456,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 0,
+    "contextWindow": 200000,
+    "contextTokens": 89456,
+    "percentage": 45
+  }
+}

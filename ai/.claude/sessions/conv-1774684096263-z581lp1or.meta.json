@@ -1,0 +1,20 @@
+{
+  "id": "conv-1774684096263-z581lp1or",
+  "title": "https://github",
+  "titleGenerationStatus": "failed",
+  "createdAt": 1774684096263,
+  "updatedAt": 1774692316542,
+  "lastResponseAt": 1774692316542,
+  "sessionId": "a7cd8fd3-3458-4682-9944-f7ba079b4835",
+  "sdkSessionId": "a7cd8fd3-3458-4682-9944-f7ba079b4835",
+  "currentNote": "papers/paper_learning/notes/AgentScope_大白话.md",
+  "usage": {
+    "model": "glm-5",
+    "inputTokens": 16629,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 0,
+    "contextWindow": 200000,
+    "contextTokens": 16629,
+    "percentage": 8
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "id": "conv-1774691669883-pqew9due9",
+  "title": "function calling 和 mcp 的区别",
+  "titleGenerationStatus": "failed",
+  "createdAt": 1774691669894,
+  "updatedAt": 1774866953195,
+  "lastResponseAt": 1774691757624,
+  "sessionId": "7849698f-0039-47d2-abce-4115210bfed4",
+  "sdkSessionId": "7849698f-0039-47d2-abce-4115210bfed4",
+  "currentNote": "agent/learning/plan.md",
+  "usage": {
+    "model": "glm-5",
+    "inputTokens": 12415,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 0,
+    "contextWindow": 200000,
+    "contextTokens": 12415,
+    "percentage": 6
+  }
+}

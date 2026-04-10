@@ -1,0 +1,20 @@
+{
+  "id": "conv-1774687459285-4sa0voo9h",
+  "title": "排版是乱的",
+  "titleGenerationStatus": "failed",
+  "createdAt": 1774687459286,
+  "updatedAt": 1774691661242,
+  "lastResponseAt": 1774687659482,
+  "sessionId": "dc1d74e4-ab92-4ff7-ad6d-18f33099267b",
+  "sdkSessionId": "dc1d74e4-ab92-4ff7-ad6d-18f33099267b",
+  "currentNote": "papers/paper_learning/notes/AgentScope_深入.canvas",
+  "usage": {
+    "model": "glm-5",
+    "inputTokens": 14420,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 0,
+    "contextWindow": 200000,
+    "contextTokens": 14420,
+    "percentage": 7
+  }
+}

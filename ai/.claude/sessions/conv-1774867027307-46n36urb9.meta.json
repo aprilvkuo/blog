@@ -1,0 +1,20 @@
+{
+  "id": "conv-1774867027307-46n36urb9",
+  "title": "给出对应该的笔记和细节",
+  "titleGenerationStatus": "failed",
+  "createdAt": 1774867027309,
+  "updatedAt": 1775782706675,
+  "lastResponseAt": 1775782706675,
+  "sessionId": "792004a7-84a5-46a6-ac43-504e50ec0abe",
+  "sdkSessionId": "792004a7-84a5-46a6-ac43-504e50ec0abe",
+  "currentNote": "agent/learning/plan.md",
+  "usage": {
+    "model": "glm-5",
+    "inputTokens": 13217,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 0,
+    "contextWindow": 200000,
+    "contextTokens": 13217,
+    "percentage": 7
+  }
+}

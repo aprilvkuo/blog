@@ -1,0 +1,20 @@
+{
+  "id": "conv-1774680982901-qs7816pmi",
+  "title": "Implement this plan:",
+  "titleGenerationStatus": "failed",
+  "createdAt": 1774680982902,
+  "updatedAt": 1774683985681,
+  "lastResponseAt": 1774683933423,
+  "sessionId": "54ac6146-633e-4b05-8c53-5faaac3f0833",
+  "sdkSessionId": "54ac6146-633e-4b05-8c53-5faaac3f0833",
+  "currentNote": "papers/paper_learning/notes/OpenDevin_深入.md",
+  "usage": {
+    "model": "glm-5",
+    "inputTokens": 17689,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 0,
+    "contextWindow": 200000,
+    "contextTokens": 17689,
+    "percentage": 9
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "id": "conv-1774685238437-nrgxuzwyi",
+  "title": "根据下面的对话， 给我指制定一个 agent 学习计划。  这是个很好的问题，你的观察部分准确，但也...",
+  "titleGenerationStatus": "failed",
+  "createdAt": 1774685238444,
+  "updatedAt": 1774867202525,
+  "lastResponseAt": 1774866925028,
+  "sessionId": "6ecf7d2c-d9eb-4f1c-834e-4f270146d0ce",
+  "sdkSessionId": "6ecf7d2c-d9eb-4f1c-834e-4f270146d0ce",
+  "usage": {
+    "model": "glm-5",
+    "inputTokens": 53311,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 0,
+    "contextWindow": 200000,
+    "contextTokens": 53311,
+    "percentage": 27
+  }
+}

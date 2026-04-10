@@ -1,0 +1,39 @@
+{
+	"nodes":[
+		{"id":"center","type":"text","text":"# AgentScope\n超大规模多智能体模拟平台","x":0,"y":0,"width":240,"height":80,"color":"1"},
+		{"id":"what","type":"text","text":"## What\n核心定义","x":-400,"y":-200,"width":160,"height":60,"color":"2"},
+		{"id":"what-1","type":"text","text":"- 百万级智能体模拟\n- Actor 分布式机制\n- 异构配置工具\n- Web 管理界面","x":-620,"y":-280,"width":180,"height":100},
+		{"id":"how","type":"text","text":"## How\n技术实现","x":400,"y":-200,"width":160,"height":60,"color":"3"},
+		{"id":"how-actor","type":"text","text":"### Actor 分布式\n- 一对一模式\n- 多对一模式\n- @to_dist 装饰器\n- 进程级并行","x":620,"y":-350,"width":180,"height":120,"color":"3"},
+		{"id":"how-placeholder","type":"text","text":"### Placeholder\n- 非阻塞机制\n- = 异步 Future\n- 可传递占位符\n- 延迟获取结果","x":620,"y":-180,"width":180,"height":120,"color":"3"},
+		{"id":"how-env","type":"text","text":"### 环境抽象\n- 环境视为 Agent\n- Agent↔Env↔Agent\n- 统一交互协议","x":620,"y":-10,"width":180,"height":100,"color":"3"},
+		{"id":"why","type":"text","text":"## Why\n为什么重要","x":-400,"y":200,"width":160,"height":60,"color":"4"},
+		{"id":"why-gap","type":"text","text":"### 研究缺口\n- 可扩展性：串行100就卡\n- 效率：串行12天\n- 多样性：手动配置\n- 管理：跨设备混乱","x":-620,"y":100,"width":200,"height":120,"color":"4"},
+		{"id":"why-result","type":"text","text":"### 性能结果\n- 100万智能体：12分钟\n- Actor vs 串行：快432倍\n- Actor vs Async：快432倍","x":-620,"y":280,"width":200,"height":100,"color":"4"},
+		{"id":"evaluate","type":"text","text":"## 论文评价\n核心洞察","x":400,"y":200,"width":160,"height":60,"color":"5"},
+		{"id":"evaluate-tech","type":"text","text":"### 技术拆解\n都是已有技术：\n- Actor → Erlang/Akka\n- Placeholder → Future/Promise\n- 环境抽象 → 游戏引擎","x":620,"y":80,"width":220,"height":140,"color":"5"},
+		{"id":"evaluate-value","type":"text","text":"### 真正价值\n工程化平台，非算法创新\n\n真正难点（论文未讲）：\n- 故障恢复\n- 跨设备路由\n- 负载均衡\n- 监控调试","x":620,"y":280,"width":220,"height":160,"color":"5"},
+		{"id":"difficulty","type":"text","text":"### 实现难度分层\n第一层：概念（简单）\n第二层：单机（中等）\n第三层：分布式（难）\n第四层：生产级（非常难）","x":620,"y":500,"width":220,"height":140,"color":"5"},
+		{"id":"summary","type":"text","text":"## 一句话总结\n**核心思想不难，工程落地很烦**","x":0,"y":350,"width":280,"height":80,"color":"1"},
+		{"id":"practice","type":"text","text":"## 实践任务\n\n- Level 1: 10智能体聊天\n- Level 2: 异构配置+博弈\n- Level 3: 自定义环境","x":0,"y":500,"width":200,"height":100,"color":"6"},
+		{"id":"critique","type":"text","text":"## 批判性思考\n\n- 100万有意义吗？有限\n- LLM扮演真实吗？不真实\n- Actor潜在问题？故障恢复","x":-220,"y":500,"width":200,"height":100,"color":"6"}
+	],
+	"edges":[
+		{"id":"e1","fromNode":"center","toNode":"what","color":"2","fromSide":"left","toSide":"right"},
+		{"id":"e2","fromNode":"center","toNode":"how","color":"3","fromSide":"right","toSide":"left"},
+		{"id":"e3","fromNode":"center","toNode":"why","color":"4","fromSide":"left","toSide":"right"},
+		{"id":"e4","fromNode":"center","toNode":"evaluate","color":"5","fromSide":"right","toSide":"left"},
+		{"id":"e5","fromNode":"what","toNode":"what-1","fromSide":"left","toSide":"right"},
+		{"id":"e6","fromNode":"how","toNode":"how-actor","fromSide":"right","toSide":"left"},
+		{"id":"e7","fromNode":"how","toNode":"how-placeholder","fromSide":"right","toSide":"left"},
+		{"id":"e8","fromNode":"how","toNode":"how-env","fromSide":"right","toSide":"left"},
+		{"id":"e9","fromNode":"why","toNode":"why-gap","fromSide":"left","toSide":"right"},
+		{"id":"e10","fromNode":"why","toNode":"why-result","fromSide":"left","toSide":"right"},
+		{"id":"e11","fromNode":"evaluate","toNode":"evaluate-tech","fromSide":"right","toSide":"left"},
+		{"id":"e12","fromNode":"evaluate","toNode":"evaluate-value","fromSide":"right","toSide":"left"},
+		{"id":"e13","fromNode":"evaluate-value","toNode":"difficulty","fromSide":"bottom","toSide":"top"},
+		{"id":"e14","fromNode":"center","toNode":"summary","color":"1","fromSide":"bottom","toSide":"top"},
+		{"id":"e15","fromNode":"summary","toNode":"practice","fromSide":"bottom","toSide":"top"},
+		{"id":"e16","fromNode":"summary","toNode":"critique","fromSide":"bottom","toSide":"top"}
+	]
+}
